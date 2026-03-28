@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aviso de Privacidad — Selixor Systems</title>
+  <meta name="description" content="Aviso de privacidad integral de Selixor Systems conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.">
+  <link rel="canonical" href="https://selixor.cloud/privacidad.html">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#020617">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-elevated: #0B1121;
+      --text: #F1F5F9;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+      --accent-blue: #3B82F6;
+      --accent-teal: #2DD4BF;
+      --border: rgba(148,163,184,0.08);
+      --border-hover: rgba(148,163,184,0.18);
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --max-w: 780px;
+      --ease: cubic-bezier(0.16,1,0.3,1);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+    a { color: var(--accent-blue); text-decoration: none; transition: color 0.3s; }
+    a:hover { color: var(--accent-teal); }
+
+    /* Grain */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.022;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* Header */
+    .header {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: rgba(2,6,23,0.92);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      z-index: 100;
+    }
+    .header-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 clamp(20px,5vw,48px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .logo .or { color: var(--accent-teal); }
+    .back-link {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .back-link:hover { color: var(--text); }
+    .back-link svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+    /* Content */
+    .content {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: clamp(48px,8vw,80px) clamp(20px,5vw,48px) 80px;
+    }
+
+    .page-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent-blue);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem,4vw,2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .page-updated {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 48px;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--text);
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section p {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      margin-bottom: 14px;
+    }
+    .section p:last-child { margin-bottom: 0; }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 0.88rem;
+    }
+    .data-table th {
+      text-align: left;
+      padding: 12px 16px;
+      background: var(--bg-elevated);
+      color: var(--text);
+      font-weight: 600;
+      border-bottom: 1px solid var(--border-hover);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .data-table td {
+      padding: 12px 16px;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .contact-box {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 16px 0;
+    }
+    .contact-box p {
+      color: var(--text-secondary) !important;
+      font-size: 0.9rem !important;
+      margin-bottom: 6px !important;
+    }
+    .contact-box strong { color: var(--text); }
+
+    /* Footer */
+    .privacy-footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+      text-align: center;
+    }
+    .privacy-footer p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .data-table, .data-table tbody, .data-table tr, .data-table td, .data-table th {
+        display: block;
+        width: 100%;
+      }
+      .data-table th { border-bottom: none; }
+      .data-table tr { margin-bottom: 12px; border-bottom: 1px solid var(--border-hover); }
+      .data-table td { padding: 8px 16px; border-bottom: none; }
+      .data-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--text);
+        display: block;
+        margin-bottom: 4px;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">SELIX<span class="or">OR</span>&nbsp;SYSTEMS</a>
+      <a href="index.html" class="back-link">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
+        Volver al inicio
+      </a>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <article class="content">
+
+    <p class="page-label">Legal</p>
+    <h1 class="page-title">Aviso de Privacidad Integral</h1>
+    <p class="page-updated">Última actualización: 28 de marzo de 2026</p>
+
+    <!-- 1. IDENTIDAD -->
+    <div class="section">
+      <h2 class="section-heading">1. Identidad y domicilio del responsable</h2>
+      <p>Selixor Systems (en adelante "Selixor"), con domicilio en Ciudad de México, México, es responsable del tratamiento de sus datos personales conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP) vigente.</p>
+      <div class="contact-box">
+        <p><strong>Responsable:</strong> Misael De Paz — Fundador & CEO</p>
+        <p><strong>Correo electrónico:</strong> <a href="mailto:info@selixor.cloud">info@selixor.cloud</a></p>
+        <p><strong>Sitio web:</strong> <a href="https://selixor.cloud">selixor.cloud</a></p>
+      </div>
+    </div>
+
+    <!-- 2. DATOS RECABADOS -->
+    <div class="section">
+      <h2 class="section-heading">2. Datos personales que recabamos</h2>
+      <p>Selixor recaba los siguientes datos personales de manera directa cuando usted nos los proporciona voluntariamente a través de nuestro formulario de contacto o al contratar nuestros servicios:</p>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Dato personal</th>
+            <th>Finalidad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Dato personal">Nombre completo</td>
+            <td data-label="Finalidad">Identificación y comunicación</td>
+          </tr>
+          <tr>
+            <td data-label="Dato personal">Correo electrónico</td>
+            <td data-label="Finalidad">Contacto, envío de información y soporte</td>
+          </tr>
+          <tr>
+            <td data-label="Dato personal">Mensaje / consulta</td>
+            <td data-label="Finalidad">Atención a solicitudes</td>
+          </tr>
+          <tr>
+            <td data-label="Dato personal">Datos de calendario y citas (Selixor Pulse)</td>
+            <td data-label="Finalidad">Gestión automatizada de recordatorios</td>
+          </tr>
+          <tr>
+            <td data-label="Dato personal">Datos de actividad en el hogar (Selixor Home)</td>
+            <td data-label="Finalidad">Monitoreo de bienestar y alertas</td>
+          </tr>
+          <tr>
+            <td data-label="Dato personal">Muestras de voz (Selixor Home)</td>
+            <td data-label="Finalidad">Clonación de voz para recordatorios personalizados</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Selixor no recaba datos personales sensibles. En caso de que en el futuro fuera necesario, se solicitará su consentimiento expreso y por escrito.</p>
+    </div>
+
+    <!-- 3. FINALIDADES -->
+    <div class="section">
+      <h2 class="section-heading">3. Finalidades del tratamiento</h2>
+      <p>Sus datos personales serán tratados para las siguientes finalidades necesarias que dan origen y son indispensables para la relación con Selixor:</p>
+      <p>Responder a sus consultas y solicitudes de información. Proveer los servicios contratados (Selixor Pulse y/o Selixor Home). Gestionar recordatorios, alertas y notificaciones automatizadas. Procesamiento de voz para personalización del servicio. Enviar comunicaciones relacionadas con el servicio contratado.</p>
+      <p>Adicionalmente, con su consentimiento, sus datos podrán ser utilizados para las siguientes finalidades que no son necesarias pero que nos permiten mejorar su experiencia:</p>
+      <p>Enviar información sobre nuevos productos, actualizaciones y promociones. Realizar encuestas de satisfacción. Elaborar estadísticas y análisis internos para mejora del servicio.</p>
+      <p>Si usted no desea que sus datos sean tratados para estas finalidades secundarias, puede enviar un correo a <a href="mailto:info@selixor.cloud">info@selixor.cloud</a> con el asunto "Finalidades secundarias" indicando su negativa. Esta negativa no será motivo para negarle los servicios contratados.</p>
+    </div>
+
+    <!-- 4. MECANISMOS DE SEGURIDAD -->
+    <div class="section">
+      <h2 class="section-heading">4. Medidas de seguridad</h2>
+      <p>Selixor implementa medidas de seguridad administrativas, técnicas y físicas para proteger sus datos personales contra daño, pérdida, alteración, destrucción, acceso o tratamiento no autorizado, incluyendo: cifrado de datos en tránsito y en reposo, control de acceso restringido, infraestructura en la nube con proveedores certificados (AWS) y monitoreo continuo de seguridad.</p>
+    </div>
+
+    <!-- 5. TRANSFERENCIAS -->
+    <div class="section">
+      <h2 class="section-heading">5. Transferencias de datos</h2>
+      <p>Selixor podrá transferir sus datos personales a los siguientes terceros, sin requerir su consentimiento, conforme a las excepciones previstas en la LFPDPPP:</p>
+      <p>Proveedores de infraestructura en la nube (Amazon Web Services) para el almacenamiento y procesamiento seguro de datos. Proveedores de servicios de mensajería (Telegram, WhatsApp) para el envío de notificaciones y recordatorios. Proveedores de inteligencia artificial para el procesamiento de recomendaciones contextuales.</p>
+      <p>Selixor no vende, comercializa ni comparte sus datos personales con terceros para fines publicitarios o de mercadotecnia.</p>
+    </div>
+
+    <!-- 6. DERECHOS ARCO -->
+    <div class="section">
+      <h2 class="section-heading">6. Derechos ARCO</h2>
+      <p>Usted tiene derecho a Acceder, Rectificar, Cancelar u Oponerse al tratamiento de sus datos personales (derechos ARCO). Para ejercer cualquiera de estos derechos, deberá enviar una solicitud al correo electrónico <a href="mailto:info@selixor.cloud">info@selixor.cloud</a> con la siguiente información:</p>
+      <p>Nombre completo del titular. Descripción clara del derecho que desea ejercer y los datos personales involucrados. Correo electrónico o medio de contacto para recibir la respuesta. Cualquier documento que facilite la localización de sus datos personales.</p>
+      <p>Selixor responderá su solicitud en un plazo máximo de 20 días hábiles contados a partir de la recepción de la solicitud completa. La respuesta indicará si la solicitud es procedente y, en su caso, se hará efectiva dentro de los 15 días hábiles siguientes a la notificación de la respuesta.</p>
+    </div>
+
+    <!-- 7. REVOCACIÓN DEL CONSENTIMIENTO -->
+    <div class="section">
+      <h2 class="section-heading">7. Revocación del consentimiento</h2>
+      <p>Usted puede revocar el consentimiento que nos ha otorgado para el tratamiento de sus datos personales, a fin de que dejemos de hacer uso de los mismos. Para ello, deberá enviar su solicitud de revocación al correo <a href="mailto:info@selixor.cloud">info@selixor.cloud</a> con el asunto "Revocación de consentimiento".</p>
+      <p>Selixor atenderá su solicitud en un plazo máximo de 20 días hábiles. Es importante considerar que, en ciertos casos, la revocación del consentimiento podrá implicar que no sea posible continuar prestando el servicio contratado.</p>
+    </div>
+
+    <!-- 8. COOKIES Y TECNOLOGÍAS -->
+    <div class="section">
+      <h2 class="section-heading">8. Cookies y tecnologías de rastreo</h2>
+      <p>El sitio web de Selixor no utiliza cookies propias ni tecnologías de rastreo. El formulario de contacto es procesado por Formspree, un servicio externo que puede utilizar cookies técnicas necesarias para su funcionamiento. Para mayor información, consulte la política de privacidad de Formspree.</p>
+    </div>
+
+    <!-- 9. MODIFICACIONES -->
+    <div class="section">
+      <h2 class="section-heading">9. Modificaciones al aviso de privacidad</h2>
+      <p>Selixor se reserva el derecho de modificar el presente aviso de privacidad para adaptarlo a cambios legislativos, jurisprudenciales, políticas internas o nuevos requerimientos para la prestación de sus servicios. Las modificaciones estarán disponibles en <a href="https://selixor.cloud/privacidad.html">selixor.cloud/privacidad.html</a> y, en caso de cambios sustanciales, se notificará a los usuarios a través de los medios de contacto disponibles.</p>
+    </div>
+
+    <!-- 10. AUTORIDAD -->
+    <div class="section">
+      <h2 class="section-heading">10. Autoridad competente</h2>
+      <p>Si usted considera que su derecho a la protección de datos personales ha sido vulnerado, puede acudir a la Secretaría de Anticorrupción y Buen Gobierno, autoridad competente en materia de protección de datos personales en posesión de los particulares conforme a la LFPDPPP vigente.</p>
+    </div>
+
+    <!-- 11. CONSENTIMIENTO -->
+    <div class="section">
+      <h2 class="section-heading">11. Consentimiento</h2>
+      <p>Al proporcionar sus datos personales a través de nuestro sitio web, formulario de contacto o al contratar cualquiera de nuestros servicios, usted manifiesta su consentimiento tácito para el tratamiento de sus datos personales conforme a lo descrito en el presente aviso de privacidad.</p>
+      <p>Si usted no está de acuerdo con los términos aquí descritos, le solicitamos no proporcionar sus datos personales a Selixor.</p>
+    </div>
+
+  </article>
+
+  <!-- FOOTER -->
+  <footer class="privacy-footer">
+    <p>&copy; 2026 Selixor Systems. Todos los derechos reservados. — <a href="index.html" style="color:var(--text-muted)">Volver al inicio</a></p>
+  </footer>
+
+</body>
+</html>

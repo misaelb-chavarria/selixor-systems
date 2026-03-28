@@ -66,35 +66,46 @@ document.addEventListener('DOMContentLoaded', () => {
     lineObserver.observe(impactoWrap);
   }
 
-  /* ─── Modal: About ─── */
-  const overlay = document.getElementById('modal-about');
+  /* ─── Modals (generic handler for all modals) ─── */
+  const modals = {
+    about: document.getElementById('modal-about'),
+    docs: document.getElementById('modal-docs'),
+    insights: document.getElementById('modal-insights'),
+  };
 
-  function openModal() {
-    overlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
+  function openModal(name) {
+    const modal = modals[name];
+    if (modal) {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
   }
 
-  function closeModal() {
-    overlay.classList.remove('active');
+  function closeAllModals() {
+    Object.values(modals).forEach(m => m.classList.remove('active'));
     document.body.style.overflow = '';
   }
 
-  document.querySelectorAll('[data-modal="about"]').forEach(btn => {
-    btn.addEventListener('click', openModal);
+  // Open buttons
+  document.querySelectorAll('[data-modal]').forEach(btn => {
+    btn.addEventListener('click', () => openModal(btn.dataset.modal));
   });
 
+  // Close buttons
   document.querySelectorAll('.modal-close').forEach(btn => {
-    btn.addEventListener('click', closeModal);
+    btn.addEventListener('click', closeAllModals);
   });
 
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) closeModal();
+  // Click outside
+  Object.values(modals).forEach(modal => {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeAllModals();
+    });
   });
 
+  // Escape key
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && overlay.classList.contains('active')) {
-      closeModal();
-    }
+    if (e.key === 'Escape') closeAllModals();
   });
 
   /* ─── Contact Form (Formspree) ─── */

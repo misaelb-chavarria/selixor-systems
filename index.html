@@ -307,7 +307,11 @@
       </div>
       <div class="footer-bottom">
         <span>&copy; 2026 Selixor Systems. Todos los derechos reservados.</span>
-        <a href="privacidad.html">Aviso de privacidad</a>
+        <div class="footer-links">
+          <button class="footer-link-btn" data-modal="docs">Documentación</button>
+          <button class="footer-link-btn" data-modal="insights">Insights</button>
+          <a href="privacidad.html">Aviso de privacidad</a>
+        </div>
       </div>
     </div>
   </footer>
@@ -324,7 +328,64 @@
     </div>
   </div>
 
-  <!-- Scripts (deferred by placement at end of body) -->
+  <!-- ===== MODAL: DOCUMENTACIÓN ===== -->
+  <div class="modal-overlay" id="modal-docs" role="dialog" aria-modal="true" aria-labelledby="docs-title">
+    <button class="modal-close" aria-label="Cerrar">&times;</button>
+    <div class="modal-content modal-scroll">
+      <p class="modal-label">Documentación técnica</p>
+      <h3 class="modal-name" id="docs-title">Cómo funciona Selixor</h3>
+      <div class="modal-body">
+        <div class="doc-section">
+          <h4 class="doc-heading">Detección de presencia — mmWave</h4>
+          <p class="modal-text">Selixor Home utiliza sensores de onda milimétrica (mmWave) con tecnología FMCW (Frequency Modulated Continuous Wave). Este tipo de sensor emite ondas de radio de alta frecuencia que detectan movimiento, posición y patrones de actividad en tiempo real — sin cámaras, sin contacto físico y sin comprometer la privacidad.</p>
+          <p class="modal-text">El sensor puede identificar presencia estática (una persona sentada o acostada), movimientos sutiles como la respiración, y cambios bruscos que podrían indicar una caída o una anomalía. Todo el procesamiento ocurre localmente antes de enviar alertas.</p>
+        </div>
+        <div class="doc-section">
+          <h4 class="doc-heading">Voz familiar — Síntesis personalizada</h4>
+          <p class="modal-text">Selixor Home permite que los recordatorios y alertas se comuniquen con una voz que el usuario reconoce y en la que confía. Mediante procesamiento de lenguaje natural y modelos de síntesis de voz de última generación, el sistema genera recordatorios con calidez y naturalidad.</p>
+          <p class="modal-text">La voz se procesa y almacena de forma segura en la nube con cifrado de extremo a extremo. Solo el sistema autorizado accede a ella para generar los mensajes.</p>
+        </div>
+        <div class="doc-section">
+          <h4 class="doc-heading">Recordatorios inteligentes — IA contextual</h4>
+          <p class="modal-text">Selixor Pulse y Home utilizan modelos de inteligencia artificial para generar recordatorios que no son genéricos. El sistema analiza el contexto de cada evento — clima, hora del día, tipo de cita, historial — para entregar recomendaciones útiles y oportunas.</p>
+          <p class="modal-text">Las notificaciones se envían por Telegram o WhatsApp, con confirmación automática. Si no hay respuesta, el sistema escala la alerta a un contacto designado.</p>
+        </div>
+        <div class="doc-section">
+          <h4 class="doc-heading">Infraestructura y seguridad</h4>
+          <p class="modal-text">Toda la infraestructura de Selixor opera sobre servicios en la nube con certificaciones de seguridad internacionales. Los datos se cifran en tránsito (TLS 1.3) y en reposo (AES-256). No almacenamos información que no sea estrictamente necesaria para el funcionamiento del servicio.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MODAL: INSIGHTS ===== -->
+  <div class="modal-overlay" id="modal-insights" role="dialog" aria-modal="true" aria-labelledby="insights-title">
+    <button class="modal-close" aria-label="Cerrar">&times;</button>
+    <div class="modal-content modal-scroll">
+      <p class="modal-label">Insights</p>
+      <h3 class="modal-name" id="insights-title">Lo que dicen los datos</h3>
+      <div class="modal-body">
+        <article class="insight-card">
+          <span class="insight-num">01</span>
+          <h4 class="insight-heading">El olvido de medicamentos es una crisis silenciosa</h4>
+          <p class="modal-text">Según estudios publicados en PubMed Central (PMC), hasta el 50% de la población general no toma sus medicamentos como se los recetaron. En adultos mayores, la tasa puede variar entre el 47% y el 100% dependiendo de la complejidad del régimen. Las causas principales: olvido, falta de comprensión del tratamiento y dificultad para gestionar múltiples fármacos.</p>
+          <p class="insight-source">Fuente: Journal of Family Medicine and Primary Care, PMC (2021). "A Study of Medication Compliance in Geriatric Patients with Chronic Illness."</p>
+        </article>
+        <article class="insight-card">
+          <span class="insight-num">02</span>
+          <h4 class="insight-heading">La tecnología mmWave alcanza +95% de precisión en detección de caídas</h4>
+          <p class="modal-text">Investigaciones recientes demuestran que los sensores de onda milimétrica combinados con redes neuronales LSTM alcanzan una precisión del 95.3% en la detección de caídas, con una sensibilidad del 98.2%. A diferencia de las cámaras, esta tecnología funciona en cualquier condición de iluminación y preserva completamente la privacidad del usuario.</p>
+          <p class="insight-source">Fuente: Applied Sciences, MDPI (2025). "Long Short-Term Memory-Based Fall Detection by FMCW mmWave Radar Sensor."</p>
+        </article>
+        <article class="insight-card">
+          <span class="insight-num">03</span>
+          <h4 class="insight-heading">La no adherencia cuesta miles de millones y vidas</h4>
+          <p class="modal-text">El Congreso a:care 2024 documentó que la falta de adherencia a medicamentos provoca cientos de miles de muertes prevenibles y hospitalizaciones cada año a nivel global, con costos de miles de millones de dólares en atención médica evitable. Ningún país es inmune a este desafío, y la tecnología se posiciona como una herramienta clave para abordarlo.</p>
+          <p class="insight-source">Fuente: PubMed Central (2025). "The silent epidemic of non-adherence — insights from the 2024 a:care Congress."</p>
+        </article>
+      </div>
+    </div>
+  </div>
   <script src="main.js"></script>
 </body>
 </html>

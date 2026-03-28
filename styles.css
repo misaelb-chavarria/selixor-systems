@@ -844,4 +844,94 @@ section { padding: var(--section-py) 0; }
   .footer-inner    { flex-direction: column; align-items: center; text-align: center; }
   .footer-bottom   { flex-direction: column; gap: 12px; text-align: center; }
   .hero-scroll     { display: none; }
+  .footer-links    { flex-direction: column; gap: 8px; }
+}
+
+/* ===== FOOTER LINKS ===== */
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.footer-link-btn {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  transition: color 0.3s;
+  padding: 0;
+}
+.footer-link-btn:hover { color: var(--text-secondary); }
+
+/* ===== SCROLLABLE MODALS ===== */
+.modal-scroll {
+  max-height: 80vh;
+  overflow-y: auto;
+  text-align: left;
+  padding: 0 8px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-hover) transparent;
+}
+.modal-scroll::-webkit-scrollbar { width: 4px; }
+.modal-scroll::-webkit-scrollbar-track { background: transparent; }
+.modal-scroll::-webkit-scrollbar-thumb { background: var(--border-hover); border-radius: 4px; }
+.modal-scroll .modal-name { text-align: center; }
+.modal-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--accent-blue);
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-align: center;
+}
+.modal-body { margin-top: 32px; }
+
+/* ===== DOCUMENTATION SECTIONS ===== */
+.doc-section {
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+}
+.doc-section:last-child { border-bottom: none; padding-bottom: 0; }
+.doc-heading {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+/* ===== INSIGHT CARDS ===== */
+.insight-card {
+  margin-bottom: 28px;
+  padding: 24px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  position: relative;
+}
+.insight-card:last-child { margin-bottom: 0; }
+.insight-num {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: rgba(59,130,246,0.08);
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  user-select: none;
+}
+.insight-heading {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+  padding-right: 40px;
+}
+.insight-source {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 12px;
+  font-style: italic;
+  line-height: 1.5;
 }

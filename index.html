@@ -174,8 +174,8 @@
     <section id="producto" aria-label="Productos">
       <div class="container">
         <p class="section-label reveal">Producto</p>
-        <h2 class="section-title reveal">Elige tu nivel de tranquilidad</h2>
-        <div class="products-grid">
+        <h2 class="section-title reveal">Conoce Selixor Pulse</h2>
+        <div class="products-grid" style="grid-template-columns:1fr;max-width:480px;">
 
           <!-- Selixor Pulse -->
           <article class="product-card pulse reveal">
@@ -197,32 +197,6 @@
               <p class="price-detail">Un solo pago. Sin suscripciones.</p>
             </div>
             <a href="#contacto" class="cta-product">Comenzar ahora</a>
-          </article>
-
-          <!-- Selixor Home -->
-          <article class="product-card home reveal">
-            <span class="product-badge">Próximamente</span>
-            <h3 class="product-name">Selixor Home</h3>
-            <p class="product-tagline">Seguridad, cuidado y compañía en tu hogar, incluso cuando no estás</p>
-            <ul class="product-features">
-              <li>Todo lo de Pulse incluido: recordatorios, confirmaciones y flujo continuo</li>
-              <li>Sensor mmWave avanzado: movimientos, caídas, patrones inusuales y ritmo cardíaco — sin cámaras</li>
-              <li>Bocina de altísima fidelidad con voz natural e interacción por voz instantánea</li>
-              <li>Voz familiar: recordatorios con la voz de un ser querido, creando confianza y cercanía</li>
-              <li>Rutinas y consejos guiados por especialista en pedagogía</li>
-              <li>Automatización completa: ingresa tus citas una sola vez</li>
-            </ul>
-            <p class="product-ideal">Ideal para adultos mayores que viven solos o familias con niños — tranquilidad, seguridad y asistencia constante.</p>
-            <div class="product-why">
-              <strong>Por qué lo necesitas:</strong> Selixor Home protege tu hogar, organiza tu día y cuida de tu familia, liberándote de depender del celular y ofreciendo una experiencia natural y humana.
-            </div>
-            <div class="product-price">
-              <p class="price-main">$550 <span class="price-currency">USD</span></p>
-              <p class="price-detail">Kit completo</p>
-              <p class="price-sub">$27 USD/mes — actualizaciones, asistencia y funcionalidades premium</p>
-            </div>
-            <a href="#contacto" class="cta-product">Unirte a la lista de acceso</a>
-            <p class="product-note">Producción limitada. Acceso por orden de registro.</p>
           </article>
 
         </div>
@@ -336,19 +310,17 @@
       <h3 class="modal-name" id="docs-title">Cómo funciona Selixor</h3>
       <div class="modal-body">
         <div class="doc-section">
-          <h4 class="doc-heading">Detección de presencia — mmWave</h4>
-          <p class="modal-text">Selixor Home utiliza sensores de onda milimétrica (mmWave) con tecnología FMCW (Frequency Modulated Continuous Wave). Este tipo de sensor emite ondas de radio de alta frecuencia que detectan movimiento, posición y patrones de actividad en tiempo real — sin cámaras, sin contacto físico y sin comprometer la privacidad.</p>
-          <p class="modal-text">El sensor puede identificar presencia estática (una persona sentada o acostada), movimientos sutiles como la respiración, y cambios bruscos que podrían indicar una caída o una anomalía. Todo el procesamiento ocurre localmente antes de enviar alertas.</p>
-        </div>
-        <div class="doc-section">
-          <h4 class="doc-heading">Voz familiar — Síntesis personalizada</h4>
-          <p class="modal-text">Selixor Home permite que los recordatorios y alertas se comuniquen con una voz que el usuario reconoce y en la que confía. Mediante procesamiento de lenguaje natural y modelos de síntesis de voz de última generación, el sistema genera recordatorios con calidez y naturalidad.</p>
-          <p class="modal-text">La voz se procesa y almacena de forma segura en la nube con cifrado de extremo a extremo. Solo el sistema autorizado accede a ella para generar los mensajes.</p>
-        </div>
-        <div class="doc-section">
           <h4 class="doc-heading">Recordatorios inteligentes — IA contextual</h4>
-          <p class="modal-text">Selixor Pulse y Home utilizan modelos de inteligencia artificial para generar recordatorios que no son genéricos. El sistema analiza el contexto de cada evento — clima, hora del día, tipo de cita, historial — para entregar recomendaciones útiles y oportunas.</p>
+          <p class="modal-text">Selixor Pulse utiliza modelos de inteligencia artificial para generar recordatorios que no son genéricos. El sistema analiza el contexto de cada evento — clima, hora del día, tipo de cita, historial — para entregar recomendaciones útiles y oportunas.</p>
           <p class="modal-text">Las notificaciones se envían por Telegram o WhatsApp, con confirmación automática. Si no hay respuesta, el sistema escala la alerta a un contacto designado.</p>
+        </div>
+        <div class="doc-section">
+          <h4 class="doc-heading">Integración con calendario</h4>
+          <p class="modal-text">Selixor se conecta directamente con tu calendario. Solo agrega tus eventos y el sistema se encarga de generar recordatorios contextualizados, enviarlos a tiempo y confirmar asistencia — todo de manera automática.</p>
+        </div>
+        <div class="doc-section">
+          <h4 class="doc-heading">Confirmación y escalamiento</h4>
+          <p class="modal-text">Cuando el usuario recibe un recordatorio, puede confirmar con una respuesta simple. Si no responde dentro del tiempo establecido, Selixor envía una alerta automática al contacto designado (familiar, cuidador o quien tú elijas) para que pueda actuar a tiempo.</p>
         </div>
         <div class="doc-section">
           <h4 class="doc-heading">Infraestructura y seguridad</h4>
@@ -373,9 +345,9 @@
         </article>
         <article class="insight-card">
           <span class="insight-num">02</span>
-          <h4 class="insight-heading">La tecnología mmWave alcanza +95% de precisión en detección de caídas</h4>
-          <p class="modal-text">Investigaciones recientes demuestran que los sensores de onda milimétrica combinados con redes neuronales LSTM alcanzan una precisión del 95.3% en la detección de caídas, con una sensibilidad del 98.2%. A diferencia de las cámaras, esta tecnología funciona en cualquier condición de iluminación y preserva completamente la privacidad del usuario.</p>
-          <p class="insight-source">Fuente: Applied Sciences, MDPI (2025). "Long Short-Term Memory-Based Fall Detection by FMCW mmWave Radar Sensor."</p>
+          <h4 class="insight-heading">El olvido es la causa #1 de no adherencia</h4>
+          <p class="modal-text">Estudios muestran que el 50.8% de los pacientes mayores de 60 años reportan el olvido como la principal razón por la que no toman sus medicamentos correctamente. No es falta de voluntad — es falta de un sistema que recuerde por ellos con contexto y a tiempo.</p>
+          <p class="insight-source">Fuente: Osong Public Health and Research Perspectives (2022). "Effects of medication adherence interventions for older adults with chronic illnesses."</p>
         </article>
         <article class="insight-card">
           <span class="insight-num">03</span>

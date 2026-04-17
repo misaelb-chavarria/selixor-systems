@@ -77,11 +77,11 @@ button{border:none;background:none;cursor:pointer;font-family:inherit;color:inhe
 
 /* HERO */
 .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 35%,rgba(0,163,224,.06) 0%,transparent 70%);z-index:1}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 35%,rgba(0,163,224,.06) 0%,transparent 70%),linear-gradient(to right,rgba(8,15,26,.7) 0%,rgba(8,15,26,.2) 40%,rgba(8,15,26,.1) 60%,rgba(8,15,26,.4) 100%),linear-gradient(to bottom,rgba(8,15,26,.3) 0%,transparent 30%,transparent 70%,rgba(8,15,26,.8) 100%);z-index:1}
 .hv{position:absolute;inset:0;z-index:0}
-.hv video{width:100%;height:100%;object-fit:cover;opacity:.18;filter:saturate(.2) brightness(.6)}
+.hv video{width:100%;height:100%;object-fit:cover;opacity:.35;filter:saturate(.5) brightness(.5) contrast(1.1)}
 .hc{position:relative;z-index:3;text-align:left;max-width:var(--mw);width:100%;padding:0 28px;animation:fu 1s var(--ease) both}
-.hero h1{font-family:var(--serif);font-size:clamp(34px,5.5vw,62px);font-weight:400;line-height:1.15;letter-spacing:-.01em;margin-bottom:20px;color:var(--white);max-width:580px}
+.hero h1{font-family:var(--serif);font-size:clamp(34px,5.5vw,62px);font-weight:400;line-height:1.15;letter-spacing:-.01em;margin-bottom:20px;color:var(--white);max-width:580px;text-shadow:0 2px 40px rgba(0,0,0,.6)}
 .hsub{font-size:clamp(13px,1.4vw,16px);color:var(--text2);line-height:1.7;max-width:420px;margin:0 0 36px;font-weight:300}
 .hctas{display:flex;gap:14px;justify-content:flex-start;flex-wrap:wrap;animation:fi 1s .5s both}
 .bp{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--bg);padding:14px 28px;border-radius:100px;font-size:13px;font-weight:500;transition:transform .3s var(--ease),box-shadow .3s,background .3s}
@@ -540,6 +540,7 @@ section{padding:120px 0}
 </div>
 <p class="cred rv" style="margin-top:32px">Documentación técnica disponible bajo solicitud institucional</p>
 <p class="rv" style="text-align:center;margin-top:16px;font-size:13px;color:var(--text2);max-width:600px;margin-left:auto;margin-right:auto;line-height:1.7"><strong style="color:var(--white)">Tecnología con potencial disruptivo</strong>, reconocida por una de las 200 mejores universidades del mundo.</p>
+<p class="rv" style="text-align:center;margin-top:12px;font-size:11px;color:var(--text3);max-width:480px;margin-left:auto;margin-right:auto">Debido a los convenios con estas instituciones, el acceso al sistema opera exclusivamente por lista de espera.</p>
 </div>
 </section>
 
@@ -660,7 +661,7 @@ section{padding:120px 0}
 <p style="position:absolute;bottom:14px;left:20px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--accent)">Av. Santa Fe 505 · Piso 21 · CDMX</p>
 </div>
 <div class="cit"><div class="cic"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><h4>Oficinas</h4><p>Av. Santa Fe 505, Piso 21<br>Lomas de Santa Fe, Contadero<br>Cuajimalpa de Morelos, CDMX 01219</p></div></div>
-<div class="cit"><div class="cic"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><h4>Correo</h4><p><a href="mailto:info@selixor.cloud">info@selixor.cloud</a></p><p><a href="mailto:ventas@selixor.cloud">ventas@selixor.cloud</a></p></div></div>
+<div class="cit"><div class="cic"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><h4>Correo</h4><p><a href="mailto:info@selixor.cloud">info@selixor.cloud</a></p><p><a href="mailto:ventas@selixor.cloud">ventas@selixor.cloud</a></p><p style="font-size:10px;color:var(--text3);margin-top:8px;line-height:1.5">El sistema opera por lista de espera<br>debido a convenios institucionales.</p></div></div>
 </div>
 <div class="cfm rv">
 <h3>Agenda una demostración</h3>

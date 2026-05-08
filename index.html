@@ -554,12 +554,128 @@ section{padding:120px 0}
 <div class="div"></div>
 
 <!-- PRODUCTO -->
-<section id="producto">
+<section id="producto" style="background:var(--bg2)">
 <div class="ctn">
 <p class="sl rv" style="text-align:center">Producto</p>
 <h2 class="st rv" style="text-align:center">Selixor Pulse</h2>
-<p class="ss rv" style="text-align:center;margin:0 auto">Sistema basado en sensores de presencia de baja intrusión con procesamiento local de eventos y análisis en la nube.</p>
-<div class="prc rv">
+<p class="ss rv" style="text-align:center;margin:0 auto 56px">Sistema basado en sensores de presencia de baja intrusión con procesamiento local de eventos y análisis en la nube.</p>
+
+<div style="display:grid;grid-template-columns:1fr 480px;gap:56px;align-items:center" class="rv prl">
+
+<!-- SVG Illustration -->
+<div style="display:flex;align-items:center;justify-content:center">
+<svg viewBox="0 0 480 520" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:480px">
+<defs>
+  <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="rgba(0,163,224,.07)"/>
+    <stop offset="100%" stop-color="transparent"/>
+  </radialGradient>
+  <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="rgba(0,163,224,.25)"/>
+    <stop offset="100%" stop-color="transparent"/>
+  </radialGradient>
+  <filter id="soft"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="glow2"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="rgba(0,163,224,.4)"/>
+    <stop offset="100%" stop-color="rgba(0,163,224,.05)"/>
+  </linearGradient>
+</defs>
+
+<!-- Background glow -->
+<circle cx="240" cy="260" r="200" fill="url(#bgGlow)"/>
+
+<!-- Orbit rings -->
+<circle cx="240" cy="260" r="155" fill="none" stroke="rgba(0,163,224,.06)" stroke-width="1" stroke-dasharray="4 6"/>
+<circle cx="240" cy="260" r="115" fill="none" stroke="rgba(0,163,224,.08)" stroke-width="1" stroke-dasharray="3 5"/>
+<circle cx="240" cy="260" r="75"  fill="none" stroke="rgba(0,163,224,.1)"  stroke-width="1"/>
+
+<!-- Animated ring pulse -->
+<circle cx="240" cy="260" r="75" fill="none" stroke="rgba(0,163,224,.15)" stroke-width="1.5">
+  <animate attributeName="r" values="75;95;75" dur="3s" repeatCount="indefinite"/>
+  <animate attributeName="opacity" values="1;0;1" dur="3s" repeatCount="indefinite"/>
+</circle>
+<circle cx="240" cy="260" r="75" fill="none" stroke="rgba(0,163,224,.08)" stroke-width="1">
+  <animate attributeName="r" values="75;120;75" dur="3s" begin="0.5s" repeatCount="indefinite"/>
+  <animate attributeName="opacity" values="0.8;0;0.8" dur="3s" begin="0.5s" repeatCount="indefinite"/>
+</circle>
+
+<!-- Central hub device -->
+<circle cx="240" cy="260" r="42" fill="rgba(14,26,46,.9)" stroke="rgba(0,163,224,.25)" stroke-width="1.5"/>
+<circle cx="240" cy="260" r="28" fill="url(#coreGlow)" stroke="rgba(0,163,224,.4)" stroke-width="1"/>
+<!-- Hub icon: wifi/pulse -->
+<path d="M228 265 Q234 254 240 260 Q246 254 252 265" fill="none" stroke="#00a3e0" stroke-width="2" stroke-linecap="round" filter="url(#soft)"/>
+<path d="M222 270 Q231 252 240 260 Q249 252 258 270" fill="none" stroke="rgba(0,163,224,.5)" stroke-width="1.5" stroke-linecap="round"/>
+<circle cx="240" cy="265" r="3.5" fill="#00a3e0" filter="url(#glow2)"/>
+<!-- Hub label -->
+<text x="240" y="298" text-anchor="middle" fill="rgba(0,163,224,.7)" font-family="Outfit,sans-serif" font-size="8.5" font-weight="500" letter-spacing="2">SELIXOR PULSE</text>
+
+<!-- Sensor nodes with connection lines -->
+<!-- Sensor 1: Top — Recámara -->
+<line x1="240" y1="218" x2="240" y2="145" stroke="url(#lineGrad)" stroke-width="1" stroke-dasharray="4 3"/>
+<circle cx="240" cy="130" r="22" fill="rgba(14,26,46,.9)" stroke="rgba(0,163,224,.2)" stroke-width="1"/>
+<circle cx="240" cy="130" r="5" fill="#00a3e0" filter="url(#soft)" opacity=".9">
+  <animate attributeName="opacity" values="0.9;0.4;0.9" dur="2.8s" repeatCount="indefinite"/>
+</circle>
+<text x="240" y="108" text-anchor="middle" fill="rgba(255,255,255,.5)" font-family="Outfit,sans-serif" font-size="8" letter-spacing="1.5">RECÁMARA</text>
+
+<!-- Sensor 2: Top-right — Sala -->
+<line x1="268" y1="236" x2="368" y2="160" stroke="url(#lineGrad)" stroke-width="1" stroke-dasharray="4 3"/>
+<circle cx="383" cy="150" r="22" fill="rgba(14,26,46,.9)" stroke="rgba(0,163,224,.2)" stroke-width="1"/>
+<circle cx="383" cy="150" r="5" fill="#00a3e0" filter="url(#soft)" opacity=".9">
+  <animate attributeName="opacity" values="0.9;0.4;0.9" dur="3.4s" begin="0.6s" repeatCount="indefinite"/>
+</circle>
+<text x="383" y="128" text-anchor="middle" fill="rgba(255,255,255,.5)" font-family="Outfit,sans-serif" font-size="8" letter-spacing="1.5">SALA</text>
+
+<!-- Sensor 3: Right — Baño IP65 -->
+<line x1="282" y1="260" x2="388" y2="260" stroke="url(#lineGrad)" stroke-width="1" stroke-dasharray="4 3"/>
+<circle cx="403" cy="260" r="22" fill="rgba(14,26,46,.9)" stroke="rgba(0,163,224,.35)" stroke-width="1.5"/>
+<circle cx="403" cy="260" r="6" fill="#00a3e0" filter="url(#glow2)" opacity=".95">
+  <animate attributeName="opacity" values="0.95;0.5;0.95" dur="2.2s" begin="0.3s" repeatCount="indefinite"/>
+</circle>
+<text x="403" y="238" text-anchor="middle" fill="rgba(0,163,224,.7)" font-family="Outfit,sans-serif" font-size="8" letter-spacing="1.5" font-weight="500">BAÑO</text>
+<text x="403" y="294" text-anchor="middle" fill="rgba(0,163,224,.4)" font-family="Outfit,sans-serif" font-size="7">IP65</text>
+
+<!-- Sensor 4: Bottom-right — Pasillo -->
+<line x1="265" y1="283" x2="355" y2="358" stroke="url(#lineGrad)" stroke-width="1" stroke-dasharray="4 3"/>
+<circle cx="368" cy="370" r="22" fill="rgba(14,26,46,.9)" stroke="rgba(0,163,224,.2)" stroke-width="1"/>
+<circle cx="368" cy="370" r="5" fill="#00a3e0" filter="url(#soft)" opacity=".9">
+  <animate attributeName="opacity" values="0.9;0.4;0.9" dur="3.1s" begin="1s" repeatCount="indefinite"/>
+</circle>
+<text x="368" y="402" text-anchor="middle" fill="rgba(255,255,255,.5)" font-family="Outfit,sans-serif" font-size="8" letter-spacing="1.5">PASILLO</text>
+
+<!-- Sensor 5: Bottom-left — Bocina -->
+<line x1="215" y1="283" x2="125" y2="358" stroke="url(#lineGrad)" stroke-width="1" stroke-dasharray="4 3"/>
+<circle cx="112" cy="370" r="22" fill="rgba(14,26,46,.9)" stroke="rgba(0,163,224,.18)" stroke-width="1"/>
+<!-- Speaker icon -->
+<path d="M106 367 L110 363 L115 359 L115 375 L110 371 Z" fill="rgba(0,163,224,.6)" stroke="none"/>
+<path d="M117 363 Q121 368 121 371 Q121 374 117 379" fill="none" stroke="rgba(0,163,224,.5)" stroke-width="1.2" stroke-linecap="round"/>
+<text x="112" y="402" text-anchor="middle" fill="rgba(255,255,255,.5)" font-family="Outfit,sans-serif" font-size="8" letter-spacing="1.5">BOCINA</text>
+
+<!-- Left sensor — App/Cloud -->
+<line x1="198" y1="260" x2="92" y2="260" stroke="url(#lineGrad)" stroke-width="1" stroke-dasharray="4 3"/>
+<circle cx="77" cy="260" r="22" fill="rgba(14,26,46,.9)" stroke="rgba(0,163,224,.18)" stroke-width="1"/>
+<!-- Cloud icon -->
+<path d="M68 263 Q68 257 74 257 Q75 252 81 252 Q87 252 88 257 Q92 257 92 262 Q92 267 87 267 L72 267 Q68 267 68 263Z" fill="none" stroke="rgba(0,163,224,.55)" stroke-width="1.2"/>
+<text x="77" y="240" text-anchor="middle" fill="rgba(255,255,255,.5)" font-family="Outfit,sans-serif" font-size="8" letter-spacing="1.5">NUBE</text>
+
+<!-- Status bar bottom -->
+<rect x="60" y="470" width="360" height="28" rx="6" fill="rgba(0,163,224,.04)" stroke="rgba(0,163,224,.08)" stroke-width="1"/>
+<circle cx="82" cy="484" r="3.5" fill="#34d399"/>
+<text x="94" y="488" fill="rgba(255,255,255,.35)" font-family="Outfit,sans-serif" font-size="8.5">Sistema activo · 5 sensores en línea · Última actividad: normal</text>
+
+<!-- Telegram alert bubble -->
+<rect x="310" y="56" width="130" height="44" rx="8" fill="rgba(14,26,46,.95)" stroke="rgba(0,163,224,.2)" stroke-width="1"/>
+<circle cx="326" cy="78" r="8" fill="rgba(0,163,224,.15)" stroke="rgba(0,163,224,.3)" stroke-width=".8"/>
+<path d="M321 78 L331 74 L329 82 L325 80 Z" fill="#00a3e0" opacity=".8"/>
+<text x="340" y="73" fill="rgba(255,255,255,.7)" font-family="Outfit,sans-serif" font-size="8" font-weight="500">Alerta Telegram</text>
+<text x="340" y="85" fill="rgba(0,163,224,.6)" font-family="Outfit,sans-serif" font-size="7.5">Actividad detectada ✓</text>
+<line x1="375" y1="100" x2="375" y2="130" stroke="rgba(0,163,224,.1)" stroke-width="1" stroke-dasharray="3 3"/>
+</svg>
+</div>
+
+<!-- Product Card -->
+<div class="prc rv" style="max-width:100%;margin:0">
 <p class="prn">Selixor Pulse</p>
 <p class="prt">Monitoreo continuo. Respuesta en tiempo real.</p>
 <ul class="pfl">
@@ -574,13 +690,17 @@ section{padding:120px 0}
 </ul>
 <div class="prp">
 <p class="prf">Desde</p>
-<p class="prm">$650 <span>USD</span></p>
+<p class="prm">$865 <span>USD</span></p>
 <p class="prd">+ mensualidad según complementos seleccionados</p>
 </div>
 <a href="#lista-espera" class="bpr">Solicitar evaluación</a>
 </div>
+
+</div>
 </div>
 </section>
+<style>
+@media(max-width:900px){.prl{grid-template-columns:1fr!important}}</style>
 
 <div class="div"></div>
 
@@ -648,7 +768,7 @@ section{padding:120px 0}
 <p class="sl rv" style="text-align:center">Acceso</p>
 <h2 class="st rv" style="text-align:center">Solicita evaluación de implementación</h2>
 <p class="ss rv" style="text-align:center;margin:0 auto 14px">Los espacios son limitados. Completa el formulario para ser evaluado como candidato.</p>
-<div style="text-align:center" class="rv"><div class="wc"><span class="dot"></span>Más de 40 familias en evaluación</div></div>
+<div style="text-align:center" class="rv"><div class="wc"><span class="dot"></span>Más de 165 familias en evaluación</div></div>
 <div class="ww">
 <div class="fw rv">
 <form id="wlf" action="https://formspree.io/f/xjgjwoez" method="POST">
@@ -760,7 +880,7 @@ section{padding:120px 0}
     <div class="eq-ceo-stat">
       <div class="eq-ceo-stat-item"><p>$1.3M</p><p>Valuación USD</p></div>
       <div class="eq-ceo-stat-item"><p>2</p><p>Alianzas institucionales</p></div>
-      <div class="eq-ceo-stat-item"><p>40+</p><p>Familias en evaluación</p></div>
+      <div class="eq-ceo-stat-item"><p>165+</p><p>Familias en evaluación</p></div>
     </div>
   </div>
 </div>
@@ -946,9 +1066,9 @@ section{padding:120px 0}
 <p style="font-size:8px;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-weight:600">VI · Situación operativa</p>
 <table style="width:100%;border-collapse:collapse;font-size:10px">
 <tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 0;color:var(--text3);width:36%">Estatus</td><td style="padding:6px 0;color:var(--text)">Lista de espera — Capacidad controlada por compromisos institucionales</td></tr>
-<tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 0;color:var(--text3)">Demanda registrada</td><td style="padding:6px 0;color:var(--text)">40+ familias en evaluación</td></tr>
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 0;color:var(--text3)">Demanda registrada</td><td style="padding:6px 0;color:var(--text)">165+ familias en evaluación</td></tr>
 <tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 0;color:var(--text3)">Configuración</td><td style="padding:6px 0;color:var(--text)">3–5 sensores/hogar según evaluación del entorno</td></tr>
-<tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 0;color:var(--text3)">Precio base</td><td style="padding:6px 0;color:var(--text)">Desde USD $650.00 + mensualidad variable</td></tr>
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 0;color:var(--text3)">Precio base</td><td style="padding:6px 0;color:var(--text)">Desde USD $865.00 + mensualidad variable</td></tr>
 <tr><td style="padding:6px 0;color:var(--text3)">Cobertura</td><td style="padding:6px 0;color:var(--text)">ZMCM · Expansión sujeta a disponibilidad</td></tr>
 </table>
 </div>
@@ -1041,7 +1161,7 @@ var cbt=document.getElementById('cbt'),cbw=document.getElementById('cbw'),cbms=d
 cbt.addEventListener('click',function(){var o=cbt.classList.toggle('open');cbw.classList.toggle('open');if(o)cbi.focus()});
 
 var FAQ=[
-{k:['precio','costo','cuanto','cuesta','pago','mensualidad','dolares'],r:'El sistema tiene un precio base desde $650 USD, más una mensualidad personalizada según los complementos que elijas. Para detalles específicos, solicita una evaluación.'},
+{k:['precio','costo','cuanto','cuesta','pago','mensualidad','dolares'],r:'El sistema tiene un precio base desde $865 USD, más una mensualidad personalizada según los complementos que elijas. Para detalles específicos, solicita una evaluación.'},
 {k:['sensor','sensores','cuantos','baño','recamara','sala','ip65'],r:'El sistema incluye de 3 a 5 sensores según la configuración del hogar. El paquete base cubre recámara, sala y baño (con sensor IP65 resistente a humedad). El paquete extendido agrega cobertura en áreas adicionales.'},
 {k:['instala','instalacion','dificil','complejo','obra'],r:'La instalación no requiere obras ni modificaciones. Los sensores se ubican estratégicamente con apoyo de nuestro equipo técnico.'},
 {k:['camara','video','graba','escucha','privacidad','audio'],r:'No. Los sensores detectan presencia y movimiento, no capturan video ni audio ambiental. La privacidad del usuario es absoluta.'},

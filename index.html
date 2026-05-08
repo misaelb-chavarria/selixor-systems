@@ -283,6 +283,51 @@ section{padding:120px 0}
 @media(max-width:500px){.cbw{right:10px;left:10px;bottom:80px;width:auto;max-height:65vh}.cbt{bottom:16px;right:16px}}
 /* CREDENTIAL */
 .cred{font-size:10px;color:var(--text3);text-align:center;letter-spacing:1px;padding:8px 0}
+/* EQUIPO */
+#equipo{background:var(--bg)}
+.eq-header{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;margin-bottom:64px;flex-wrap:wrap}
+.eq-header-left{max-width:540px}
+.eq-header-right{flex-shrink:0}
+.eq-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border:1px solid rgba(0,163,224,.25);border-radius:100px;font-size:12px;color:var(--accent);letter-spacing:.5px;transition:background .3s,border-color .3s}
+.eq-cta:hover{background:var(--ag);border-color:var(--accent)}
+/* CEO Feature */
+.eq-ceo{display:grid;grid-template-columns:420px 1fr;gap:0;border:1px solid var(--border2);border-radius:var(--rl);overflow:hidden;background:var(--card);margin-bottom:20px;position:relative}
+.eq-ceo::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),rgba(0,163,224,.3),transparent)}
+.eq-ceo-photo{position:relative;overflow:hidden;min-height:480px}
+.eq-ceo-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges;filter:contrast(1.06) saturate(1.08) brightness(1.04)}
+.eq-ceo-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,transparent 70%,var(--card));pointer-events:none}
+.eq-ceo-info{padding:48px 44px;display:flex;flex-direction:column;justify-content:center}
+.eq-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:var(--ag);border:1px solid rgba(0,163,224,.14);border-radius:100px;font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:20px;width:fit-content}
+.eq-badge::before{content:'';width:5px;height:5px;background:var(--accent);border-radius:50%;flex-shrink:0}
+.eq-ceo-name{font-family:var(--serif);font-size:clamp(28px,3.5vw,44px);font-weight:500;line-height:1.1;color:var(--white);margin-bottom:6px}
+.eq-ceo-role{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:28px;font-weight:500}
+.eq-ceo-bio{font-size:13.5px;color:var(--text2);line-height:1.75;margin-bottom:16px}
+.eq-ceo-quote{border-left:2px solid rgba(0,163,224,.3);padding-left:18px;margin-top:24px;font-family:var(--serif);font-size:16px;font-style:italic;color:var(--text);line-height:1.6}
+.eq-ceo-stat{display:flex;gap:32px;margin-top:36px;padding-top:28px;border-top:1px solid var(--border)}
+.eq-ceo-stat-item p:first-child{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--accent);line-height:1}
+.eq-ceo-stat-item p:last-child{font-size:9px;color:var(--text3);letter-spacing:1px;text-transform:uppercase;margin-top:4px}
+/* Team Grid */
+.eq-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.eq-card{border:1px solid var(--border);border-radius:var(--r);background:var(--bg2);overflow:hidden;transition:border-color .4s var(--ease),transform .4s var(--ease)}
+.eq-card:hover{border-color:rgba(0,163,224,.15);transform:translateY(-4px)}
+.eq-card-photo{position:relative;aspect-ratio:4/5;overflow:hidden}
+.eq-card-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;filter:contrast(1.03) saturate(1.04);transition:transform .6s var(--ease)}
+.eq-card:hover .eq-card-photo img{transform:scale(1.04)}
+.eq-card-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(8,15,26,.85));pointer-events:none}
+.eq-card-info{padding:22px 24px}
+.eq-card-name{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--white);margin-bottom:4px;line-height:1.2}
+.eq-card-role{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;font-weight:500;line-height:1.4}
+.eq-card-tag{display:inline-block;padding:4px 10px;background:var(--as);border:1px solid rgba(0,163,224,.1);border-radius:100px;font-size:9px;color:var(--text3);letter-spacing:.5px}
+@media(max-width:900px){
+.eq-ceo{grid-template-columns:1fr}
+.eq-ceo-photo{min-height:320px;max-height:380px}
+.eq-ceo-photo::after{background:linear-gradient(to bottom,transparent 60%,var(--card))}
+.eq-ceo-info{padding:32px 28px}
+.eq-header{flex-direction:column;gap:20px}
+}
+@media(max-width:650px){
+.eq-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -296,7 +341,7 @@ section{padding:120px 0}
 <li><a href="#proceso">Proceso</a></li>
 <li><a href="#alianzas">Alianzas</a></li>
 <li><a href="#faq">FAQ</a></li>
-<li><button data-modal="about">Equipo</button></li>
+<li><a href="#equipo">Equipo</a></li>
 <li><a href="#lista-espera" class="nc">Solicitar evaluación</a></li>
 </ul>
 </div>
@@ -503,6 +548,87 @@ section{padding:120px 0}
 </div>
 </section>
 
+<div class="div"></div>
+
+<!-- EQUIPO -->
+<section id="equipo">
+<div class="ctn">
+<div class="eq-header rv">
+  <div class="eq-header-left">
+    <p class="sl">Equipo</p>
+    <h2 class="st" style="max-width:480px;margin-bottom:14px">Las personas detrás de Selixor</h2>
+    <p class="ss">Un equipo interdisciplinario que combina ingeniería de vanguardia, experiencia clínica certificada y diseño de experiencia humana para crear tecnología que cuida con dignidad.</p>
+  </div>
+  <div class="eq-header-right">
+    <a href="#lista-espera" class="eq-cta">Solicitar evaluación →</a>
+  </div>
+</div>
+
+<!-- CEO Feature Card -->
+<div class="eq-ceo rv">
+  <div class="eq-ceo-photo">
+    <img
+      src="mi_foto.jpeg"
+      alt="Misael De Paz — Founder & CEO, Selixor Systems"
+      width="420"
+      height="560"
+      loading="eager"
+      decoding="async"
+      style="image-rendering:-webkit-optimize-contrast"
+    >
+  </div>
+  <div class="eq-ceo-info">
+    <span class="eq-badge">Founder</span>
+    <h3 class="eq-ceo-name">Misael De Paz</h3>
+    <p class="eq-ceo-role">Founder &amp; Chief Executive Officer</p>
+    <p class="eq-ceo-bio">Selixor nació de una pregunta que millones de familias se hacen cada día: <em>¿cómo sabes que todo está bien cuando no estás ahí?</em> La respuesta no podía ser una cámara ni una alarma genérica — tenía que sentirse humana.</p>
+    <p class="eq-ceo-bio">Misael lidera la visión estratégica de Selixor, combinando ingeniería de sensores, inteligencia artificial y clonación de voz para crear un sistema que acompaña sin invadir. Con colaboraciones activas con TecSalud y Centro Médico ABC, está llevando esta tecnología a entornos donde cada segundo cuenta.</p>
+    <blockquote class="eq-ceo-quote">Detrás de cada sensor hay una familia que quiere estar tranquila. Ese es nuestro compromiso.</blockquote>
+    <div class="eq-ceo-stat">
+      <div class="eq-ceo-stat-item"><p>$1.3M</p><p>Valuación USD</p></div>
+      <div class="eq-ceo-stat-item"><p>2</p><p>Alianzas institucionales</p></div>
+      <div class="eq-ceo-stat-item"><p>40+</p><p>Familias en evaluación</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- Team Grid -->
+<div class="eq-grid">
+  <article class="eq-card rv">
+    <div class="eq-card-photo">
+      <img src="2.jpeg" alt="Marcos Aramburu — CTO, Selixor Systems" loading="lazy" decoding="async">
+    </div>
+    <div class="eq-card-info">
+      <p class="eq-card-role">Chief Technology Officer</p>
+      <h4 class="eq-card-name">Marcos Aramburu</h4>
+      <span class="eq-card-tag">Ingeniería &amp; Arquitectura</span>
+    </div>
+  </article>
+  <article class="eq-card rv">
+    <div class="eq-card-photo">
+      <img src="3.jpeg" alt="Katerina Romanova — Head of Client Experience, Selixor Systems" loading="lazy" decoding="async">
+    </div>
+    <div class="eq-card-info">
+      <p class="eq-card-role">Head of Client Experience</p>
+      <h4 class="eq-card-name">Katerina Romanova</h4>
+      <span class="eq-card-tag">Experiencia de cliente</span>
+    </div>
+  </article>
+  <article class="eq-card rv">
+    <div class="eq-card-photo">
+      <img src="4.jpeg" alt="Dra. Ximena Cavazos — Chief Medical Officer, Selixor Systems" loading="lazy" decoding="async">
+    </div>
+    <div class="eq-card-info">
+      <p class="eq-card-role">Chief Medical Officer</p>
+      <h4 class="eq-card-name">Dra. Ximena Cavazos</h4>
+      <span class="eq-card-tag">Dirección Médica</span>
+    </div>
+  </article>
+</div>
+
+</div>
+</section>
+
 <!-- PRODUCTO -->
 <section id="producto">
 <div class="ctn">
@@ -662,7 +788,7 @@ section{padding:120px 0}
 <button class="mx">&times;</button>
 <div class="mc">
 <p class="mlb">Equipo</p>
-<img src="foto-fundador.jpg" alt="Misael De Paz" class="mph" width="96" height="96" loading="lazy">
+<img src="mi_foto.jpeg" alt="Misael De Paz" class="mph" width="96" height="96" loading="lazy" style="filter:contrast(1.06) saturate(1.08) brightness(1.04)">
 <h3 class="mna">Misael De Paz</h3>
 <p class="mrl">Fundador & CEO — Selixor Systems</p>
 <p class="mtx">Selixor nació de una pregunta que millones de familias se hacen cada día: <em>¿cómo sabes que todo está bien cuando no estás ahí?</em></p>

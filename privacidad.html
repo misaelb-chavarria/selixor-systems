@@ -1,350 +1,225 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aviso de Privacidad — Selixor Systems</title>
-  <meta name="description" content="Aviso de privacidad integral de Selixor Systems conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.">
-  <link rel="canonical" href="https://selixor.cloud/privacidad.html">
-  <meta name="robots" content="noindex">
-  <meta name="theme-color" content="#020617">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #020617;
-      --bg-elevated: #0B1121;
-      --text: #F1F5F9;
-      --text-secondary: #94A3B8;
-      --text-muted: #64748B;
-      --accent-blue: #3B82F6;
-      --accent-teal: #2DD4BF;
-      --border: rgba(148,163,184,0.08);
-      --border-hover: rgba(148,163,184,0.18);
-      --font-display: 'Syne', sans-serif;
-      --font-body: 'DM Sans', sans-serif;
-      --max-w: 780px;
-      --ease: cubic-bezier(0.16,1,0.3,1);
-    }
-
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-    body {
-      font-family: var(--font-body);
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.75;
-      overflow-x: hidden;
-    }
-    a { color: var(--accent-blue); text-decoration: none; transition: color 0.3s; }
-    a:hover { color: var(--accent-teal); }
-
-    /* Grain */
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 9999;
-      opacity: 0.022;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    }
-
-    /* Header */
-    .header {
-      padding: 20px 0;
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      background: rgba(2,6,23,0.92);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      z-index: 100;
-    }
-    .header-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 clamp(20px,5vw,48px);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .logo {
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: 1rem;
-      letter-spacing: 0.06em;
-      color: var(--text);
-      text-decoration: none;
-    }
-    .logo .or { color: var(--accent-teal); }
-    .back-link {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .back-link:hover { color: var(--text); }
-    .back-link svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
-
-    /* Content */
-    .content {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: clamp(48px,8vw,80px) clamp(20px,5vw,48px) 80px;
-    }
-
-    .page-label {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--accent-blue);
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
-    .page-title {
-      font-family: var(--font-display);
-      font-size: clamp(1.8rem,4vw,2.6rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
-      margin-bottom: 12px;
-    }
-    .page-updated {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      margin-bottom: 48px;
-    }
-
-    .section {
-      margin-bottom: 40px;
-    }
-    .section-heading {
-      font-family: var(--font-display);
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-      color: var(--text);
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--border);
-    }
-    .section p {
-      color: var(--text-secondary);
-      font-size: 0.92rem;
-      margin-bottom: 14px;
-    }
-    .section p:last-child { margin-bottom: 0; }
-
-    .data-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 16px 0;
-      font-size: 0.88rem;
-    }
-    .data-table th {
-      text-align: left;
-      padding: 12px 16px;
-      background: var(--bg-elevated);
-      color: var(--text);
-      font-weight: 600;
-      border-bottom: 1px solid var(--border-hover);
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-    .data-table td {
-      padding: 12px 16px;
-      color: var(--text-secondary);
-      border-bottom: 1px solid var(--border);
-      vertical-align: top;
-    }
-
-    .contact-box {
-      background: var(--bg-elevated);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-      margin: 16px 0;
-    }
-    .contact-box p {
-      color: var(--text-secondary) !important;
-      font-size: 0.9rem !important;
-      margin-bottom: 6px !important;
-    }
-    .contact-box strong { color: var(--text); }
-
-    /* Footer */
-    .privacy-footer {
-      border-top: 1px solid var(--border);
-      padding: 32px 0;
-      text-align: center;
-    }
-    .privacy-footer p {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      .data-table, .data-table tbody, .data-table tr, .data-table td, .data-table th {
-        display: block;
-        width: 100%;
-      }
-      .data-table th { border-bottom: none; }
-      .data-table tr { margin-bottom: 12px; border-bottom: 1px solid var(--border-hover); }
-      .data-table td { padding: 8px 16px; border-bottom: none; }
-      .data-table td::before {
-        content: attr(data-label);
-        font-weight: 600;
-        color: var(--text);
-        display: block;
-        margin-bottom: 4px;
-        font-size: 0.78rem;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Aviso de Privacidad — Selixor Systems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:#f8f9fa;color:#1a1a1a;font-family:'Outfit',Georgia,serif;font-size:13.5px;line-height:1.85;-webkit-font-smoothing:antialiased}
+nav{background:#fff;border-bottom:1px solid #e0e0e0;padding:14px 0;position:sticky;top:0;z-index:10}
+.ni{max-width:780px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:11px;font-weight:600;letter-spacing:3px;color:#111;text-decoration:none}
+.back{font-size:11px;color:#666;text-decoration:none;display:flex;align-items:center;gap:5px}
+.back:hover{color:#111}
+.back svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.wrap{max-width:780px;margin:0 auto;padding:52px 32px 96px}
+.doc-header{border-bottom:2px solid #111;padding-bottom:20px;margin-bottom:32px}
+.doc-header h1{font-size:15px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:#111;margin-bottom:10px}
+.doc-meta{font-size:11.5px;color:#555;line-height:2}
+.doc-meta span{display:inline-block;margin-right:24px}
+p{margin-bottom:14px;color:#2a2a2a;text-align:justify}
+h2{font-size:13.5px;font-weight:600;color:#111;margin:36px 0 10px;text-transform:uppercase;letter-spacing:.8px}
+h3{font-size:13px;font-weight:600;color:#333;margin:22px 0 8px}
+ul{list-style:disc;padding-left:20px;margin-bottom:14px}
+ul li{margin-bottom:6px;color:#2a2a2a}
+table{width:100%;border-collapse:collapse;margin:16px 0 20px;font-size:12.5px}
+th{background:#f0f0f0;border:1px solid #ccc;padding:8px 10px;text-align:left;font-weight:600;font-size:11.5px;color:#333}
+td{border:1px solid #ddd;padding:8px 10px;vertical-align:top;color:#333;line-height:1.7}
+.divider{border:none;border-top:1px solid #ddd;margin:36px 0}
+.footer-box{border:1px solid #ccc;padding:24px 28px;margin-top:40px;background:#fff}
+.footer-box p{margin-bottom:6px;font-size:12.5px}
+footer{text-align:center;padding:28px 32px;font-size:11px;color:#888;border-top:1px solid #e0e0e0;margin-top:40px}
+a{color:#111;text-decoration:underline}
+</style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="header">
-    <div class="header-inner">
-      <a href="index.html" class="logo">SELIX<span class="or">OR</span>&nbsp;SYSTEMS</a>
-      <a href="index.html" class="back-link">
-        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
-        Volver al inicio
-      </a>
-    </div>
-  </header>
+<nav><div class="ni">
+  <a class="logo" href="index.html">SELIXOR SYSTEMS</a>
+  <a class="back" href="index.html"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> Volver</a>
+</div></nav>
 
-  <!-- CONTENT -->
-  <article class="content">
+<div class="wrap">
 
-    <p class="page-label">Legal</p>
-    <h1 class="page-title">Aviso de Privacidad Integral</h1>
-    <p class="page-updated">Última actualización: 28 de marzo de 2026</p>
+<div class="doc-header">
+<h1>Aviso de Privacidad Integral</h1>
+<div class="doc-meta">
+  <span>Responsable: Aethel Neural Labs, S.A.P.I. de C.V.</span>
+  <span>Nombre comercial: Selixor Systems</span>
+  <span>RFC: En trámite</span>
+  <span>Versión: 2.1 &nbsp;·&nbsp; Enero 2026</span>
+  <span>Domicilio: Av. Santa Fe 505, Piso 21, Cuajimalpa de Morelos, CDMX, C.P. 01219</span>
+</div>
+</div>
 
-    <!-- 1. IDENTIDAD -->
-    <div class="section">
-      <h2 class="section-heading">1. Identidad y domicilio del responsable</h2>
-      <p>Selixor Systems (en adelante "Selixor"), con domicilio en Ciudad de México, México, es responsable del tratamiento de sus datos personales conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP) vigente.</p>
-      <div class="contact-box">
-        <p><strong>Responsable:</strong> Misael De Paz — Fundador & CEO</p>
-        <p><strong>Correo electrónico:</strong> <a href="mailto:info@selixor.cloud">info@selixor.cloud</a></p>
-        <p><strong>Sitio web:</strong> <a href="https://selixor.cloud">selixor.cloud</a></p>
-      </div>
-    </div>
+<p>El presente Aviso de Privacidad (en adelante, el "Aviso") es emitido por Aethel Neural Labs, Sociedad Anónima Promotora de Inversión de Capital Variable, que opera bajo el nombre comercial Selixor Systems, con domicilio en Avenida Santa Fe número 505, Piso 21, Colonia Lomas de Santa Fe, Alcaldía Cuajimalpa de Morelos, Ciudad de México, Código Postal 01219, en cumplimiento de lo dispuesto por la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (en adelante, la "Ley"), publicada en el Diario Oficial de la Federación el 5 de julio de 2010; su Reglamento, publicado el 21 de diciembre de 2011; y los Lineamientos del Aviso de Privacidad emitidos por el Instituto Nacional de Transparencia, Acceso a la Información y Protección de Datos Personales (INAI), publicados el 17 de enero de 2013.</p>
 
-    <!-- 2. DATOS RECABADOS -->
-    <div class="section">
-      <h2 class="section-heading">2. Datos personales que recabamos</h2>
-      <p>Selixor recaba los siguientes datos personales de manera directa cuando usted nos los proporciona voluntariamente a través de nuestro formulario de contacto o al contratar nuestros servicios:</p>
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>Dato personal</th>
-            <th>Finalidad</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td data-label="Dato personal">Nombre completo</td>
-            <td data-label="Finalidad">Identificación y comunicación</td>
-          </tr>
-          <tr>
-            <td data-label="Dato personal">Correo electrónico</td>
-            <td data-label="Finalidad">Contacto, envío de información y soporte</td>
-          </tr>
-          <tr>
-            <td data-label="Dato personal">Mensaje / consulta</td>
-            <td data-label="Finalidad">Atención a solicitudes</td>
-          </tr>
-          <tr>
-            <td data-label="Dato personal">Datos de calendario y citas (Selixor Pulse)</td>
-            <td data-label="Finalidad">Gestión automatizada de recordatorios</td>
-          </tr>
-        </tbody>
-      </table>
-      <p>Selixor no recaba datos personales sensibles. En caso de que en el futuro fuera necesario, se solicitará su consentimiento expreso y por escrito.</p>
-    </div>
+<p>Aethel Neural Labs, S.A.P.I. de C.V. actúa en todo momento en calidad de Responsable del tratamiento de los datos personales que le son proporcionados directamente por los titulares o que son recabados de manera indirecta a través de los medios tecnológicos descritos en el presente documento. La empresa es una persona moral de carácter privado, constituida conforme a la legislación mexicana, cuya actividad principal es el desarrollo de tecnología e inteligencia artificial aplicada a sistemas de monitoreo pasivo para entornos institucionales. Aethel Neural Labs, S.A.P.I. de C.V. no es una institución de salud, no presta servicios médicos y no actúa en calidad de profesional de la medicina ni de ninguna disciplina del área de la salud.</p>
 
-    <!-- 3. FINALIDADES -->
-    <div class="section">
-      <h2 class="section-heading">3. Finalidades del tratamiento</h2>
-      <p>Sus datos personales serán tratados para las siguientes finalidades necesarias que dan origen y son indispensables para la relación con Selixor:</p>
-      <p>Responder a sus consultas y solicitudes de información. Proveer los servicios contratados (Selixor Pulse). Gestionar recordatorios, alertas y notificaciones automatizadas. Enviar comunicaciones relacionadas con el servicio contratado.</p>
-      <p>Adicionalmente, con su consentimiento, sus datos podrán ser utilizados para las siguientes finalidades que no son necesarias pero que nos permiten mejorar su experiencia:</p>
-      <p>Enviar información sobre nuevos productos, actualizaciones y promociones. Realizar encuestas de satisfacción. Elaborar estadísticas y análisis internos para mejora del servicio.</p>
-      <p>Si usted no desea que sus datos sean tratados para estas finalidades secundarias, puede enviar un correo a <a href="mailto:info@selixor.cloud">info@selixor.cloud</a> con el asunto "Finalidades secundarias" indicando su negativa. Esta negativa no será motivo para negarle los servicios contratados.</p>
-    </div>
+<hr class="divider">
 
-    <!-- 4. MECANISMOS DE SEGURIDAD -->
-    <div class="section">
-      <h2 class="section-heading">4. Medidas de seguridad</h2>
-      <p>Selixor implementa medidas de seguridad administrativas, técnicas y físicas para proteger sus datos personales contra daño, pérdida, alteración, destrucción, acceso o tratamiento no autorizado, incluyendo: cifrado de datos en tránsito y en reposo, control de acceso restringido, infraestructura en la nube con proveedores certificados (AWS) y monitoreo continuo de seguridad.</p>
-    </div>
+<h2>I. Datos personales objeto de tratamiento</h2>
 
-    <!-- 5. TRANSFERENCIAS -->
-    <div class="section">
-      <h2 class="section-heading">5. Transferencias de datos</h2>
-      <p>Selixor podrá transferir sus datos personales a los siguientes terceros, sin requerir su consentimiento, conforme a las excepciones previstas en la LFPDPPP:</p>
-      <p>Proveedores de infraestructura en la nube (Amazon Web Services) para el almacenamiento y procesamiento seguro de datos. Proveedores de servicios de mensajería (Telegram, WhatsApp) para el envío de notificaciones y recordatorios. Proveedores de inteligencia artificial para el procesamiento de recomendaciones contextuales.</p>
-      <p>Selixor no vende, comercializa ni comparte sus datos personales con terceros para fines publicitarios o de mercadotecnia.</p>
-    </div>
+<p>Para el cumplimiento de las finalidades descritas en el presente Aviso, Aethel Neural Labs, S.A.P.I. de C.V. podrá recabar, usar, almacenar, transferir y en general tratar las siguientes categorías de datos personales, según corresponda a la naturaleza de la relación establecida con el titular:</p>
 
-    <!-- 6. DERECHOS ARCO -->
-    <div class="section">
-      <h2 class="section-heading">6. Derechos ARCO</h2>
-      <p>Usted tiene derecho a Acceder, Rectificar, Cancelar u Oponerse al tratamiento de sus datos personales (derechos ARCO). Para ejercer cualquiera de estos derechos, deberá enviar una solicitud al correo electrónico <a href="mailto:info@selixor.cloud">info@selixor.cloud</a> con la siguiente información:</p>
-      <p>Nombre completo del titular. Descripción clara del derecho que desea ejercer y los datos personales involucrados. Correo electrónico o medio de contacto para recibir la respuesta. Cualquier documento que facilite la localización de sus datos personales.</p>
-      <p>Selixor responderá su solicitud en un plazo máximo de 20 días hábiles contados a partir de la recepción de la solicitud completa. La respuesta indicará si la solicitud es procedente y, en su caso, se hará efectiva dentro de los 15 días hábiles siguientes a la notificación de la respuesta.</p>
-    </div>
+<table>
+<thead><tr><th>Categoría</th><th>Datos específicos</th><th>Medio de obtención</th></tr></thead>
+<tbody>
+<tr><td>Datos de identificación profesional</td><td>Nombre completo, cargo o función, institución u organización a la que pertenece</td><td>Formularios de contacto, correo electrónico, reuniones presenciales o virtuales</td></tr>
+<tr><td>Datos de contacto profesional</td><td>Dirección de correo electrónico institucional, número telefónico de contacto</td><td>Formularios web, comunicación directa</td></tr>
+<tr><td>Datos de contexto institucional</td><td>Tipo de organización, número estimado de camas o unidades, objetivos o necesidades del proyecto</td><td>Formularios de evaluación o conversaciones comerciales</td></tr>
+<tr><td>Datos de navegación y uso del sitio</td><td>Dirección IP, tipo y versión de navegador, sistema operativo, páginas visitadas, tiempo de permanencia, origen de la visita</td><td>Cookies y tecnologías de rastreo del sitio web</td></tr>
+</tbody>
+</table>
 
-    <!-- 7. REVOCACIÓN DEL CONSENTIMIENTO -->
-    <div class="section">
-      <h2 class="section-heading">7. Revocación del consentimiento</h2>
-      <p>Usted puede revocar el consentimiento que nos ha otorgado para el tratamiento de sus datos personales, a fin de que dejemos de hacer uso de los mismos. Para ello, deberá enviar su solicitud de revocación al correo <a href="mailto:info@selixor.cloud">info@selixor.cloud</a> con el asunto "Revocación de consentimiento".</p>
-      <p>Selixor atenderá su solicitud en un plazo máximo de 20 días hábiles. Es importante considerar que, en ciertos casos, la revocación del consentimiento podrá implicar que no sea posible continuar prestando el servicio contratado.</p>
-    </div>
+<p>En forma expresa, Aethel Neural Labs, S.A.P.I. de C.V. declara que no recaba, trata ni almacena datos personales de carácter sensible, entendidos estos conforme al artículo 3, fracción VI de la Ley, como aquellos que afecten a la esfera más íntima de su titular o cuya utilización indebida pueda dar origen a discriminación o conlleve un riesgo grave para éste. En particular, no se recaban datos relativos al origen racial o étnico, estado de salud presente o futuro, información genética, creencias religiosas, filosóficas o morales, afiliación sindical, opiniones políticas ni preferencias sexuales de los usuarios del sitio ni de los interesados en los servicios de la empresa.</p>
 
-    <!-- 8. COOKIES Y TECNOLOGÍAS -->
-    <div class="section">
-      <h2 class="section-heading">8. Cookies y tecnologías de rastreo</h2>
-      <p>El sitio web de Selixor no utiliza cookies propias ni tecnologías de rastreo. El formulario de contacto es procesado por Formspree, un servicio externo que puede utilizar cookies técnicas necesarias para su funcionamiento. Para mayor información, consulte la política de privacidad de Formspree.</p>
-    </div>
+<p>Asimismo, no se recaban datos personales de menores de edad de forma directa a través de los canales de contacto de la empresa, dado que los servicios de Aethel Neural Labs, S.A.P.I. de C.V. están dirigidos exclusivamente a personas morales e interlocutores institucionales.</p>
 
-    <!-- 9. MODIFICACIONES -->
-    <div class="section">
-      <h2 class="section-heading">9. Modificaciones al aviso de privacidad</h2>
-      <p>Selixor se reserva el derecho de modificar el presente aviso de privacidad para adaptarlo a cambios legislativos, jurisprudenciales, políticas internas o nuevos requerimientos para la prestación de sus servicios. Las modificaciones estarán disponibles en <a href="https://selixor.cloud/privacidad.html">selixor.cloud/privacidad.html</a> y, en caso de cambios sustanciales, se notificará a los usuarios a través de los medios de contacto disponibles.</p>
-    </div>
+<hr class="divider">
 
-    <!-- 10. AUTORIDAD -->
-    <div class="section">
-      <h2 class="section-heading">10. Autoridad competente</h2>
-      <p>Si usted considera que su derecho a la protección de datos personales ha sido vulnerado, puede acudir a la Secretaría de Anticorrupción y Buen Gobierno, autoridad competente en materia de protección de datos personales en posesión de los particulares conforme a la LFPDPPP vigente.</p>
-    </div>
+<h2>II. Finalidades del tratamiento</h2>
 
-    <!-- 11. CONSENTIMIENTO -->
-    <div class="section">
-      <h2 class="section-heading">11. Consentimiento</h2>
-      <p>Al proporcionar sus datos personales a través de nuestro sitio web, formulario de contacto o al contratar cualquiera de nuestros servicios, usted manifiesta su consentimiento tácito para el tratamiento de sus datos personales conforme a lo descrito en el presente aviso de privacidad.</p>
-      <p>Si usted no está de acuerdo con los términos aquí descritos, le solicitamos no proporcionar sus datos personales a Selixor.</p>
-    </div>
+<h3>Finalidades primarias</h3>
+<p>Las siguientes finalidades son necesarias para la existencia, mantenimiento y cumplimiento de la relación comercial o precontractual entre el titular y Aethel Neural Labs, S.A.P.I. de C.V. La negativa a su tratamiento implicará la imposibilidad de atender la solicitud del interesado:</p>
+<ul>
+<li>Recibir, registrar y dar respuesta a solicitudes de información sobre los productos, servicios y programa de implementación de Selixor Systems.</li>
+<li>Gestionar el proceso de registro de interés institucional para los programas de implementación por fases que opera la empresa.</li>
+<li>Coordinar, confirmar y realizar presentaciones ejecutivas y sesiones de demostración del sistema Selixor Pulse, ya sea de forma presencial en las instalaciones de la empresa o de manera remota.</li>
+<li>Evaluar la compatibilidad técnica, operativa e institucional entre la solución tecnológica ofrecida y las necesidades del interesado.</li>
+<li>Elaborar, negociar, formalizar y ejecutar contratos, convenios de colaboración, cartas de intención y acuerdos de confidencialidad con instituciones interesadas en los servicios de la empresa.</li>
+<li>Dar cumplimiento a las obligaciones legales, fiscales, contables y regulatorias a las que está sujeta la empresa conforme a la legislación mexicana aplicable.</li>
+<li>Gestionar incidencias, reclamaciones o consultas relacionadas con los servicios contratados.</li>
+</ul>
 
-  </article>
+<h3>Finalidades secundarias</h3>
+<p>Las siguientes finalidades no son indispensables para la relación comercial o contractual, por lo que el titular tiene derecho a negarse a su tratamiento en cualquier momento sin que ello afecte la atención de su solicitud principal. Para ello, deberá manifestar su negativa a través del mecanismo descrito en el apartado IV del presente Aviso:</p>
+<ul>
+<li>Envío de comunicaciones periódicas de carácter informativo sobre actualizaciones del producto, avances tecnológicos, novedades regulatorias relevantes o eventos institucionales organizados o auspiciados por la empresa.</li>
+<li>Realización de análisis estadístico, estudios de inteligencia de mercado y planificación estratégica interna con base en información agregada y no individualizada de los interesados.</li>
+<li>Elaboración de materiales de referencia o casos de estudio en forma genérica y despersonalizada, sin identificar al titular.</li>
+</ul>
 
-  <!-- FOOTER -->
-  <footer class="privacy-footer">
-    <p>&copy; 2026 Selixor Systems. Todos los derechos reservados. — <a href="index.html" style="color:var(--text-muted)">Volver al inicio</a></p>
-  </footer>
+<hr class="divider">
+
+<h2>III. Transferencia de datos personales a terceros</h2>
+
+<p>Aethel Neural Labs, S.A.P.I. de C.V. no comercializa, vende, alquila ni cede los datos personales de los titulares a terceros con fines propios o ajenos a los descritos en el presente Aviso. No obstante lo anterior, los datos personales podrán ser compartidos con terceros exclusivamente en los siguientes supuestos, los cuales no requieren del consentimiento expreso del titular conforme a lo señalado en el artículo 37 de la Ley:</p>
+
+<ul>
+<li><strong>Proveedores de servicios tecnológicos:</strong> empresas que prestan servicios de infraestructura en la nube, herramientas de gestión de relaciones comerciales (CRM), plataformas de correo electrónico y servicios de comunicación que actúan en calidad de encargados del tratamiento, bajo contratos que incluyen cláusulas de confidencialidad y obligaciones equivalentes a las establecidas en la Ley.</li>
+<li><strong>Autoridades competentes:</strong> cuando sea requerido mediante orden judicial, mandamiento de autoridad administrativa competente, o cualquier otra disposición legal que obligue a la divulgación de datos personales, siempre que la solicitud sea fundada y motivada conforme a la legislación aplicable.</li>
+<li><strong>Socios institucionales en el marco de convenios de colaboración:</strong> en los casos en que el titular haya expresado su consentimiento previo o cuando la transferencia sea estrictamente necesaria para la ejecución de un contrato en el que el titular sea parte o beneficiario.</li>
+<li><strong>Sociedades controladoras, subsidiarias o afiliadas:</strong> en los casos en que Aethel Neural Labs, S.A.P.I. de C.V. forme parte de un grupo empresarial y la transferencia sea necesaria para fines administrativos legítimos y compatibles con las finalidades descritas.</li>
+</ul>
+
+<p>Cualquier transferencia no contemplada en los supuestos anteriores requerirá el consentimiento expreso del titular, el cual deberá obtenerse de forma previa e informada conforme a los requisitos establecidos en la Ley y su Reglamento.</p>
+
+<hr class="divider">
+
+<h2>IV. Derechos del titular y mecanismos de ejercicio</h2>
+
+<p>Conforme a lo establecido en los artículos 22 al 35 de la Ley, el titular de los datos personales tiene reconocidos los siguientes derechos:</p>
+<ul>
+<li><strong>Derecho de Acceso:</strong> conocer qué datos personales son objeto de tratamiento, para qué finalidades, el origen de los datos en caso de haber sido obtenidos de fuentes distintas al titular, y las transferencias que se hayan realizado.</li>
+<li><strong>Derecho de Rectificación:</strong> solicitar la corrección de datos personales inexactos, incompletos o desactualizados.</li>
+<li><strong>Derecho de Cancelación:</strong> solicitar la supresión de los datos personales del tratamiento, cuando sea procedente conforme a la Ley. La cancelación dará lugar al bloqueo de los datos y transcurrido el plazo de conservación legalmente aplicable, a su eliminación definitiva.</li>
+<li><strong>Derecho de Oposición:</strong> oponerse al tratamiento de los datos personales para finalidades específicas, en particular las de carácter secundario, cuando existan causas legítimas o la situación específica del titular lo justifique.</li>
+<li><strong>Derecho a la revocación del consentimiento:</strong> revocar el consentimiento otorgado para el tratamiento de datos personales en cualquier momento, sin que ello tenga efectos retroactivos.</li>
+<li><strong>Derecho a la portabilidad:</strong> recibir una copia de los datos personales proporcionados en un formato estructurado, de uso común y lectura mecánica, en los términos que determine la normativa aplicable.</li>
+</ul>
+
+<p>Para ejercer cualquiera de los derechos anteriores, el titular o su representante legal debidamente acreditado deberá remitir una solicitud por escrito al correo electrónico <strong>privacidad@selixor.cloud</strong>, la cual deberá contener como mínimo los siguientes elementos:</p>
+
+<ul>
+<li>Nombre completo del titular y datos de contacto para recibir la respuesta correspondiente.</li>
+<li>Descripción clara y precisa del derecho que se desea ejercer y los datos personales sobre los que recae la solicitud.</li>
+<li>Copia de documento oficial de identificación vigente del titular o, en su caso, del representante legal con acreditación de personalidad.</li>
+<li>En caso de solicitar la rectificación de datos, descripción de la modificación solicitada y los documentos que la soporten.</li>
+<li>Cualquier otro elemento o documento que facilite la localización de los datos y la atención de la solicitud.</li>
+</ul>
+
+<p>El responsable contará con un plazo de <strong>veinte días hábiles</strong>, contados a partir de la fecha de recepción de la solicitud completa y debidamente integrada, para comunicar al titular la determinación adoptada. En caso de que la solicitud sea procedente, la resolución se hará efectiva dentro de los <strong>quince días hábiles</strong> siguientes a su comunicación. Ambos plazos podrán ser ampliados por una sola vez por un período igual, cuando así lo justifiquen las circunstancias del caso, conforme al artículo 24 de la Ley.</p>
+
+<hr class="divider">
+
+<h2>V. Uso de cookies y otras tecnologías de rastreo</h2>
+
+<p>El sitio web de Selixor Systems, disponible en la dirección electrónica selixor.cloud, utiliza cookies y tecnologías similares de rastreo con el propósito de mejorar la experiencia de navegación, analizar el uso del sitio y mantener preferencias del usuario. Las cookies son archivos de texto que se almacenan en el dispositivo del usuario al visitar el sitio web y permiten al responsable reconocer visitas posteriores y recopilar información sobre el comportamiento de navegación.</p>
+
+<table>
+<thead><tr><th>Tipo de cookie</th><th>Finalidad específica</th><th>Duración estimada</th></tr></thead>
+<tbody>
+<tr><td>Cookies de sesión (técnicas)</td><td>Mantener la funcionalidad básica del sitio durante la visita, gestionar el flujo de navegación y recordar las interacciones realizadas en la misma sesión</td><td>Duración de la sesión; se eliminan al cerrar el navegador</td></tr>
+<tr><td>Cookies analíticas</td><td>Recopilación de estadísticas agregadas sobre visitas, páginas consultadas y comportamiento de navegación, sin identificación personal del usuario</td><td>Hasta 13 meses desde la última visita</td></tr>
+<tr><td>Cookies de preferencias</td><td>Recordar configuraciones seleccionadas por el usuario, tales como idioma o preferencias de interfaz</td><td>Hasta 12 meses</td></tr>
+</tbody>
+</table>
+
+<p>El sitio web de Selixor Systems no utiliza cookies con fines publicitarios, de segmentación comercial ni de perfilamiento individualizado de usuarios. El usuario puede en cualquier momento desactivar el uso de cookies a través de la configuración de su navegador de internet. La desactivación de cookies técnicas o de sesión puede afectar el correcto funcionamiento de algunas secciones del sitio. La desactivación de cookies analíticas o de preferencias no afectará la funcionalidad general del sitio ni la prestación de los servicios.</p>
+
+<hr class="divider">
+
+<h2>VI. Medidas de seguridad implementadas</h2>
+
+<p>Aethel Neural Labs, S.A.P.I. de C.V. ha adoptado y mantiene las medidas de seguridad técnicas, administrativas y físicas que resultan necesarias y razonables para proteger los datos personales de los titulares frente al daño, pérdida, alteración, destrucción, uso, acceso o tratamiento no autorizado, conforme a lo establecido en los artículos 19 y 20 de la Ley y el Capítulo IV de su Reglamento. Entre las medidas implementadas se encuentran, de manera enunciativa mas no limitativa:</p>
+
+<ul>
+<li>Cifrado de todas las comunicaciones del sitio web en tránsito mediante protocolo Transport Layer Security versión 1.3 (TLS 1.3).</li>
+<li>Cifrado de datos en reposo mediante algoritmo Advanced Encryption Standard de 256 bits (AES-256) en los sistemas de almacenamiento de la empresa.</li>
+<li>Controles de acceso basados en roles (RBAC) para los sistemas internos que procesan datos personales, con autenticación de dos factores (2FA) obligatoria para todo el personal con acceso a información sensible.</li>
+<li>Políticas internas de tratamiento de información, confidencialidad y manejo de incidentes de seguridad, de cumplimiento obligatorio para todo el personal de la empresa, incluyendo colaboradores externos.</li>
+<li>Revisiones periódicas de vulnerabilidades y actualizaciones de seguridad en los sistemas e infraestructura tecnológica de la empresa.</li>
+<li>Protección activa contra ataques de denegación de servicio distribuido (DDoS) y filtrado de tráfico mediante Web Application Firewall (WAF).</li>
+</ul>
+
+<p>No obstante las medidas anteriores, el titular reconoce que ningún sistema de seguridad es completamente invulnerable y que la transmisión de datos a través de redes de comunicación públicas conlleva inherentemente ciertos riesgos. En caso de que ocurra una vulneración de seguridad significativa que pueda afectar de manera relevante los derechos patrimoniales o morales del titular, Aethel Neural Labs, S.A.P.I. de C.V. lo informará a las partes afectadas de forma oportuna y en los plazos previstos por la normativa aplicable, adoptando las medidas correctivas que correspondan.</p>
+
+<hr class="divider">
+
+<h2>VII. Conservación de los datos personales</h2>
+
+<p>Los datos personales serán conservados durante el tiempo estrictamente necesario para el cumplimiento de las finalidades para las que fueron recabados y durante los plazos de conservación que resulten aplicables conforme a la legislación fiscal, mercantil, laboral y civil vigente en México. Una vez transcurridos dichos plazos y habiendo cesado la necesidad de tratamiento, los datos serán bloqueados y posteriormente suprimidos de los sistemas del responsable, salvo que exista obligación legal de conservación por un plazo adicional o que el titular haya dado su consentimiento para un tratamiento ulterior.</p>
+
+<p>En el caso de datos recabados a través de formularios de contacto o registro de interés sin que se haya formalizado una relación contractual, los datos serán conservados por un plazo máximo de dos años a partir de la última interacción con el titular, salvo que este solicite su cancelación en forma previa.</p>
+
+<hr class="divider">
+
+<h2>VIII. Cambios y actualizaciones al presente Aviso</h2>
+
+<p>Aethel Neural Labs, S.A.P.I. de C.V. se reserva el derecho de modificar, actualizar o complementar el presente Aviso de Privacidad en cualquier momento, en respuesta a cambios legislativos o jurisprudenciales, resoluciones o recomendaciones del INAI, modificaciones en las prácticas internas de tratamiento de datos, incorporación de nuevas finalidades o cualquier otra circunstancia que lo justifique.</p>
+
+<p>Cualquier modificación al presente Aviso será notificada al titular a través de su publicación en el sitio web de la empresa, disponible en la dirección electrónica selixor.cloud/privacidad.html, con una anticipación mínima de diez días hábiles a la fecha en que entre en vigor la versión actualizada. Se recomienda al titular revisar periódicamente el presente Aviso para mantenerse informado sobre las prácticas de privacidad de la empresa. El uso continuado de los servicios o del sitio web de Selixor Systems con posterioridad a la publicación de las modificaciones implicará la aceptación tácita del aviso actualizado, salvo en aquellos casos en que la Ley exija el consentimiento expreso del titular.</p>
+
+<p>La versión vigente y actualizada del presente Aviso estará disponible en todo momento en la dirección electrónica selixor.cloud/privacidad.html. Las versiones anteriores podrán ser solicitadas al responsable mediante comunicación dirigida al correo privacidad@selixor.cloud.</p>
+
+<hr class="divider">
+
+<h2>IX. Autoridad competente para la protección de datos</h2>
+
+<p>Si el titular considera que su derecho a la protección de datos personales ha sido lesionado por alguna conducta u omisión de nuestra parte, o presume que en el tratamiento de sus datos personales existe alguna violación a las disposiciones previstas en la Ley Federal de Protección de Datos Personales en Posesión de los Particulares, podrá interponer la queja o denuncia correspondiente ante el Instituto Nacional de Transparencia, Acceso a la Información y Protección de Datos Personales (INAI), con domicilio en Insurgentes Sur número 3211, Colonia Pedregal de San Ángel, Alcaldía Álvaro Obregón, Ciudad de México, Código Postal 01900. Para mayor información, puede consultar el sitio oficial del Instituto en la dirección electrónica home.inai.org.mx o comunicarse a la línea INAI al 800 835 4324.</p>
+
+<div class="footer-box">
+<p><strong>Responsable del tratamiento:</strong> Aethel Neural Labs, S.A.P.I. de C.V.</p>
+<p><strong>Nombre comercial:</strong> Selixor Systems</p>
+<p><strong>RFC:</strong> En trámite de registro ante el Servicio de Administración Tributaria</p>
+<p><strong>Domicilio fiscal y comercial:</strong> Avenida Santa Fe 505, Piso 21, Lomas de Santa Fe, Cuajimalpa de Morelos, Ciudad de México, C.P. 01219</p>
+<p><strong>Correo de privacidad:</strong> privacidad@selixor.cloud</p>
+<p><strong>Correo general:</strong> info@selixor.cloud</p>
+<p style="margin-top:14px;color:#666;font-size:12px">Para ejercer sus derechos ARCO o revocar su consentimiento, diríjase exclusivamente al correo privacidad@selixor.cloud con los elementos indicados en el apartado IV del presente documento.</p>
+</div>
+
+</div>
+
+<footer>
+<p>© 2026 Aethel Neural Labs, S.A.P.I. de C.V. &nbsp;·&nbsp; Selixor Systems &nbsp;·&nbsp; Todos los derechos reservados</p>
+<p>Aviso de Privacidad Integral v2.1 &nbsp;·&nbsp; Emitido en cumplimiento de la LFPDPPP y su Reglamento &nbsp;·&nbsp; Ciudad de México</p>
+</footer>
 
 </body>
 </html>

@@ -271,8 +271,8 @@ section{padding:120px 0}
 .eq-header-right{flex-shrink:0}
 .eq-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border:1px solid rgba(0,163,224,.25);border-radius:100px;font-size:12px;color:var(--accent);letter-spacing:.5px;transition:background .3s,border-color .3s}
 .eq-cta:hover{background:var(--ag);border-color:var(--accent)}
-.eq-ceo{display:grid;grid-template-columns:420px 1fr;gap:0;border:1px solid var(--border2);border-radius:var(--rl);overflow:hidden;background:var(--card);margin-bottom:20px;position:relative;isolation:isolate}
-.eq-ceo::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),rgba(0,163,224,.3),transparent)}
+.eq-ceo{display:grid;grid-template-columns:420px 1fr;gap:0;border:1px solid var(--border2);border-radius:var(--rl);overflow:hidden;background:var(--card);margin-bottom:20px;position:relative;isolation:isolate;border-top:none}
+.eq-ceo::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(0,163,224,.3),rgba(0,163,224,.15),transparent);z-index:1}
 .eq-ceo-photo{position:relative;overflow:hidden;min-height:480px}
 .eq-ceo-photo img{width:100%;height:100%;object-fit:cover;object-position:center 28%;display:block}
 .eq-ceo-photo::after{display:none}
@@ -322,7 +322,7 @@ section{padding:120px 0}
 <li><a href="#faq">FAQ</a></li>
 <li><a href="#contacto">Contacto</a></li>
 <li><a href="#equipo">Equipo</a></li>
-<li><a href="#lista-espera" class="nc">Evaluación institucional</a></li>
+<li><a href="#contacto" class="nc">Agendar sesión</a></li>
 </ul>
 </div>
 </nav>
@@ -332,8 +332,8 @@ section{padding:120px 0}
 <section class="hero" id="inicio">
 <div class="hv"><video autoplay muted loop playsinline preload="auto"><source src="hero-video.mp4" type="video/mp4"></video></div>
 <div class="hc">
-<h1>Infraestructura de monitoreo clínico para entornos de atención institucional.</h1>
-<p class="hsub">Tecnología de detección pasiva, análisis de comportamiento y respuesta automatizada. Diseñada para integrarse en protocolos de atención sin alterar la operación.</p>
+<h1>El primer sistema de monitoreo pasivo con tecnología mmWave para entornos geriátricos institucionales en México.</h1>
+<p class="hsub">Radar de onda milimétrica. Sin cámaras. Sin dispositivos en el cuerpo. Detección, análisis y respuesta en tiempo real — integrado en el protocolo clínico existente.</p>
 <div class="hctas">
 <a href="#sistema" class="bp">Conocer la tecnología<svg viewBox="0 0 24 24"><path d="M7 13l5 5 5-5"/></svg></a>
 </div>
@@ -533,11 +533,11 @@ section{padding:120px 0}
 <div class="alg">
 <article class="alc rv">
 <div class="ali" style="background-image:url('tecsalud.jpg')"></div>
-<div class="alb"><p class="aln">TecSalud</p><p class="als">Colaboración activa en implementación y evaluación del sistema con el sistema de salud del Tecnológico de Monterrey.</p><span class="albg">Colaboración activa</span></div>
+<div class="alb"><p class="aln">TecSalud</p><p class="als">Primera institución socia de Selixor. La capacidad productiva del Q2 2027 está comprometida con esta alianza estratégica.</p><span class="albg">Colaboración activa</span></div>
 </article>
 <article class="alc rv">
 <div class="ali" style="background-image:url('abc.jpg')"></div>
-<div class="alb"><p class="aln">Centro Médico ABC</p><p class="als">Colaboración activa en implementación y evaluación del sistema con una de las instituciones de salud más reconocidas de México.</p><span class="albg">Colaboración activa</span></div>
+<div class="alb"><p class="aln">Centro Médico ABC</p><p class="als">Contrato vigente de implementación. Los primeros sensores Selixor Pulse serán desplegados en sus instalaciones a partir de Q2 2027.</p><span class="albg">Colaboración activa</span></div>
 </article>
 </div>
 <p class="cred rv" style="margin-top:32px">Documentación técnica disponible bajo solicitud institucional</p>
@@ -768,16 +768,12 @@ section{padding:120px 0}
 <p style="font-family:var(--serif);font-size:28px;font-weight:500;color:var(--white);line-height:1.2;margin-bottom:12px">Segundo trimestre<br>de 2027</p>
 <p style="font-size:12px;color:var(--text3);line-height:1.7;border-top:1px solid rgba(255,255,255,.05);padding-top:14px">Licenciamiento institucional<br>Sin pago anticipado requerido<br>Los acuerdos se formalizan previo a la implementación</p>
 </div>
-<a href="#lista-espera" class="bpr" style="text-align:center;justify-content:center">Solicitar evaluación institucional</a>
+
 </div>
 </div>
 
 </div>
 </section>
-
-<div class="div"></div>
-
-<div class="div"></div>
 
 <div class="div"></div>
 
@@ -822,39 +818,54 @@ section{padding:120px 0}
 
 <div class="div"></div>
 
-<section id="lista-espera">
+<section id="lista-espera" style="background:var(--bg);padding:120px 0">
 <div class="ctn">
-<p class="sl rv" style="text-align:center">Evaluación institucional</p>
-<h2 class="st rv" style="text-align:center">Solicita una evaluación técnica</h2>
-<p class="ss rv" style="text-align:center;margin:0 auto 14px">Los cupos de evaluación para el Q2 2027 son limitados. Complete el formulario para iniciar el proceso de calificación institucional.</p>
-<div style="text-align:center" class="rv"><div class="wc"><span class="dot"></span>Sin pago anticipado requerido · Disponibilidad Q2 2027</div></div>
-<div class="ww">
-<div class="fw rv">
-<form id="wlf" action="https://formspree.io/f/xjgjwoez" method="POST">
-<input type="hidden" name="_subject" value="Evaluación institucional — Selixor">
-<div class="fr"><div class="fg"><label for="wn">Nombre completo *</label><input type="text" id="wn" name="nombre" placeholder="Nombre y apellidos" required autocomplete="name"></div><div class="fg"><label for="wc2">Cargo *</label><input type="text" id="wc2" name="cargo" placeholder="Director General, CMO, CTO…" required></div></div>
-<div class="fg"><label for="wi">Institución *</label><input type="text" id="wi" name="institucion" placeholder="Nombre de la organización" required></div>
-<div class="fg"><label for="wt">Tipo de organización *</label><select id="wt" name="tipo_organizacion" required><option value="" disabled selected>Selecciona</option><option>Hospital o clínica privada</option><option>Red hospitalaria</option><option>Aseguradora o empresa de salud</option><option>Residencia o casa de cuidado</option><option>Institución pública de salud</option><option>Otro</option></select></div>
-<div class="fr"><div class="fg"><label for="we">Correo institucional *</label><input type="email" id="we" name="email" placeholder="nombre@institucion.com" required autocomplete="email"></div><div class="fg"><label for="wp">Teléfono *</label><input type="tel" id="wp" name="telefono" placeholder="+52 55 1234 5678" required autocomplete="tel"></div></div>
-<div class="fg"><label for="wb2">Número estimado de camas o pacientes</label><input type="text" id="wb2" name="volumen" placeholder="Ej: 50 camas, 200 pacientes ambulatorios"></div>
-<div class="fg"><label for="wm2">Mensaje u objetivos específicos (opcional)</label><textarea id="wm2" name="mensaje" placeholder="Describa brevemente el contexto o necesidad institucional…" rows="2"></textarea></div>
-<button type="submit" class="fs" id="wbtn">Solicitar evaluación institucional</button>
-<p class="fn">La información proporcionada se utiliza exclusivamente para la calificación del proceso de evaluación. Sin pago requerido en ninguna etapa previa a la implementación.</p>
-</form>
-<div class="fok" id="wok">
-<div class="foic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-<h3>Registro exitoso</h3>
-<p>Su solicitud institucional ha sido registrada. Nuestro equipo revisará la información y se pondrá en contacto para coordinar la evaluación técnica y los siguientes pasos del proceso.</p>
-<div class="wid" id="wid"></div>
+<p class="sl rv" style="text-align:center">Programa de acceso</p>
+<h2 class="st rv" style="text-align:center;max-width:680px;margin:0 auto 20px">Selixor opera bajo un modelo de implementación por fases</h2>
+<p class="ss rv" style="text-align:center;margin:0 auto 72px;max-width:580px">La capacidad productiva del primer ciclo está comprometida con nuestros socios institucionales fundadores. Las instituciones interesadas en ciclos subsecuentes pueden registrar su interés para ser contactadas cuando se abra la siguiente fase.</p>
+
+<div class="rv" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:rgba(0,163,224,.08);border-radius:16px;overflow:hidden;margin-bottom:80px">
+
+<div style="background:var(--bg);padding:40px 36px;position:relative">
+<div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),rgba(0,163,224,.3))"></div>
+<p style="font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:20px;font-weight:600">Fase I · Activa</p>
+<p style="font-family:var(--serif);font-size:22px;color:var(--white);margin-bottom:14px;line-height:1.2">Implementación<br>con socios fundadores</p>
+<p style="font-size:12px;color:var(--text3);line-height:1.75">Despliegue de Selixor Pulse en las instalaciones de TecSalud y Centro Médico ABC. Validación clínica bajo condiciones reales de operación institucional.</p>
+<div style="margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.05)">
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><span style="width:6px;height:6px;border-radius:50%;background:#34d399;flex-shrink:0"></span><span style="font-size:11px;color:var(--text2)">TecSalud · Tec de Monterrey</span></div>
+<div style="display:flex;align-items:center;gap:8px"><span style="width:6px;height:6px;border-radius:50%;background:#34d399;flex-shrink:0"></span><span style="font-size:11px;color:var(--text2)">Centro Médico ABC</span></div>
 </div>
 </div>
+
+<div style="background:rgba(8,15,26,.6);padding:40px 36px;position:relative">
+<div style="position:absolute;top:0;left:0;right:0;height:2px;background:rgba(255,255,255,.06)"></div>
+<p style="font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--text3);margin-bottom:20px;font-weight:600">Fase II · Q3–Q4 2027</p>
+<p style="font-family:var(--serif);font-size:22px;color:rgba(255,255,255,.6);margin-bottom:14px;line-height:1.2">Apertura a instituciones<br>en lista de interés</p>
+<p style="font-size:12px;color:var(--text3);line-height:1.75">Una vez concluida la primera fase de entrega, Selixor iniciará el proceso de incorporación de nuevas instituciones. El acceso se gestiona directamente a través del equipo comercial.</p>
+<div style="margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.05)">
+<span style="font-size:10px;color:var(--text3);letter-spacing:1px">Cupos limitados · Proceso por invitación</span>
 </div>
+</div>
+
+<div style="background:rgba(8,15,26,.4);padding:40px 36px;position:relative">
+<div style="position:absolute;top:0;left:0;right:0;height:2px;background:rgba(255,255,255,.04)"></div>
+<p style="font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--text3);margin-bottom:20px;font-weight:600">Fase III · 2028</p>
+<p style="font-family:var(--serif);font-size:22px;color:rgba(255,255,255,.4);margin-bottom:14px;line-height:1.2">Escala institucional<br>y redes hospitalarias</p>
+<p style="font-size:12px;color:var(--text3);line-height:1.75">Expansión del programa a redes hospitalarias, aseguradoras y operadores de residencias. Modelo de licenciamiento de volumen con integración HIS/EMR.</p>
+<div style="margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.05)">
+<span style="font-size:10px;color:var(--text3);letter-spacing:1px">Por definir · Apertura pública</span>
+</div>
+</div>
+
+</div>
+
+<div class="rv" style="max-width:520px;margin:0 auto;text-align:center;padding-top:8px">
+<p style="font-size:12px;color:var(--text3);line-height:1.8">Para conocer disponibilidad en fases subsecuentes o iniciar una conversación institucional, contacte directamente a nuestro equipo.</p>
+<a href="#contacto" style="display:inline-flex;align-items:center;gap:8px;margin-top:24px;padding:12px 28px;border:1px solid rgba(0,163,224,.2);border-radius:100px;font-size:11px;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;transition:all .3s">Contactar al equipo →</a>
+</div>
+
 </div>
 </section>
-
-<div class="div"></div>
-
-<div class="div"></div>
 
 <div class="div"></div>
 
@@ -904,10 +915,7 @@ section{padding:120px 0}
   <div class="eq-header-left">
     <p class="sl">Equipo</p>
     <h2 class="st" style="max-width:480px;margin-bottom:14px">Las personas detrás de Selixor</h2>
-    <p class="ss">Un equipo interdisciplinario que combina ingeniería de vanguardia, experiencia clínica certificada y diseño de experiencia humana para crear tecnología que cuida con dignidad.</p>
-  </div>
-  <div class="eq-header-right">
-    <a href="#lista-espera" class="eq-cta">Solicitar evaluación →</a>
+    <p class="ss">Un equipo interdisciplinario que combina ingeniería de vanguardia, desarrollo de inteligencia artificial, ingeniería de sensores y diseño de sistemas para entornos de atención institucional.</p>
   </div>
 </div>
 
@@ -933,7 +941,7 @@ section{padding:120px 0}
     <div class="eq-ceo-stat">
       <div class="eq-ceo-stat-item"><p>$1.3M</p><p>Valuación USD</p></div>
       <div class="eq-ceo-stat-item"><p>2</p><p>Alianzas institucionales</p></div>
-      <div class="eq-ceo-stat-item"><p>165+</p><p>Familias en evaluación</p></div>
+      <div class="eq-ceo-stat-item"><p>Q2 2027</p><p>Primera entrega</p></div>
     </div>
   </div>
 </div>
@@ -1092,7 +1100,7 @@ section{padding:120px 0}
 <table style="width:100%;border-collapse:collapse;font-size:10px">
 <tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 0;color:var(--text3);width:36%">Naturaleza</td><td style="padding:6px 0;color:var(--text)">Tecnología propietaria de desarrollo interno</td></tr>
 <tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 0;color:var(--text3)">Sistema</td><td style="padding:6px 0;color:var(--text)">Monitoreo continuo en el hogar mediante sensores de presencia de baja intrusión, con módulo de comunicación por voz, análisis de patrones y escalamiento de alertas</td></tr>
-<tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 0;color:var(--text3)">Diferenciación</td><td style="padding:6px 0;color:var(--text)">Clonación de voz familiar con diseño de interacciones evaluado por especialistas en andragogía; enfoque en dignidad y autonomía del adulto mayor</td></tr>
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 0;color:var(--text3)">Diferenciación</td><td style="padding:6px 0;color:var(--text)">Clonación de voz con diseño de interacciones evaluado por especialistas en andragogía; enfoque en dignidad y autonomía del adulto mayor</td></tr>
 <tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 0;color:var(--text3)">Seguridad</td><td style="padding:6px 0;color:var(--text)">TLS 1.3 · AES-256 · 2FA · WAF · Anti-DDoS</td></tr>
 <tr><td style="padding:6px 0;color:var(--text3)">Propiedad intelectual</td><td style="padding:6px 0;color:var(--text)">Clasificada — Disponible bajo NDA</td></tr>
 </table>
@@ -1194,12 +1202,24 @@ else{b.disabled=false;b.textContent='Reintentar'}
 }).catch(function(){b.disabled=false;b.textContent='Reintentar'})
 })
 }
-handleForm('wlf','wok','wid');
 handleForm('cf','cok',null);
 
-/* Set min date to tomorrow */
+/* Calendar: min +2 days, no weekends */
 var dInput=document.getElementById('cdate');
-if(dInput){var t=new Date();t.setDate(t.getDate()+1);dInput.min=t.toISOString().split('T')[0]}
+if(dInput){
+  function getMinDate(){var d=new Date();d.setDate(d.getDate()+2);return d}
+  function isWeekend(d){var day=d.getDay();return day===0||day===6}
+  function nextValidDate(d){while(isWeekend(d)){d.setDate(d.getDate()+1)}return d}
+  var minD=nextValidDate(getMinDate());
+  dInput.min=minD.toISOString().split('T')[0];
+  dInput.addEventListener('change',function(){
+    var sel=new Date(this.value+'T12:00:00');
+    if(isWeekend(sel)){
+      var next=nextValidDate(new Date(sel.getTime()+86400000));
+      this.value=next.toISOString().split('T')[0];
+    }
+  });
+}
 
 /* CHATBOT — FAQ local, sin dependencia de API externa */
 var cbt=document.getElementById('cbt'),cbw=document.getElementById('cbw'),cbms=document.getElementById('cbms'),cbi=document.getElementById('cbi'),cbsn=document.getElementById('cbsn');
@@ -1207,7 +1227,7 @@ cbt.addEventListener('click',function(){var o=cbt.classList.toggle('open');cbw.c
 
 var FAQ=[
 {k:['precio','costo','cuanto','cuesta','pago','mensualidad','dolares','licencia'],r:'El licenciamiento es institucional y se estructura según el volumen de unidades o pacientes. Los términos comerciales se definen tras la evaluación técnica. No se requiere ningún pago anticipado en ninguna etapa previa a la implementación.'},
-{k:['disponible','cuando','plazo','fecha','2027','trimestre','lanzamiento'],r:'Las primeras implementaciones institucionales están programadas a partir del segundo trimestre de 2027 (Q2 2027). Los cupos son limitados. Puede registrar su institución en el formulario de evaluación para asegurar lugar.'},
+{k:['disponible','cuando','plazo','fecha','2027','trimestre','lanzamiento'],r:'Las primeras implementaciones institucionales están programadas a partir del segundo trimestre de 2027 (Q2 2027). Los cupos son limitados. La capacidad actual está comprometida con nuestros socios institucionales. Contacte a ventas@selixor.cloud para conocer disponibilidad futura.'},
 {k:['sensor','sensores','cuantos','baño','ip65','camas','unidades'],r:'La arquitectura es modular y escalable. La configuración se determina según el número de camas, unidades o espacios a cubrir. El sensor IP65 está certificado para entornos húmedos y clínicos.'},
 {k:['instala','instalacion','obra','infraestructura','compatible'],r:'La instalación no requiere obras ni modificaciones estructurales. El equipo técnico de Selixor acompaña todo el proceso, desde la evaluación del entorno hasta la validación operativa.'},
 {k:['camara','video','graba','escucha','privacidad','audio','datos','paciente'],r:'No. El sistema utiliza sensores de presencia pasivos que no capturan video ni audio ambiental. Los datos se procesan localmente y se cifran en tránsito (TLS 1.3) y en reposo (AES-256), conforme a estándares de protección de datos en entornos de salud.'},
@@ -1221,7 +1241,7 @@ var FAQ=[
 {k:['valor','valoracion','empresa','millon','inversion'],r:'Selixor fue valorada en USD $1.3 millones bajo la metodología del programa de incubación del Tecnológico de Monterrey, clasificado entre las 200 mejores universidades del mundo (QS Rankings). Contamos con colaboraciones activas con TecSalud y Centro Médico ABC.'},
 {k:['funciona','como','opera','trabaja','hace','tecnologia'],r:'El sistema opera 24/7 con sensores de presencia en zonas críticas del entorno. Detecta patrones de comportamiento, verifica el estado del paciente por voz ante eventos relevantes, y escala alertas según el árbol de responsabilidad configurado por la institución.'},
 {k:['contacto','correo','email','telefono','escribir'],r:'Puede contactarnos en info@selixor.cloud o ventas@selixor.cloud. Nuestras oficinas están en Av. Santa Fe 505, Piso 21, CDMX. Para agendar una sesión ejecutiva, use el formulario de la sección Contacto.'},
-{k:['gracias','perfecto','genial','entiendo','listo'],r:'Con gusto. Si requiere información adicional o desea iniciar el proceso de evaluación institucional, puede registrarse en el formulario de esta página o contactarnos directamente.'},
+{k:['gracias','perfecto','genial','entiendo','listo'],r:'Con gusto. Si requiere información adicional o desea iniciar el proceso de evaluación institucional, puede contactarnos directamente en ventas@selixor.cloud o usar el formulario de la sección Contacto.'},
 {k:['donde','ubicacion','oficina','direccion','cdmx','mexico'],r:'Nuestras oficinas se encuentran en Av. Santa Fe 505, Piso 21, Lomas de Santa Fe, Cuajimalpa de Morelos, CDMX 01219.'}
 ];
 

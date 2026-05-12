@@ -271,10 +271,10 @@ section{padding:120px 0}
 .eq-header-right{flex-shrink:0}
 .eq-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border:1px solid rgba(0,163,224,.25);border-radius:100px;font-size:12px;color:var(--accent);letter-spacing:.5px;transition:background .3s,border-color .3s}
 .eq-cta:hover{background:var(--ag);border-color:var(--accent)}
-.eq-ceo{display:grid;grid-template-columns:420px 1fr;gap:0;border:1px solid var(--border2);border-radius:var(--rl);overflow:hidden;background:var(--card);margin-bottom:20px;position:relative;isolation:isolate;border-top:none}
-.eq-ceo::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(0,163,224,.3),rgba(0,163,224,.15),transparent);z-index:1}
+.eq-ceo{display:grid;grid-template-columns:420px 1fr;gap:0;border:1px solid var(--border2);border-top:none;border-radius:var(--rl);overflow:hidden;background:var(--card);margin-bottom:20px;position:relative;isolation:isolate}
+.eq-ceo::before{display:none}
 .eq-ceo-photo{position:relative;overflow:hidden;min-height:480px}
-.eq-ceo-photo img{width:100%;height:100%;object-fit:cover;object-position:center 28%;display:block}
+.eq-ceo-photo img{width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block;margin-top:-1px}
 .eq-ceo-photo::after{display:none}
 .eq-ceo-info{padding:48px 44px;display:flex;flex-direction:column;justify-content:center}
 .eq-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:var(--ag);border:1px solid rgba(0,163,224,.14);border-radius:100px;font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:20px;width:fit-content}
@@ -299,7 +299,7 @@ section{padding:120px 0}
 .eq-card-tag{display:inline-block;padding:4px 10px;background:var(--as);border:1px solid rgba(0,163,224,.1);border-radius:100px;font-size:9px;color:var(--text3);letter-spacing:.5px}
 @media(max-width:900px){
 .eq-ceo{grid-template-columns:1fr}
-.eq-ceo-photo{min-height:500px;max-height:none}
+.eq-ceo-photo{min-height:420px;max-height:460px}
 .eq-ceo-info{padding:32px 28px}
 .eq-header{flex-direction:column;gap:20px}
 }
@@ -307,7 +307,17 @@ section{padding:120px 0}
 @media(max-width:650px){
 .eq-grid{grid-template-columns:1fr}
 }
+
+@media(min-width:769px) and (max-width:1100px){.eq-ceo{grid-template-columns:1fr}.eq-ceo-photo{min-height:380px;max-height:400px}.eq-ceo-info{padding:36px 40px}}
 </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7VWNCM4TDC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7VWNCM4TDC');
+</script>
 </head>
 <body>
 
@@ -323,6 +333,7 @@ section{padding:120px 0}
 <li><a href="#contacto">Contacto</a></li>
 <li><a href="#equipo">Equipo</a></li>
 <li><a href="#contacto" class="nc">Agendar sesión</a></li>
+<li><a href="#" id="portal-btn" style="font-size:11px;color:rgba(255,255,255,.4);letter-spacing:1px;cursor:pointer;transition:color .2s;padding:6px 10px;border:1px solid rgba(255,255,255,.08);border-radius:4px">Portal</a></li>
 </ul>
 </div>
 </nav>
@@ -332,7 +343,7 @@ section{padding:120px 0}
 <section class="hero" id="inicio">
 <div class="hv"><video autoplay muted loop playsinline preload="auto"><source src="hero-video.mp4" type="video/mp4"></video></div>
 <div class="hc">
-<h1>El primer sistema de monitoreo pasivo con tecnología mmWave para entornos geriátricos institucionales en México.</h1>
+<h1>El primer sistema de monitoreo pasivo con tecnología mmWave en México.</h1>
 <p class="hsub">Radar de onda milimétrica. Sin cámaras. Sin dispositivos en el cuerpo. Detección, análisis y respuesta en tiempo real — integrado en el protocolo clínico existente.</p>
 <div class="hctas">
 <a href="#sistema" class="bp">Conocer la tecnología<svg viewBox="0 0 24 24"><path d="M7 13l5 5 5-5"/></svg></a>
@@ -993,7 +1004,7 @@ section{padding:120px 0}
 </div>
 <div class="ftb">
 <span>&copy; 2026 Selixor Systems. Todos los derechos reservados.</span>
-<div class="ftlk"><button data-modal="docs">Documentación</button><button data-modal="insights">Insights</button><a href="privacidad.html">Aviso de privacidad</a></div>
+<div class="ftlk"><button data-modal="docs">Documentación</button><button data-modal="insights">Insights</button><a href="privacidad.html">Aviso de privacidad</a> &nbsp;·&nbsp; <a href="terminos.html">Términos y condiciones</a></div>
 </div>
 </div>
 </footer>
@@ -1262,6 +1273,193 @@ cbi.addEventListener('keydown',function(e){if(e.key==='Enter')sendChat()});
 
 document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}})});
 })();
+</script>
+
+
+
+
+
+
+<!-- PORTAL DE ACCESO TÉCNICO -->
+<div id="portal-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:#030913;align-items:center;justify-content:center;font-family:var(--sans)">
+
+<!-- Subtle vignette -->
+<div style="position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 40%,rgba(0,0,0,.7) 100%);pointer-events:none"></div>
+
+<!-- Top bar -->
+<div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,163,224,.15),transparent)"></div>
+<div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,163,224,.08),transparent)"></div>
+
+<!-- Session + encryption indicators -->
+<div style="position:absolute;top:28px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:16px">
+  <div style="display:flex;align-items:center;gap:5px">
+    <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="rgba(52,211,153,.4)" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    <span style="font-size:8px;letter-spacing:1.5px;color:rgba(52,211,153,.35);font-family:monospace">CIFRADO ACTIVO</span>
+  </div>
+  <span style="width:1px;height:8px;background:rgba(255,255,255,.06)"></span>
+  <span style="font-size:8px;letter-spacing:1px;color:rgba(255,255,255,.12);font-family:monospace">SESS/<span id="portal-sid"></span></span>
+</div>
+
+<!-- Card -->
+<div style="width:100%;max-width:400px;padding:20px;position:relative;z-index:1">
+
+  <!-- Brand -->
+  <div style="text-align:center;margin-bottom:36px">
+    <p style="font-size:11.5px;font-weight:600;letter-spacing:4.5px;color:rgba(255,255,255,.8)">SELIX<span style="color:#00a3e0">OR</span></p>
+    <p style="font-size:7.5px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.14);margin-top:8px">Documentación técnica restringida</p>
+  </div>
+
+  <!-- Main card -->
+  <div id="portal-card" style="background:rgba(6,14,28,.96);border:1px solid rgba(255,255,255,.06);border-radius:12px;overflow:hidden;transition:border-color .4s">
+
+    <!-- Init screen — shows first -->
+    <div id="portal-init" style="padding:36px 32px;text-align:center">
+      <div style="width:48px;height:48px;border-radius:10px;border:1px solid rgba(0,163,224,.12);display:flex;align-items:center;justify-content:center;margin:0 auto 20px">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(0,163,224,.5)" stroke-width="1.2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </div>
+      <p style="font-size:14px;color:rgba(255,255,255,.65);margin-bottom:8px;font-weight:400;line-height:1.4">Acceso restringido a<br>socios institucionales acreditados</p>
+      <p style="font-size:11px;color:rgba(255,255,255,.2);line-height:1.7;margin-bottom:28px">Este portal contiene documentación técnica, planos de instalación y especificaciones de sensor de uso exclusivo para instituciones con acuerdo de colaboración vigente.</p>
+      <button onclick="showPortalForm()" style="width:100%;background:rgba(0,163,224,.07);border:1px solid rgba(0,163,224,.15);border-radius:7px;padding:13px;color:rgba(0,163,224,.65);font-family:var(--sans);font-size:9px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;cursor:pointer;transition:all .25s" onmouseover="this.style.background='rgba(0,163,224,.12)';this.style.borderColor='rgba(0,163,224,.25)'" onmouseout="this.style.background='rgba(0,163,224,.07)';this.style.borderColor='rgba(0,163,224,.15)'">Continuar con identificación</button>
+    </div>
+
+    <!-- Form — hidden until init CTA clicked -->
+    <div id="portal-form-wrap" style="display:none;padding:28px 32px">
+      <div style="margin-bottom:20px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.04)">
+        <p style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(0,163,224,.4);font-weight:600">Identificación institucional</p>
+      </div>
+
+      <!-- NID -->
+      <div style="margin-bottom:16px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px">
+          <label style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);font-weight:600">Identificador de nodo (NID)</label>
+          <span style="font-size:7.5px;color:rgba(255,255,255,.1);font-family:monospace">XXX-YYYY-NNN</span>
+        </div>
+        <input id="portal-id" type="text" placeholder="NID asignado en acuerdo de implementación" autocomplete="off" spellcheck="false"
+          style="width:100%;background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.06);border-radius:6px;padding:12px 14px;color:rgba(255,255,255,.6);font-family:monospace;font-size:12px;outline:none;letter-spacing:.5px;transition:all .2s"
+          onfocus="this.style.borderColor='rgba(0,163,224,.2)';this.style.background='rgba(0,163,224,.03)'"
+          onblur="this.style.borderColor='rgba(255,255,255,.06)';this.style.background='rgba(0,0,0,.5)'">
+      </div>
+
+      <!-- Auth key -->
+      <div style="margin-bottom:24px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px">
+          <label style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);font-weight:600">Clave de autorización</label>
+          <span style="font-size:7.5px;color:rgba(255,255,255,.1);font-family:monospace">16 · sensible</span>
+        </div>
+        <input id="portal-token" type="password" placeholder="Clave emitida en formalización del convenio" autocomplete="off"
+          style="width:100%;background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.06);border-radius:6px;padding:12px 14px;color:rgba(255,255,255,.6);font-family:monospace;font-size:13px;outline:none;letter-spacing:3px;transition:all .2s"
+          onfocus="this.style.borderColor='rgba(0,163,224,.2)';this.style.background='rgba(0,163,224,.03)'"
+          onblur="this.style.borderColor='rgba(255,255,255,.06)';this.style.background='rgba(0,0,0,.5)'">
+      </div>
+
+      <!-- Submit -->
+      <button onclick="handlePortalSubmit()" id="portal-submit"
+        style="width:100%;background:rgba(0,163,224,.07);border:1px solid rgba(0,163,224,.15);border-radius:7px;padding:13px;color:rgba(0,163,224,.65);font-family:var(--sans);font-size:9px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;cursor:pointer;transition:all .25s"
+        onmouseover="this.style.background='rgba(0,163,224,.12)';this.style.borderColor='rgba(0,163,224,.25)'"
+        onmouseout="this.style.background='rgba(0,163,224,.07)';this.style.borderColor='rgba(0,163,224,.15)'">
+        Solicitar verificación
+      </button>
+
+      <!-- Progress -->
+      <div id="portal-progress" style="display:none;margin-top:14px">
+        <div style="height:1px;background:rgba(255,255,255,.05);border-radius:1px;overflow:hidden;margin-bottom:8px">
+          <div id="portal-bar" style="height:100%;width:0%;background:linear-gradient(90deg,rgba(0,163,224,.5),rgba(0,163,224,.2));transition:width 1.8s ease"></div>
+        </div>
+        <p id="portal-status" style="font-size:7.5px;letter-spacing:2px;color:rgba(0,163,224,.3);text-align:center;font-family:monospace"></p>
+      </div>
+    </div>
+
+    <!-- Error state -->
+    <div id="portal-error" style="display:none;padding:28px 32px">
+      <div style="margin-bottom:20px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.04)">
+        <p style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,100,100,.35);font-weight:600">Acceso denegado · 401 Unauthorized</p>
+      </div>
+
+      <!-- Audit log -->
+      <div style="background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.04);border-radius:5px;padding:12px 14px;margin-bottom:18px;font-family:monospace">
+        <p style="font-size:8.5px;color:rgba(255,100,100,.3);line-height:1.9"><span style="color:rgba(255,100,100,.4)">AUTH_FAIL</span> &nbsp;·&nbsp; NID no registrado<br><span id="portal-err-ts" style="color:rgba(255,255,255,.1)"></span></p>
+      </div>
+
+      <p style="font-size:12px;color:rgba(255,255,255,.28);line-height:1.8;margin-bottom:22px">Las credenciales proporcionadas no corresponden a ningún nodo activo en el sistema. Si fue acreditado recientemente o existe una discrepancia en la asignación, comuníquese con su representante de implementación.</p>
+
+      <a href="mailto:acceso@selixor.cloud" style="display:block;text-align:center;padding:10px;border:1px solid rgba(255,255,255,.05);border-radius:5px;font-size:8.5px;letter-spacing:1.5px;color:rgba(255,255,255,.2);text-decoration:none;margin-bottom:12px;transition:all .2s;font-family:var(--sans);text-transform:uppercase" onmouseover="this.style.borderColor='rgba(255,255,255,.1)';this.style.color='rgba(255,255,255,.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,.05)';this.style.color='rgba(255,255,255,.2)'">acceso@selixor.cloud</a>
+
+      <button onclick="resetPortal()" style="width:100%;background:none;border:none;font-family:var(--sans);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.15);cursor:pointer;padding:6px;transition:color .2s" onmouseover="this.style.color='rgba(255,255,255,.35)'" onmouseout="this.style.color='rgba(255,255,255,.15)'">Reintentar</button>
+    </div>
+
+    <!-- Footer -->
+    <div style="padding:12px 32px;border-top:1px solid rgba(255,255,255,.03);display:flex;justify-content:space-between;align-items:center">
+      <span style="font-size:7.5px;color:rgba(255,255,255,.1);letter-spacing:1px;text-transform:uppercase">Solo socios acreditados</span>
+      <span style="font-size:7.5px;font-family:monospace;color:rgba(255,255,255,.08)">v2.1</span>
+    </div>
+  </div>
+
+  <!-- Close -->
+  <div style="text-align:center;margin-top:18px">
+    <button onclick="closePortal()" style="background:none;border:none;color:rgba(255,255,255,.12);font-family:var(--sans);font-size:8px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:color .2s" onmouseover="this.style.color='rgba(255,255,255,.3)'" onmouseout="this.style.color='rgba(255,255,255,.12)'">Salir del portal</button>
+  </div>
+</div>
+</div>
+
+<script>
+document.getElementById('portal-sid').textContent=Math.random().toString(36).substr(2,9).toUpperCase();
+
+document.getElementById('portal-btn').addEventListener('click',function(e){
+  e.preventDefault();
+  document.getElementById('portal-modal').style.display='flex';
+  document.body.style.overflow='hidden';
+});
+
+function showPortalForm(){
+  document.getElementById('portal-init').style.display='none';
+  document.getElementById('portal-form-wrap').style.display='block';
+  document.getElementById('portal-card').style.borderColor='rgba(0,163,224,.1)';
+}
+
+function closePortal(){
+  document.getElementById('portal-modal').style.display='none';
+  document.body.style.overflow='';
+  setTimeout(resetPortal,300);
+}
+
+function handlePortalSubmit(){
+  var id=document.getElementById('portal-id').value.trim();
+  var token=document.getElementById('portal-token').value.trim();
+  if(!id){document.getElementById('portal-id').style.borderColor='rgba(255,100,100,.25)';return;}
+  if(!token){document.getElementById('portal-token').style.borderColor='rgba(255,100,100,.25)';return;}
+  var btn=document.getElementById('portal-submit');
+  btn.style.opacity='.35';btn.style.pointerEvents='none';btn.textContent='Verificando...';
+  document.getElementById('portal-progress').style.display='block';
+  setTimeout(function(){document.getElementById('portal-bar').style.width='100%'},50);
+  var steps=['VALIDANDO NID...','CONSULTANDO REGISTRO...','VERIFICANDO FIRMA...','PROCESANDO...'];
+  var i=0;var iv=setInterval(function(){if(++i<steps.length)document.getElementById('portal-status').textContent=steps[i];},480);
+  setTimeout(function(){
+    clearInterval(iv);
+    document.getElementById('portal-form-wrap').style.display='none';
+    document.getElementById('portal-error').style.display='block';
+    document.getElementById('portal-card').style.borderColor='rgba(255,100,100,.08)';
+    document.getElementById('portal-err-ts').textContent=new Date().toISOString()+'  ·  IP REGISTRADA';
+  },2200);
+}
+
+function resetPortal(){
+  document.getElementById('portal-init').style.display='block';
+  document.getElementById('portal-form-wrap').style.display='none';
+  document.getElementById('portal-error').style.display='none';
+  document.getElementById('portal-progress').style.display='none';
+  document.getElementById('portal-bar').style.width='0%';
+  document.getElementById('portal-card').style.borderColor='rgba(255,255,255,.06)';
+  document.getElementById('portal-id').value='';
+  document.getElementById('portal-token').value='';
+  var btn=document.getElementById('portal-submit');
+  btn.style.opacity='1';btn.style.pointerEvents='auto';btn.textContent='Solicitar verificación';
+}
+
+document.getElementById('portal-modal').addEventListener('click',function(e){if(e.target===this)closePortal();});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape')closePortal();
+  if(e.key==='Enter'&&document.getElementById('portal-modal').style.display==='flex')handlePortalSubmit();
+});
 </script>
 </body>
 </html>

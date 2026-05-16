@@ -281,7 +281,7 @@ gtag('config', 'G-7VWNCM4TDC');</script>
 </div></div>
 <div class="rv" style="max-width:520px;margin:0 auto;text-align:center;padding-top:8px">
 <p style="font-size:12px;color:var(--text3);line-height:1.8">Para conocer disponibilidad en fases subsecuentes o iniciar una conversación institucional, contacte directamente a nuestro equipo.</p>
-<a href="#contacto" style="display:inline-flex;align-items:center;gap:8px;margin-top:24px;padding:12px 28px;border:1px solid rgba(0,163,224,.2);border-radius:100px;font-size:11px;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;transition:all .3s">Contactar al equipo →</a>
+
 </div>
 </div>
 </section>
@@ -305,9 +305,9 @@ gtag('config', 'G-7VWNCM4TDC');</script>
 <h3>Agendar sesión ejecutiva</h3>
 <form id="cf" action="https://formspree.io/f/xjgjwoez" method="POST">
 <input type="hidden" name="_subject" value="Solicitud de demo — Selixor">
-<div class="fg"><label for="cn">Nombre</label><input type="text" id="cn" name="name" placeholder="Nombre y apellidos" required autocomplete="name"></div>
-<div class="fg"><label for="ce">Correo</label><input type="email" id="ce" name="email" placeholder="tu@correo.com" required autocomplete="email"></div>
-<div class="fg"><label for="ctel">Teléfono</label><input type="tel" id="ctel" name="telefono" placeholder="+52 55 1234 5678" autocomplete="tel"></div>
+<div class="fg"><label for="cn">Nombre</label><input type="text" id="cn" name="name" placeholder="Nombre completo" required autocomplete="name"></div>
+<div class="fr"><div class="fg"><label for="cinst">Institución *</label><input type="text" id="cinst" name="institucion" placeholder="Nombre de la institución" required></div><div class="fg"><label for="ccargo">Cargo *</label><input type="text" id="ccargo" name="cargo" placeholder="Director, CMO, CTO…" required></div></div>
+<div class="fr"><div class="fg"><label for="ce">Correo institucional *</label><input type="email" id="ce" name="email" placeholder="nombre@institucion.com" required autocomplete="email"></div><div class="fg"><label for="ctel">Teléfono</label><input type="tel" id="ctel" name="telefono" placeholder="+52 55 1234 5678" autocomplete="tel"></div></div>
 <div class="fr">
 <div class="fg"><label for="cdate">Fecha preferida</label><input type="date" id="cdate" name="fecha_demo" required min="" style="color-scheme:dark"></div>
 <div class="fg"><label for="ctime">Horario preferido</label><select id="ctime" name="horario_demo" required><option value="" disabled selected>Selecciona</option><option>10:00 AM</option><option>11:00 AM</option><option>12:00 PM</option><option>1:00 PM</option><option>4:00 PM</option><option>5:00 PM</option><option>6:00 PM</option></select></div>
@@ -367,6 +367,7 @@ gtag('config', 'G-7VWNCM4TDC');</script>
       <p class="eq-card-role">Chief Technology Officer</p>
       <h4 class="eq-card-name">Marcos Aramburu</h4>
       <span class="eq-card-tag">Ingeniería &amp; Arquitectura</span>
+      <p style="font-size:11px;color:rgba(255,255,255,.25);line-height:1.6;margin-top:12px;font-style:italic;border-top:1px solid rgba(255,255,255,.05);padding-top:12px">La infraestructura que no se ve es la que más importa.</p>
     </div>
   </article>
   <article class="eq-card rv">
@@ -377,6 +378,7 @@ gtag('config', 'G-7VWNCM4TDC');</script>
       <p class="eq-card-role">Chief Medical Officer</p>
       <h4 class="eq-card-name">Dra. Ximena Poblano</h4>
       <span class="eq-card-tag">Dirección Médica</span>
+      <p style="font-size:11px;color:rgba(255,255,255,.25);line-height:1.6;margin-top:12px;font-style:italic;border-top:1px solid rgba(255,255,255,.05);padding-top:12px">La tecnología clínica que no interrumpe, acompaña.</p>
     </div>
   </article>
   <article class="eq-card rv">
@@ -387,6 +389,7 @@ gtag('config', 'G-7VWNCM4TDC');</script>
       <p class="eq-card-role">Chief Client Success Officer</p>
       <h4 class="eq-card-name">Vanesa Sokoloff</h4>
       <span class="eq-card-tag">Client Success</span>
+      <p style="font-size:11px;color:rgba(255,255,255,.25);line-height:1.6;margin-top:12px;font-style:italic;border-top:1px solid rgba(255,255,255,.05);padding-top:12px">El éxito institucional empieza en la implementación.</p>
     </div>
   </article>
 </div>
@@ -587,22 +590,29 @@ else{b.disabled=false;b.textContent='Reintentar'}
 })
 }
 handleForm('cf','cok',null);
-/* Calendar: min +2 days, no weekends */
+/* Calendar: min +2 working days, no weekends — all devices */
+(function(){
 var dInput=document.getElementById('cdate');
-if(dInput){
-function getMinDate(){var d=new Date();d.setDate(d.getDate()+2);return d}
-function isWeekend(d){var day=d.getDay();return day===0||day===6}
-function nextValidDate(d){while(isWeekend(d)){d.setDate(d.getDate()+1)}return d}
-var minD=nextValidDate(getMinDate());
-dInput.min=minD.toISOString().split('T')[0];
-dInput.addEventListener('change',function(){
-var sel=new Date(this.value+'T12:00:00');
-if(isWeekend(sel)){
-var next=nextValidDate(new Date(sel.getTime()+86400000));
-this.value=next.toISOString().split('T')[0];
+if(!dInput)return;
+function isWeekend(d){var day=d.getDay();return day===0||day===6;}
+function nextWorkday(d){var r=new Date(d);while(isWeekend(r)){r.setDate(r.getDate()+1);}return r;}
+function minDate(){var d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()+2);return nextWorkday(d);}
+function fmt(d){var m=d.getMonth()+1,day=d.getDate();return d.getFullYear()+'-'+(m<10?'0'+m:m)+'-'+(day<10?'0'+day:day);}
+function enforce(){
+if(!dInput.value)return;
+var sel=new Date(dInput.value+'T12:00:00');
+var min=minDate();
+if(sel<min){dInput.value=fmt(min);return;}
+if(isWeekend(sel)){dInput.value=fmt(nextWorkday(new Date(dInput.value+'T12:00:00')));;}
 }
-});
-}
+dInput.min=fmt(minDate());
+/* iOS fires 'change' only on confirm; desktop fires on pick */
+dInput.addEventListener('change',enforce);
+dInput.addEventListener('blur',enforce);
+dInput.addEventListener('input',enforce);
+/* Set default value to next valid date on first focus (iOS UX) */
+dInput.addEventListener('focus',function(){if(!this.value)this.value=fmt(minDate());});
+})();
 /* CHATBOT — FAQ local, sin dependencia de API externa */
 var cbt=document.getElementById('cbt'),cbw=document.getElementById('cbw'),cbms=document.getElementById('cbms'),cbi=document.getElementById('cbi'),cbsn=document.getElementById('cbsn');
 cbt.addEventListener('click',function(){var o=cbt.classList.toggle('open');cbw.classList.toggle('open');if(o)cbi.focus()});

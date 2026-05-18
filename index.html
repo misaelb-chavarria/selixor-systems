@@ -96,6 +96,86 @@
     }
 
 }
+  
+/* HARD FIX CEO WHITE LINE */
+
+.eq-ceo{
+    overflow:hidden !important;
+    background:#071426 !important;
+    border:1px solid rgba(255,255,255,.08) !important;
+    border-radius:32px !important;
+    position:relative;
+    isolation:isolate;
+}
+
+.eq-ceo::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:3px;
+    background:#071426;
+    z-index:50;
+    pointer-events:none;
+}
+
+.eq-ceo-photo{
+    position:relative;
+    overflow:hidden !important;
+    background:#071426 !important;
+    line-height:0 !important;
+}
+
+.eq-ceo-photo::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:4px;
+    background:#071426;
+    z-index:30;
+    pointer-events:none;
+}
+
+.eq-ceo-photo img{
+    display:block !important;
+    width:100% !important;
+    height:100% !important;
+    object-fit:cover !important;
+    object-position:center top !important;
+    vertical-align:top !important;
+    margin:0 !important;
+    padding:0 !important;
+    border:0 !important;
+    outline:none !important;
+    transform:translateZ(0);
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+}
+
+/* iPad / Tablet */
+
+@media(min-width:769px) and (max-width:1100px){
+
+    .eq-ceo{
+        grid-template-columns:340px 1fr !important;
+        max-width:940px;
+        margin-inline:auto;
+    }
+
+    .eq-ceo-photo{
+        min-height:100% !important;
+        height:100% !important;
+        max-height:none !important;
+    }
+
+    .eq-ceo-info{
+        padding:42px !important;
+    }
+
+}
   </style>
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7VWNCM4TDC">
   </script>

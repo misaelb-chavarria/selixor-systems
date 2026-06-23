@@ -22,7 +22,6 @@
   <meta content="website" property="og:type"/>
   <meta content="https://selixor.cloud" property="og:url"/>
   <meta content="es_MX" property="og:locale"/>
-  <!-- Meta tag optimizado para previsualización profesional -->
   <meta content="https://selixor.cloud/og-image.jpg" property="og:image"/>
   <meta content="1200" property="og:image:width"/>
   <meta content="630" property="og:image:height"/>
@@ -126,7 +125,6 @@
    .stn{font-family:var(--serif);font-size:28px;font-weight:400;color:var(--white);line-height:1.2;margin-bottom:12px}
    .stl{font-size:13px;color:var(--text2);line-height:1.6;font-weight:300}
    
-   /* Logos Update - Ajuste para uniformidad */
    .trust-logos{display:flex; justify-content:center; align-items:flex-start; gap:60px; flex-wrap:wrap; margin-top:48px; opacity:0.9; transition:opacity 0.5s}
    .trust-logos:hover{opacity:1}
    .logo-container{width:100%; height:140px; display:flex; align-items:center; justify-content:center; margin-bottom:24px;}
@@ -202,11 +200,56 @@
    .mc{background:transparent;padding:40px;max-width:600px;width:100%;max-height:80vh;position:relative;border:none;}
    .mx{position:absolute;top:20px;right:20px;font-size:32px;color:var(--text3);cursor:pointer;z-index:10;transition:color .3s;font-weight:300;}
    .mx:hover{color:var(--white)}
+   
+   /* --- Ajustes para iPad y Tablets --- */
+   @media(max-width:1024px){
+       .hv img {
+           /* Aquí se garantiza que la cama se vea en dispositivos móviles y tablets */
+           object-position: 85% center; 
+       }
+       .hero::before {
+           background: linear-gradient(to right, rgba(5,10,20,.95) 0%, rgba(5,10,20,.8) 50%, rgba(5,10,20,.4) 100%),
+                       linear-gradient(to bottom, transparent 0%, transparent 50%, rgba(5,10,20,.95) 100%);
+       }
+   }
+   
+   /* --- Ajustes para Móviles --- */
    @media(max-width:768px){
        .nt{display:flex}
-       .nls{position:fixed;top:72px;left:0;right:0;background:rgba(5,10,20,.98);backdrop-filter:blur(20px);flex-direction:column;padding:24px;gap:8px;transform:translateY(-100%);transition:transform .4s var(--ease);border-bottom:1px solid var(--border)}
-       .nls.open{transform:none}
+       
+       /* Nueva corrección del menú móvil: Desaparece completamente cuando está inactivo */
+       .nls {
+           position: fixed;
+           top: 72px;
+           left: 0;
+           right: 0;
+           background: rgba(5,10,20,.98);
+           backdrop-filter: blur(20px);
+           -webkit-backdrop-filter: blur(20px);
+           flex-direction: column;
+           padding: 24px;
+           gap: 8px;
+           opacity: 0;
+           visibility: hidden;
+           transform: translateY(-15px);
+           transition: all .4s var(--ease);
+           border-bottom: 1px solid var(--border);
+           box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+       }
+       
+       .nls.open {
+           opacity: 1;
+           visibility: visible;
+           transform: translateY(0);
+       }
+       
        .nls a,.nls button{font-size:14px;padding:16px;width:100%;text-align:left;border-radius:0;border-bottom:1px solid var(--border2)}
+       
+       .hero::before {
+           background: linear-gradient(to right, rgba(5,10,20,.95) 0%, rgba(5,10,20,.85) 100%),
+                       linear-gradient(to bottom, rgba(5,10,20,.3) 0%, rgba(5,10,20,.95) 100%);
+       }
+       
        section{padding:100px 0}
        .stg{grid-template-columns:1fr;gap:32px}
        .vl{grid-template-columns:1fr;gap:48px}
@@ -259,7 +302,6 @@
 
    <section id="instituciones" style="padding: 100px 0; background: var(--bg2); border-bottom: 1px solid var(--border);">
     <div class="ctn">
-     <!-- Título actualizado -->
      <p class="trust-title rv">Alianzas de élite que definen el horizonte de la excelencia crítica.</p>
      <div class="trust-logos rv">
         <div class="trust-item">

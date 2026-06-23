@@ -101,7 +101,7 @@
    .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;overflow:hidden}
    .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(5,10,20,.9) 0%,rgba(5,10,20,.6) 40%,transparent 60%,transparent 100%),linear-gradient(to bottom,transparent 0%,transparent 70%,rgba(5,10,20,.9) 100%);z-index:1}
    .hv{position:absolute;inset:0;z-index:0;background:#050a14}
-   .hv video{width:100%;height:100%;object-fit:cover;opacity:0.6;filter:saturate(.8) brightness(.7) contrast(1.1)}
+   .hv img{width:100%;height:100%;object-fit:cover;opacity:0.6;filter:saturate(.8) brightness(.7) contrast(1.1)}
    .hc{position:relative;z-index:3;text-align:left;max-width:var(--mw);width:100%;padding:0 28px;animation:fu 1.2s var(--ease) both}
    
    .h-tag{display:inline-block; font-size:9px; letter-spacing:4px; text-transform:uppercase; color:var(--accent); font-weight:600; margin-bottom:24px; border:1px solid var(--ag); padding:6px 14px; border-radius:100px; background:rgba(0,163,224,0.03);}
@@ -117,42 +117,30 @@
    .hscr{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);width:20px;height:32px;border:1px solid rgba(255,255,255,.2);border-radius:10px;z-index:3}
    .hscr::after{content:'';position:absolute;top:6px;left:50%;transform:translateX(-50%);width:2px;height:6px;background:var(--white);border-radius:2px;animation:fl 2s infinite}
    
-   /* Typography Standards */
    .sl{font-size:10px;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--text3);margin-bottom:16px}
    .st{font-family:var(--serif);font-size:clamp(32px,4vw,56px);font-weight:400;line-height:1.1;color:var(--white);margin-bottom:20px;letter-spacing:-0.01em;}
    .ss{font-size:clamp(14px,1.5vw,17px);color:var(--text2);max-width:640px;line-height:1.7;font-weight:300}
-   
    .div{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);max-width:var(--mw);margin:0 auto}
    section{padding:140px 0} 
-   
-   /* Stats / Problem */
    .stg{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:64px}
    .stc{padding:20px 0; transition:transform .5s var(--ease)}
    .stn{font-family:var(--serif);font-size:28px;font-weight:400;color:var(--white);line-height:1.2;margin-bottom:12px}
    .stl{font-size:13px;color:var(--text2);line-height:1.6;font-weight:300}
-   
-   /* Logos / Trust */
    .trust-logos{display:flex; justify-content:center; align-items:center; gap:64px; flex-wrap:wrap; margin-top:48px; opacity:0.6; filter:grayscale(100%) contrast(120%); transition:opacity 0.5s}
    .trust-logos:hover{opacity:0.9}
    .trust-logos img{height:40px; object-fit:contain;}
    .trust-title{text-align:center; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--text3); margin-bottom:24px;}
-   
-   /* Process / Platform */
    .spg{display:grid;grid-template-columns:repeat(2,1fr);gap:40px;margin-top:64px}
    .sp{padding:0; position:relative;}
    .spn{font-size:10px;font-weight:500;letter-spacing:3px;color:var(--accent);margin-bottom:16px;text-transform:uppercase;}
    .sp h3{font-family:var(--serif);font-size:24px;font-weight:400;margin-bottom:12px;color:var(--white)}
    .sp>p{font-size:14px;color:var(--text2);line-height:1.7; font-weight:300;}
-   
-   /* Voice Module */
    .vl{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:64px}
    .vvis{display:flex;align-items:center;justify-content:center}
    .vfs{display:flex;flex-direction:column;gap:32px}
    .vf{display:flex;gap:16px;align-items:flex-start}
    .vf h4{font-size:16px;font-weight:400;font-family:var(--serif);margin-bottom:6px;color:var(--white);letter-spacing:0.5px;}
    .vf p{font-size:13px;color:var(--text2);line-height:1.6;font-weight:300;}
-   
-   /* Product Box */
    .prc{max-width:600px;margin:0 auto;padding:64px 48px;background:var(--bg2);text-align:left;position:relative;border-radius:4px;}
    .prc::before{content:'';position:absolute;top:0;left:0;width:2px;height:100%;background:var(--border2)}
    .prn{font-family:var(--serif);font-size:32px;font-weight:400;color:var(--white);margin-bottom:12px}
@@ -161,23 +149,15 @@
    .pfl li{font-size:13.5px;color:var(--text2);padding:14px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:16px;font-weight:300;}
    .pfl li:last-child{border-bottom:none}
    .pfl li svg{width:16px;height:16px;stroke:var(--accent);fill:none;stroke-width:1.5;min-width:16px}
-   
-   /* Company Mission Section */
    .mission-sec{background:var(--bg); text-align:center; padding:180px 0;}
    .mission-text{font-family:var(--serif); font-size:clamp(32px, 4.5vw, 56px); font-weight:400; color:var(--white); line-height:1.15; max-width:900px; margin:24px auto; letter-spacing:-0.01em;}
    .mission-sub{font-size:clamp(14px, 1.6vw, 18px); color:var(--text2); max-width:640px; margin:0 auto; line-height:1.7; font-weight:300;}
-   
-   /* Security */
    .seg{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:64px}
    .sei{text-align:center;padding:0}
    .sei h4{font-size:14px;font-weight:500;color:var(--white);margin-bottom:8px;letter-spacing:1px;text-transform:uppercase;}
    .sei p{font-size:12px;color:var(--text2);line-height:1.6;font-weight:300;}
-   
-   /* Waitlist / Roadmap */
    .roadmap-inner{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:4px;overflow:hidden;margin-top:64px;}
    .roadmap-step{background:var(--bg2);padding:48px 40px;position:relative;}
-   
-   /* Forms */
    .fw{background:transparent;padding:0}
    .fg{margin-bottom:24px}.fg label{display:block;font-size:11px;font-weight:500;color:var(--text3);margin-bottom:8px;letter-spacing:1px;text-transform:uppercase;}
    .fg input,.fg textarea,.fg select{width:100%;background:transparent;border:none;border-bottom:1px solid var(--border2);padding:12px 0;font-size:14px;color:var(--white);font-family:var(--sans);transition:border-color .3s;outline:none;font-weight:300;}
@@ -186,8 +166,6 @@
    .fr{display:grid;grid-template-columns:1fr 1fr;gap:32px}
    .fs{width:100%;background:var(--white);color:var(--bg);padding:18px;border-radius:100px;font-size:13px;letter-spacing:1px;font-weight:500;cursor:pointer;transition:transform .4s var(--ease),box-shadow .4s;border:none;margin-top:16px}
    .fs:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(255,255,255,.15);}
-   
-   /* Footer */
    .ft{background:var(--bg);border-top:1px solid var(--border);padding:64px 0 40px}
    .fti{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px}
    .ftl{font-weight:600;font-size:12px;letter-spacing:4px;margin-bottom:12px}
@@ -197,8 +175,6 @@
    .ftlk{display:flex;gap:24px;flex-wrap:wrap}
    .ftlk button,.ftlk a{font-size:11px;color:var(--text3);transition:color .3s;letter-spacing:1px;}
    .ftlk button:hover,.ftlk a:hover{color:var(--white)}
-   
-   /* Team Section */
    .eq-header{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;margin-bottom:80px;flex-wrap:wrap}
    .eq-ceo{border-radius:0;overflow:hidden;background:transparent;position:relative;isolation:isolate;display:grid;grid-template-columns:480px 1fr;gap:64px;align-items:center;}
    .eq-ceo-photo{position:relative;overflow:hidden;aspect-ratio:3/4;}
@@ -208,7 +184,6 @@
    .eq-ceo-name{font-family:var(--serif);font-size:clamp(36px,4vw,56px);font-weight:400;line-height:1.1;color:var(--white);margin-bottom:8px}
    .eq-ceo-role{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--text3);margin-bottom:32px;font-weight:500}
    .eq-ceo-bio{font-size:14.5px;color:var(--text2);line-height:1.8;margin-bottom:20px;font-weight:300;}
-   
    .eq-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:80px}
    .eq-card{background:transparent;overflow:hidden;transition:transform .4s var(--ease)}
    .eq-card-photo{position:relative;aspect-ratio:3/4;overflow:hidden;margin-bottom:24px;}
@@ -217,14 +192,11 @@
    .eq-card-name{font-family:var(--serif);font-size:24px;font-weight:400;color:var(--white);margin-bottom:6px;line-height:1.2}
    .eq-card-role{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text3);font-weight:500;line-height:1.4;margin-bottom:12px;}
    .eq-card-tag{display:block;font-size:11px;color:var(--text2);font-weight:300;}
-
-   /* Modals */
    .mdl{position:fixed;inset:0;z-index:2000;background:rgba(5,10,20,.95);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s;padding:20px}
    .mdl.active{opacity:1;pointer-events:auto}
    .mc{background:transparent;padding:40px;max-width:600px;width:100%;max-height:80vh;position:relative;border:none;}
    .mx{position:absolute;top:20px;right:20px;font-size:32px;color:var(--text3);cursor:pointer;z-index:10;transition:color .3s;font-weight:300;}
    .mx:hover{color:var(--white)}
-   
    @media(max-width:768px){
        .nt{display:flex}
        .nls{position:fixed;top:72px;left:0;right:0;background:rgba(5,10,20,.98);backdrop-filter:blur(20px);flex-direction:column;padding:24px;gap:8px;transform:translateY(-100%);transition:transform .4s var(--ease);border-bottom:1px solid var(--border)}
@@ -258,11 +230,6 @@
      <li><a href="#equipo">Liderazgo</a></li>
      <li><a href="#contacto">Contacto</a></li>
      <li><a class="nc" href="#contacto">Solicitar reunión institucional</a></li>
-     <li>
-      <a href="#" id="portal-btn" style="font-size:10px;color:var(--text3);letter-spacing:2px;cursor:pointer;transition:color .2s;padding:10px;margin-left:8px;">
-       PORTAL
-      </a>
-     </li>
     </ul>
    </div>
   </nav>
@@ -270,9 +237,7 @@
   <main>
    <section class="hero" id="inicio">
     <div class="hv">
-     <video autoplay="" loop="" muted="" playsinline="" preload="auto">
-      <source src="hero-video.mp4" type="video/mp4"/>
-     </video>
+     <img src="heroo.jpg" alt="Infraestructura Clínica"/>
     </div>
     <div class="hc">
      <span class="h-tag rv">Exclusivamente para entornos institucionales</span>
@@ -292,9 +257,18 @@
     <div class="ctn">
      <p class="trust-title rv">Diseñado para entornos de atención crítica</p>
      <div class="trust-logos rv">
-        <h3 style="font-family:var(--serif); font-size:24px; color:var(--text2); font-weight:400;">TecSalud</h3>
-        <h3 style="font-family:var(--serif); font-size:24px; color:var(--text2); font-weight:400;">Centro Médico ABC</h3>
-        <h3 style="font-family:var(--serif); font-size:24px; color:var(--text2); font-weight:400;">Tecnológico de Monterrey</h3>
+        <div style="text-align:center;">
+            <img src="tecsalud.jpg" alt="TecSalud" style="height:40px; margin-bottom:10px; opacity:0.8;">
+            <h3 style="font-family:var(--serif); font-size:24px; color:var(--text2); font-weight:400;">TecSalud</h3>
+        </div>
+        <div style="text-align:center;">
+            <img src="abc.jpg" alt="Centro Médico ABC" style="height:40px; margin-bottom:10px; opacity:0.8;">
+            <h3 style="font-family:var(--serif); font-size:24px; color:var(--text2); font-weight:400;">Centro Médico ABC</h3>
+        </div>
+        <div style="text-align:center;">
+            <img src="logo-tec-mty.png" alt="Tecnológico de Monterrey" style="height:40px; margin-bottom:10px; opacity:0.8;">
+            <h3 style="font-family:var(--serif); font-size:24px; color:var(--text2); font-weight:400;">Tecnológico de Monterrey</h3>
+        </div>
      </div>
     </div>
    </section>
@@ -604,11 +578,12 @@
      </div>
      
      <div class="rv" style="display:flex; justify-content:center; gap:48px; margin-top:64px; text-align:center;">
-         <div>
+         <div style="display:flex; flex-direction:column; align-items:center;">
+             <img src="oficina.jpg" alt="Oficinas Santa Fe" style="width:100%; max-width:240px; margin-bottom:16px; border-radius:4px; border:1px solid var(--border);">
              <p style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--text3); margin-bottom:8px;">Oficinas Centrales</p>
              <p style="font-size:13px; color:var(--text2); font-weight:300;">Av. Santa Fe 505, Piso 21<br/>Ciudad de México, 01219</p>
          </div>
-         <div>
+         <div style="align-self: flex-start;">
              <p style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--text3); margin-bottom:8px;">Contacto Directo</p>
              <p style="font-size:13px; color:var(--text2); font-weight:300;">
                 <a href="mailto:info@selixor.cloud" style="color:var(--text2);">info@selixor.cloud</a> · 

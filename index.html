@@ -22,6 +22,7 @@
   <meta content="website" property="og:type"/>
   <meta content="https://selixor.cloud" property="og:url"/>
   <meta content="es_MX" property="og:locale"/>
+  <!-- Meta tag optimizado para previsualización profesional -->
   <meta content="https://selixor.cloud/og-image.jpg" property="og:image"/>
   <meta content="1200" property="og:image:width"/>
   <meta content="630" property="og:image:height"/>
@@ -88,8 +89,6 @@
    .nls{display:flex;align-items:center;gap:4px;list-style:none}
    .nls a,.nls button{font-size:12px;letter-spacing:1px;font-weight:400;padding:8px 16px;border-radius:4px;transition:background .3s,color .3s;white-space:nowrap}
    .nls a:hover,.nls button:hover{background:rgba(255,255,255,.03);color:var(--white)}
-   .nls .nc{background:var(--white);color:var(--bg);font-weight:500;border-radius:100px;padding:10px 24px;margin-left:8px}
-   .nls .nc:hover{background:var(--text);color:var(--bg)}
    
    .nt{display:none;flex-direction:column;gap:5px;width:24px;padding:4px 0}
    .nt span{display:block;height:1.5px;background:var(--text);border-radius:2px;transition:transform .3s,opacity .3s}
@@ -101,7 +100,7 @@
    .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;overflow:hidden}
    .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(5,10,20,.9) 0%,rgba(5,10,20,.6) 40%,transparent 60%,transparent 100%),linear-gradient(to bottom,transparent 0%,transparent 70%,rgba(5,10,20,.9) 100%);z-index:1}
    .hv{position:absolute;inset:0;z-index:0;background:#050a14}
-   .hv img{width:100%;height:100%;object-fit:cover;opacity:0.6;filter:saturate(.8) brightness(.7) contrast(1.1)}
+   .hv img{width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.9;filter:saturate(1) brightness(1.3) contrast(1.1)}
    .hc{position:relative;z-index:3;text-align:left;max-width:var(--mw);width:100%;padding:0 28px;animation:fu 1.2s var(--ease) both}
    
    .h-tag{display:inline-block; font-size:9px; letter-spacing:4px; text-transform:uppercase; color:var(--accent); font-weight:600; margin-bottom:24px; border:1px solid var(--ag); padding:6px 14px; border-radius:100px; background:rgba(0,163,224,0.03);}
@@ -126,9 +125,15 @@
    .stc{padding:20px 0; transition:transform .5s var(--ease)}
    .stn{font-family:var(--serif);font-size:28px;font-weight:400;color:var(--white);line-height:1.2;margin-bottom:12px}
    .stl{font-size:13px;color:var(--text2);line-height:1.6;font-weight:300}
-   .trust-logos{display:flex; justify-content:center; align-items:center; gap:64px; flex-wrap:wrap; margin-top:48px; opacity:0.6; filter:grayscale(100%) contrast(120%); transition:opacity 0.5s}
-   .trust-logos:hover{opacity:0.9}
-   .trust-logos img{height:40px; object-fit:contain;}
+   
+   /* Logos Update - Ajuste para uniformidad */
+   .trust-logos{display:flex; justify-content:center; align-items:flex-start; gap:60px; flex-wrap:wrap; margin-top:48px; opacity:0.9; transition:opacity 0.5s}
+   .trust-logos:hover{opacity:1}
+   .logo-container{width:100%; height:140px; display:flex; align-items:center; justify-content:center; margin-bottom:24px;}
+   .logo-container img{max-height:100%; max-width:100%; object-fit:contain;}
+   .trust-item{text-align:center; flex:1; min-width:240px;}
+   .trust-item h3{font-family:var(--serif); font-size:20px; color:var(--text2); font-weight:400;}
+   
    .trust-title{text-align:center; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--text3); margin-bottom:24px;}
    .spg{display:grid;grid-template-columns:repeat(2,1fr);gap:40px;margin-top:64px}
    .sp{padding:0; position:relative;}
@@ -202,7 +207,6 @@
        .nls{position:fixed;top:72px;left:0;right:0;background:rgba(5,10,20,.98);backdrop-filter:blur(20px);flex-direction:column;padding:24px;gap:8px;transform:translateY(-100%);transition:transform .4s var(--ease);border-bottom:1px solid var(--border)}
        .nls.open{transform:none}
        .nls a,.nls button{font-size:14px;padding:16px;width:100%;text-align:left;border-radius:0;border-bottom:1px solid var(--border2)}
-       .nls .nc{margin-left:0;margin-top:16px;text-align:center;}
        section{padding:100px 0}
        .stg{grid-template-columns:1fr;gap:32px}
        .vl{grid-template-columns:1fr;gap:48px}
@@ -211,6 +215,7 @@
        .eq-ceo{grid-template-columns:1fr;gap:32px;}
        .eq-grid{grid-template-columns:1fr;gap:48px;}
        .fr{grid-template-columns:1fr;gap:0;}
+       .trust-item { min-width: 100%; }
    }
   </style>
  </head>
@@ -229,7 +234,6 @@
      <li><a href="#tecnologia">Tecnología</a></li>
      <li><a href="#equipo">Liderazgo</a></li>
      <li><a href="#contacto">Contacto</a></li>
-     <li><a class="nc" href="#contacto">Solicitar reunión institucional</a></li>
     </ul>
    </div>
   </nav>
@@ -253,21 +257,28 @@
     <div class="hscr"></div>
    </section>
 
-   <section id="instituciones" style="padding: 80px 0; background: var(--bg2); border-bottom: 1px solid var(--border);">
+   <section id="instituciones" style="padding: 100px 0; background: var(--bg2); border-bottom: 1px solid var(--border);">
     <div class="ctn">
-     <p class="trust-title rv">Diseñado para entornos de atención crítica</p>
+     <!-- Título actualizado -->
+     <p class="trust-title rv">Alianzas de élite que definen el horizonte de la excelencia crítica.</p>
      <div class="trust-logos rv">
-        <div style="text-align:center;">
-            <img src="tecsalud.jpg" alt="TecSalud" style="height:40px; margin-bottom:10px; opacity:0.8;">
-            <h3 style="font-family:var(--serif); font-size:24px; color:var(--text2); font-weight:400;">TecSalud</h3>
+        <div class="trust-item">
+            <div class="logo-container">
+                <img src="tecsalud.jpg" alt="TecSalud">
+            </div>
+            <h3>TecSalud</h3>
         </div>
-        <div style="text-align:center;">
-            <img src="abc.jpg" alt="Centro Médico ABC" style="height:40px; margin-bottom:10px; opacity:0.8;">
-            <h3 style="font-family:var(--serif); font-size:24px; color:var(--text2); font-weight:400;">Centro Médico ABC</h3>
+        <div class="trust-item">
+            <div class="logo-container">
+                <img src="abc.jpg" alt="Centro Médico ABC">
+            </div>
+            <h3>Centro Médico ABC</h3>
         </div>
-        <div style="text-align:center;">
-            <img src="logo-tec-mty.png" alt="Tecnológico de Monterrey" style="height:40px; margin-bottom:10px; opacity:0.8;">
-            <h3 style="font-family:var(--serif); font-size:24px; color:var(--text2); font-weight:400;">Tecnológico de Monterrey</h3>
+        <div class="trust-item">
+            <div class="logo-container">
+                <img src="tecmonterrey.jpg" alt="Tecnológico de Monterrey">
+            </div>
+            <h3>Tecnológico de Monterrey</h3>
         </div>
      </div>
     </div>
@@ -567,7 +578,7 @@
          <textarea id="cm" name="message" rows="3"></textarea>
         </div>
         <div style="text-align:right;">
-            <button class="fs" style="width:auto; padding:16px 48px;" type="submit">Solicitar reunión institucional</button>
+            <button class="fs" style="width:auto; padding:16px 48px;" type="submit">Enviar solicitud</button>
         </div>
        </form>
        
@@ -579,7 +590,7 @@
      
      <div class="rv" style="display:flex; justify-content:center; gap:48px; margin-top:64px; text-align:center;">
          <div style="display:flex; flex-direction:column; align-items:center;">
-             <img src="oficina.jpg" alt="Oficinas Santa Fe" style="width:100%; max-width:240px; margin-bottom:16px; border-radius:4px; border:1px solid var(--border);">
+             <img src="oficina.jpg" alt="Oficinas Santa Fe" style="width:100%; max-width:400px; margin-bottom:16px; border-radius:4px; border:1px solid var(--border);">
              <p style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--text3); margin-bottom:8px;">Oficinas Centrales</p>
              <p style="font-size:13px; color:var(--text2); font-weight:300;">Av. Santa Fe 505, Piso 21<br/>Ciudad de México, 01219</p>
          </div>
@@ -609,7 +620,7 @@
      <div class="ftlk">
       <button data-modal="docs">Documentación</button>
       <a href="privacidad.html">Privacidad</a>
-      <a href="terminos.html">Legal</a>
+      <a href="terminos.html">Términos y Condiciones</a>
      </div>
     </div>
    </div>

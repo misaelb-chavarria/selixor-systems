@@ -116,18 +116,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   gap: 1.5rem;
   min-width: 0;
 }
-.nav-links {
-  display: none;
-  align-items: center;
-  gap: 1.5rem;
-}
-.nav-links a {
-  font-size: var(--kicker);
-  letter-spacing: var(--track-c);
-  text-transform: uppercase;
-}
-.nav-links a:hover { opacity: .7; }
-@media (min-width: 768px) { .nav-links { display: flex; } }
 .brand {
   font-size: .875rem;
   letter-spacing: var(--track-c);
@@ -168,7 +156,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .menu-btn {
   display: inline-flex; width: 2.75rem; height: 2.75rem;
   align-items: center; justify-content: center;
-  flex-shrink: 0;
 }
 .mobile-menu {
   display: none;
@@ -177,17 +164,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   color: var(--ink);
 }
 #site-header.menu-open .mobile-menu { display: block; }
-@media (min-width: 768px) {
-  .mobile-menu {
-    position: absolute;
-    top: 100%;
-    right: 2rem;
-    left: auto;
-    width: 22rem;
-    border: 1px solid var(--line);
-    box-shadow: 0 16px 40px rgba(22,22,20,.12);
-  }
-}
 .mobile-menu a {
   display: flex; min-height: 2.75rem; align-items: center;
   border-bottom: 1px solid var(--line);
@@ -513,11 +489,6 @@ footer { background: var(--ink); color: var(--paper); }
         <span class="short">SELIXOR</span>
         <span class="full">[ SELIXOR ]</span>
       </a>
-      <div class="nav-links">
-        <a href="#platform">Platform</a>
-        <a href="#field">Field</a>
-        <a href="#response">Response</a>
-      </div>
     </div>
     <div class="nav-right">
       <a class="btn btn-access" href="#access"><span class="short">Access</span><span class="long">Request Access</span></a>

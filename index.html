@@ -4,12 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#F2EFE6">
-<meta name="description" content="Selixor is the operating system for physical space: mmWave sensing, on-node inference, and a signed event into the duty tree. No cameras. Same computational architecture as Nuvvio.">
+<meta name="description" content="Selixor is the operating system for physical space. mmWave sensing, on-node inference, and signed events into the duty tree. No cameras. For hospitals, governments, and industrial operators. Same computational architecture as Nuvvio.">
 <title>Selixor — Operating System for Physical Intelligence</title>
 <meta property="og:title" content="Selixor — Operating System for Physical Intelligence">
-<meta property="og:description" content="Selixor is the operating system for physical space: mmWave sensing, on-node inference, and a signed event into the duty tree. No cameras.">
+<meta property="og:description" content="Selixor is the operating system for physical space: mmWave sensing, on-node inference, and a signed event into the duty tree. No cameras. For hospitals, governments, and industrial operators.">
 <meta property="og:image" content="og.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://selixor.cloud">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Selixor — Operating System for Physical Intelligence">
+<meta name="twitter:description" content="mmWave sensing, on-node inference, signed events into the duty tree. No cameras. Operating system for physical space.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://selixor.cloud/">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -110,9 +116,18 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   gap: 1.5rem;
   min-width: 0;
 }
-.nav-platform { display: none; font-size: var(--kicker); letter-spacing: var(--track-c); text-transform: uppercase; }
-.nav-platform:hover { opacity: .7; }
-@media (min-width: 768px) { .nav-platform { display: inline; } }
+.nav-links {
+  display: none;
+  align-items: center;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--kicker);
+  letter-spacing: var(--track-c);
+  text-transform: uppercase;
+}
+.nav-links a:hover { opacity: .7; }
+@media (min-width: 768px) { .nav-links { display: flex; } }
 .brand {
   font-size: .875rem;
   letter-spacing: var(--track-c);
@@ -153,8 +168,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .menu-btn {
   display: inline-flex; width: 2.75rem; height: 2.75rem;
   align-items: center; justify-content: center;
+  flex-shrink: 0;
 }
-@media (min-width: 768px) { .menu-btn { display: none; } }
 .mobile-menu {
   display: none;
   border-top: 1px solid var(--line);
@@ -162,6 +177,17 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   color: var(--ink);
 }
 #site-header.menu-open .mobile-menu { display: block; }
+@media (min-width: 768px) {
+  .mobile-menu {
+    position: absolute;
+    top: 100%;
+    right: 2rem;
+    left: auto;
+    width: 22rem;
+    border: 1px solid var(--line);
+    box-shadow: 0 16px 40px rgba(22,22,20,.12);
+  }
+}
 .mobile-menu a {
   display: flex; min-height: 2.75rem; align-items: center;
   border-bottom: 1px solid var(--line);
@@ -487,7 +513,11 @@ footer { background: var(--ink); color: var(--paper); }
         <span class="short">SELIXOR</span>
         <span class="full">[ SELIXOR ]</span>
       </a>
-      <a class="nav-platform" href="#platform">Platform</a>
+      <div class="nav-links">
+        <a href="#platform">Platform</a>
+        <a href="#field">Field</a>
+        <a href="#response">Response</a>
+      </div>
     </div>
     <div class="nav-right">
       <a class="btn btn-access" href="#access"><span class="short">Access</span><span class="long">Request Access</span></a>

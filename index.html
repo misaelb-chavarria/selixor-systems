@@ -1010,7 +1010,7 @@ button, a, .btn, .menu-btn, .back-btn { touch-action: manipulation; -webkit-tap-
       <h2 style="margin-top:1rem;font-size:1.875rem">Torrey Pines, San Diego</h2>
       <p class="muted" style="margin-top:1rem;max-width:36rem;font-size:15px;line-height:1.7">Not a skyline office. A technical corridor — applied biology, communications, defense-adjacent engineering. RF benches, a silent test volume, the concentrator hardware we actually ship.</p>
       <div class="hq-frame">
-        <img src="/office.jpg" alt="Selixor headquarters, Torrey Pines Tech Corridor, San Diego" width="1600" height="800" loading="lazy" decoding="async">
+        <img src="/office.jpg" alt="Selixor headquarters, Torrey Pines Tech Corridor, San Diego" width="1600" height="800" loading="eager" decoding="async" fetchpriority="low">
         <div class="hq-cap">
           <p class="kicker dim">10290 Campus Point Drive, Suite 300 · San Diego, CA 92121</p>
           <p class="kicker dim">info@selixor.cloud</p>
@@ -1501,11 +1501,21 @@ window.FOOTER_COLUMNS = window.CONTENT.FOOTER_COLUMNS;
     aboutSheet.classList.remove("is-open");
     docSheet.classList.remove("is-open");
   }
+  function kickHqImages(root) {
+    root.querySelectorAll(".hq-frame img").forEach((img) => {
+      img.loading = "eager";
+      const src = img.getAttribute("src");
+      if (!src) return;
+      if (img.complete && img.naturalWidth > 0) return;
+      img.src = src;
+    });
+  }
   function openAbout(push) {
     lock();
     hideSheets();
     aboutSheet.classList.add("is-open");
     aboutSheet.scrollTop = 0;
+    kickHqImages(aboutSheet);
     if (push !== false) history.pushState(null, "", urlFor("about"));
   }
   function openDoc(id, push) {
@@ -1515,6 +1525,7 @@ window.FOOTER_COLUMNS = window.CONTENT.FOOTER_COLUMNS;
     renderDoc(doc, id);
     docSheet.classList.add("is-open");
     docSheet.scrollTop = 0;
+    kickHqImages(docSheet);
     if (push !== false) history.pushState(null, "", urlFor("doc", id));
   }
   function closeOverlay(push) {
@@ -1562,7 +1573,7 @@ window.FOOTER_COLUMNS = window.CONTENT.FOOTER_COLUMNS;
       html += `<div class="partner-cards">${PARTNERS.map((c) => `<figure><img src="${c.img}" alt="${esc(c.alt)}" loading="lazy"><figcaption><p class="kicker dim">${esc(c.role)}</p><p style="margin-top:.25rem;font-size:1.25rem;font-weight:300">${esc(c.name)}</p><p class="muted" style="margin-top:.5rem;font-size:.875rem">${esc(c.copy)}</p></figcaption></figure>`).join("")}</div>`;
     }
     if (id === "headquarters") {
-      html += `<figure class="hq-frame" style="margin-top:2.5rem"><img src="${OFFICE}" alt="Selixor office, Torrey Pines Tech Corridor, San Diego, California" width="1600" height="800" loading="lazy" decoding="async" style="filter:grayscale(1)"><figcaption class="kicker dim" style="padding:.75rem 1.25rem">Torrey Pines Tech Corridor · San Diego, CA</figcaption></figure>`;
+      html += `<figure class="hq-frame" style="margin-top:2.5rem"><img src="${OFFICE}" alt="Selixor office, Torrey Pines Tech Corridor, San Diego, California" width="1600" height="800" loading="eager" decoding="async" style="filter:grayscale(1)"><figcaption class="kicker dim" style="padding:.75rem 1.25rem">Torrey Pines Tech Corridor · San Diego, CA</figcaption></figure>`;
     }
     if (id === "nuvvio") {
       html += `<p style="margin-top:2.5rem"><a class="kicker" href="https://www.nuvvio.online/" target="_blank" rel="noreferrer" style="text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line)">Open Nuvvio ↗</a></p>`;

@@ -16,7 +16,7 @@
 <meta name="twitter:description" content="A class, decided on the node. No photograph. Signed event into the duty tree or C2.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://selixor.cloud/">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -511,9 +511,54 @@ video.full-img {
   pointer-events: none;
   background: var(--charcoal);
   filter: brightness(1.14) contrast(1.06);
+  object-fit: cover !important;
+  object-position: center center !important;
+  transform: none !important;
 }
 video.full-img.is-on {
   opacity: 1;
+}
+
+/* iPhone / iPad: native 1792×914 frame, full width, no crop.
+   Copy sits below the cinematic (same pattern as a landscape product shot).
+   Desktop keeps the original 100svh pinned cover. */
+@media (max-width: 1024px) {
+  #field {
+    height: auto !important;
+  }
+  #field .sticky-frame {
+    position: relative;
+    height: auto;
+    min-height: 0;
+    overflow: hidden;
+    background: var(--charcoal);
+  }
+  #field video.full-img {
+    position: relative !important;
+    inset: auto !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    flex: 0 0 auto;
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    aspect-ratio: 1792 / 914;
+    object-fit: contain !important;
+    object-position: center center !important;
+    transform: none !important;
+    display: block;
+  }
+  #field .shade { display: none; }
+  #field .type-block {
+    position: relative;
+    height: auto;
+    min-height: 0;
+    padding: 2rem 1.25rem 3rem;
+    justify-content: flex-start;
+  }
 }
 img.arch-img {
   color: transparent;
@@ -595,6 +640,13 @@ input, textarea {
   .platform-head {
     padding: 5rem 0 1.5rem;
     gap: 1.75rem;
+  }
+  .arch-frame {
+    aspect-ratio: 16 / 9;
+    width: calc(100% + 2rem);
+    max-width: none;
+    margin-left: -1rem;
+    margin-right: -1rem;
   }
   .two-col {
     padding: 3rem 0;
@@ -720,8 +772,8 @@ button, a, .btn, .menu-btn, .back-btn { touch-action: manipulation; -webkit-tap-
 
 <section id="field" data-theme="dark" data-chapter="B">
   <div class="sticky-frame">
-    <video class="full-img" id="field-vid" muted loop playsinline webkit-playsinline preload="none" disablepictureinpicture>
-      <source src="cinematic/pulse.mp4" type="video/mp4">
+    <video class="full-img" id="field-vid" muted loop playsinline webkit-playsinline preload="metadata" disablepictureinpicture width="1792" height="914">
+      <source src="/cinematic/pulse.mp4" type="video/mp4">
     </video>
     <div class="shade"></div>
     <div class="type-block" id="field-type">
@@ -734,8 +786,8 @@ button, a, .btn, .menu-btn, .back-btn { touch-action: manipulation; -webkit-tap-
 
 <section id="response" data-theme="dark" data-chapter="C">
   <div class="sticky-frame">
-    <img class="full-img" id="console-img" src="cinematic/console.jpg" alt="Operator inspecting a volume on dual consoles" width="1600" height="900" loading="lazy" decoding="async">
-    <img class="full-img" id="operator-img" src="cinematic/operator.jpg" alt="Empty secure corridor — a volume under Pulse" width="1600" height="900" loading="lazy" decoding="async">
+    <img class="full-img" id="console-img" src="/cinematic/console.jpg" alt="Operator inspecting a volume on dual consoles" width="1600" height="900" loading="lazy" decoding="async">
+    <img class="full-img" id="operator-img" src="/cinematic/operator.jpg" alt="Empty secure corridor — a volume under Pulse" width="1600" height="900" loading="lazy" decoding="async">
     <div class="shade-2"></div>
     <div class="type-block" id="response-type">
       <p class="kicker fog">Duty tree · signed event</p>
@@ -756,7 +808,7 @@ button, a, .btn, .menu-btn, .back-btn { touch-action: manipulation; -webkit-tap-
         <p class="body-copy" style="max-width:36rem">Commands, border operators, and critical infrastructure run volumes they cannot photograph. Cameras produce a record of a person. Pulse produces a record of a state.</p>
       </div>
     </div>
-    <div class="arch-frame"><img class="arch-img" src="cinematic/architecture.jpg" alt="Pulse node in the palm — SELIXOR PULSE" width="1600" height="900" loading="lazy" decoding="async"></div>
+    <div class="arch-frame"><img class="arch-img" src="/cinematic/architecture.jpg" alt="Pulse node in the palm — SELIXOR PULSE" width="1600" height="900" loading="lazy" decoding="async"></div>
     <div class="two-col">
       <p class="body-copy">Selixor is the layer that gives a volume a state. Pulse nodes watch with radio, not optics. They form no image. Occupied, still, fallen, vital, unmatched — a class on the device. A signed event into the duty tree or C2 the operator already runs.</p>
       <p class="body-copy">The output is not a feed. It is a class with a signature. The waveform does not leave the node. The same node on a mast, in a doorway, or on an airframe.</p>
@@ -901,7 +953,7 @@ button, a, .btn, .menu-btn, .back-btn { touch-action: manipulation; -webkit-tap-
       <h2 style="margin-top:1rem;font-size:1.875rem">The floor that ships it</h2>
       <div class="founder">
         <div class="portrait">
-          <img src="team/misael-de-paz.jpeg" alt="Misael De Paz — Founder & Chief Executive Officer" width="800" height="1066" loading="lazy" decoding="async">
+          <img src="/team/misael-de-paz.jpeg" alt="Misael De Paz — Founder & Chief Executive Officer" width="800" height="1066" loading="lazy" decoding="async">
         </div>
         <div>
           <h3 class="statement">Misael De Paz</h3>
@@ -912,7 +964,7 @@ button, a, .btn, .menu-btn, .back-btn { touch-action: manipulation; -webkit-tap-
       </div>
       <div class="team-grid">
         <article>
-          <div class="portrait"><img src="team/marcos-aramburu.jpeg" alt="Marcos Aramburu — Chief Technology Officer" width="800" height="1066" loading="lazy" decoding="async"></div>
+          <div class="portrait"><img src="/team/marcos-aramburu.jpeg" alt="Marcos Aramburu — Chief Technology Officer" width="800" height="1066" loading="lazy" decoding="async"></div>
           <h3 style="margin-top:1.25rem;font-size:1.5rem">Marcos Aramburu</h3>
           <p class="kicker dim" style="margin-top:.25rem">Chief Technology Officer</p>
           <p class="muted" style="margin-top:.5rem;font-size:.75rem">Edge compute · Security · Infrastructure</p>
@@ -920,7 +972,7 @@ button, a, .btn, .menu-btn, .back-btn { touch-action: manipulation; -webkit-tap-
         <article>
           <div class="portrait">
             <span class="plate-pending kicker dim">Plate pending</span>
-            <img src="team/claire-ostrow.jpeg" alt="Claire Ostrow — Chief Sensing Officer" width="800" height="1066" loading="lazy" decoding="async">
+            <img src="/team/claire-ostrow.jpeg" alt="Claire Ostrow — Chief Sensing Officer" width="800" height="1066" loading="lazy" decoding="async">
           </div>
           <h3 style="margin-top:1.25rem;font-size:1.5rem">Claire Ostrow</h3>
           <p class="kicker dim" style="margin-top:.25rem">Chief Sensing Officer</p>
@@ -929,14 +981,14 @@ button, a, .btn, .menu-btn, .back-btn { touch-action: manipulation; -webkit-tap-
         <article>
           <div class="portrait">
             <span class="plate-pending kicker dim">Plate pending</span>
-            <img src="team/neil-brannigan.jpeg" alt="Neil Brannigan — Chief of Institutional Operations" width="800" height="1066" loading="lazy" decoding="async">
+            <img src="/team/neil-brannigan.jpeg" alt="Neil Brannigan — Chief of Institutional Operations" width="800" height="1066" loading="lazy" decoding="async">
           </div>
           <h3 style="margin-top:1.25rem;font-size:1.5rem">Neil Brannigan</h3>
           <p class="kicker dim" style="margin-top:.25rem">Chief of Institutional Operations</p>
           <p class="muted" style="margin-top:.5rem;font-size:.75rem">Duty tree · Escalation · Shift · Closed compound</p>
         </article>
         <article>
-          <div class="portrait"><img src="team/vanesa-sokoloff.jpeg" alt="Vanesa Sokoloff — Chief Implementation Officer" width="800" height="1066" loading="lazy" decoding="async"></div>
+          <div class="portrait"><img src="/team/vanesa-sokoloff.jpeg" alt="Vanesa Sokoloff — Chief Implementation Officer" width="800" height="1066" loading="lazy" decoding="async"></div>
           <h3 style="margin-top:1.25rem;font-size:1.5rem">Vanesa Sokoloff</h3>
           <p class="kicker dim" style="margin-top:.25rem">Chief Implementation Officer</p>
           <p class="muted" style="margin-top:.5rem;font-size:.75rem">Institutional networks · Deployment · Cutover</p>
@@ -944,7 +996,7 @@ button, a, .btn, .menu-btn, .back-btn { touch-action: manipulation; -webkit-tap-
         <article>
           <div class="portrait">
             <span class="plate-pending kicker dim">Plate pending</span>
-            <img src="team/helena-greaves.jpeg" alt="Helena Greaves — Chief Assurance Officer" width="800" height="1066" loading="lazy" decoding="async">
+            <img src="/team/helena-greaves.jpeg" alt="Helena Greaves — Chief Assurance Officer" width="800" height="1066" loading="lazy" decoding="async">
           </div>
           <h3 style="margin-top:1.25rem;font-size:1.5rem">Helena Greaves</h3>
           <p class="kicker dim" style="margin-top:.25rem">Chief Assurance Officer</p>
@@ -958,7 +1010,7 @@ button, a, .btn, .menu-btn, .back-btn { touch-action: manipulation; -webkit-tap-
       <h2 style="margin-top:1rem;font-size:1.875rem">Torrey Pines, San Diego</h2>
       <p class="muted" style="margin-top:1rem;max-width:36rem;font-size:15px;line-height:1.7">Not a skyline office. A technical corridor — applied biology, communications, defense-adjacent engineering. RF benches, a silent test volume, the concentrator hardware we actually ship.</p>
       <div class="hq-frame">
-        <img src="office.jpg" alt="Selixor headquarters, Torrey Pines Tech Corridor, San Diego" width="1400" height="933" loading="lazy" decoding="async">
+        <img src="/office.jpg" alt="Selixor headquarters, Torrey Pines Tech Corridor, San Diego" width="1600" height="800" loading="lazy" decoding="async">
         <div class="hq-cap">
           <p class="kicker dim">10290 Campus Point Drive, Suite 300 · San Diego, CA 92121</p>
           <p class="kicker dim">info@selixor.cloud</p>
@@ -1009,12 +1061,12 @@ window.FOOTER_COLUMNS = window.CONTENT.FOOTER_COLUMNS;
   ];
 
   const PARTNERS = [
-    { name: "Tecnológico de Monterrey", role: "Research & talent", img: "partners/tec.jpg", alt: "University research campus — Tecnológico de Monterrey partnership", copy: "Applied electromagnetics, embedded inference, evaluation methods that survive a volume that is not a lab. Pipeline, not billboard." },
-    { name: "Centro Médico ABC", role: "Clinical proving ground", img: "partners/abc.jpg", alt: "Clinical facility — Centro Médico ABC partnership", copy: "One volume among others. Fall-class, vital motion, no photograph. Protocols were shaped where a camera was not an option." },
-    { name: "Varda Space Industries", role: "Orbital manufacturing · via Nuvvio", img: "partners/varda.jpg", alt: "Orbital operations — Varda Space Industries partnership", copy: "Same solver family, different state vector. Reentry analysis of returning hardware. They do not run Pulse. They run the conscience." },
+    { name: "Tecnológico de Monterrey", role: "Research & talent", img: "/partners/tec.jpg", alt: "University research campus — Tecnológico de Monterrey partnership", copy: "Applied electromagnetics, embedded inference, evaluation methods that survive a volume that is not a lab. Pipeline, not billboard." },
+    { name: "Centro Médico ABC", role: "Clinical proving ground", img: "/partners/abc.jpg", alt: "Clinical facility — Centro Médico ABC partnership", copy: "One volume among others. Fall-class, vital motion, no photograph. Protocols were shaped where a camera was not an option." },
+    { name: "Varda Space Industries", role: "Orbital manufacturing · via Nuvvio", img: "/partners/varda.jpg", alt: "Orbital operations — Varda Space Industries partnership", copy: "Same solver family, different state vector. Reentry analysis of returning hardware. They do not run Pulse. They run the conscience." },
   ];
 
-  const OFFICE = "office.jpg";
+  const OFFICE = "/office.jpg";
 
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (reduce) document.documentElement.classList.add("reduce");
@@ -1236,8 +1288,39 @@ window.FOOTER_COLUMNS = window.CONTENT.FOOTER_COLUMNS;
   const ovTh = document.getElementById("ov-theater");
   const veil = document.getElementById("veil");
   const fieldVid = document.getElementById("field-vid");
+  const MEDIA_WARM = [
+    "/cinematic/pulse.mp4",
+    "/cinematic/console.jpg",
+    "/cinematic/operator.jpg",
+    "/cinematic/architecture.jpg",
+    "/office.jpg"
+  ];
+  let mediaWarmed = false;
+  function warmMedia() {
+    if (mediaWarmed) return;
+    mediaWarmed = true;
+    if (fieldVid) {
+      fieldVid.preload = "auto";
+      try { fieldVid.load(); } catch (e) {}
+    }
+    MEDIA_WARM.forEach((url) => {
+      if (url.endsWith(".mp4")) {
+        fetch(url, { cache: "force-cache", credentials: "same-origin" }).catch(() => {});
+        return;
+      }
+      const im = new Image();
+      im.decoding = "async";
+      im.src = url;
+      if (im.decode) im.decode().catch(() => {});
+    });
+  }
+  if ("requestIdleCallback" in window) requestIdleCallback(warmMedia, { timeout: 800 });
+  else setTimeout(warmMedia, 200);
+  window.addEventListener("scroll", warmMedia, { once: true, passive: true });
+  window.addEventListener("touchstart", warmMedia, { once: true, passive: true });
   if (fieldVid && fieldEl && !reduce) {
     const kick = () => {
+      warmMedia();
       fieldVid.preload = "auto";
       const p = fieldVid.play();
       if (p && p.then) p.then(() => fieldVid.classList.add("is-on")).catch(() => {});
@@ -1246,9 +1329,22 @@ window.FOOTER_COLUMNS = window.CONTENT.FOOTER_COLUMNS;
       const vio = new IntersectionObserver(([e]) => {
         if (e.isIntersecting) kick();
         else fieldVid.pause();
-      }, { threshold: 0.12, rootMargin: "280px 0px" });
+      }, { threshold: 0, rootMargin: "2800px 0px" });
       vio.observe(fieldEl);
     }
+  }
+  if ("IntersectionObserver" in window) {
+    const warm = new IntersectionObserver((entries, obs) => {
+      for (const e of entries) {
+        if (!e.isIntersecting) continue;
+        const img = e.target;
+        const src = img.currentSrc || img.src;
+        if (src) { const pre = new Image(); pre.decoding = "async"; pre.src = src; }
+        img.loading = "eager";
+        obs.unobserve(img);
+      }
+    }, { rootMargin: "2800px 0px" });
+    document.querySelectorAll("img[loading=lazy]").forEach((img) => warm.observe(img));
   }
   const fieldType = document.getElementById("field-type");
   const consoleImg = document.getElementById("console-img");
@@ -1311,10 +1407,10 @@ window.FOOTER_COLUMNS = window.CONTENT.FOOTER_COLUMNS;
     }
 
     if (fieldEl && fieldVid) {
-      const p = reduce ? 1 : pinnedProgress(fieldEl);
-      const typeOp = reduce ? 1 : fade(p, 0, 0.08, 0.34, 0.52);
-      const imgP = reduce ? 1 : clamp01((p - 0.08) / 0.55);
-      fieldVid.style.transform = `scale(${1.08 - imgP * 0.08}) translate3d(0, ${(1 - imgP) * 8}%, 0)`;
+      const narrow = window.matchMedia("(max-width: 1024px)").matches;
+      const p = reduce || narrow ? 1 : pinnedProgress(fieldEl);
+      const typeOp = reduce || narrow ? 1 : fade(p, 0, 0.08, 0.34, 0.52);
+      fieldVid.style.transform = "none";
       if (fieldType) fieldType.style.opacity = String(typeOp);
     }
 
@@ -1466,7 +1562,7 @@ window.FOOTER_COLUMNS = window.CONTENT.FOOTER_COLUMNS;
       html += `<div class="partner-cards">${PARTNERS.map((c) => `<figure><img src="${c.img}" alt="${esc(c.alt)}" loading="lazy"><figcaption><p class="kicker dim">${esc(c.role)}</p><p style="margin-top:.25rem;font-size:1.25rem;font-weight:300">${esc(c.name)}</p><p class="muted" style="margin-top:.5rem;font-size:.875rem">${esc(c.copy)}</p></figcaption></figure>`).join("")}</div>`;
     }
     if (id === "headquarters") {
-      html += `<figure class="hq-frame" style="margin-top:2.5rem"><img src="${OFFICE}" alt="Selixor office, Torrey Pines Tech Corridor, San Diego, California" style="filter:grayscale(1)"><figcaption class="kicker dim" style="padding:.75rem 1.25rem">Torrey Pines Tech Corridor · San Diego, CA</figcaption></figure>`;
+      html += `<figure class="hq-frame" style="margin-top:2.5rem"><img src="${OFFICE}" alt="Selixor office, Torrey Pines Tech Corridor, San Diego, California" width="1600" height="800" loading="lazy" decoding="async" style="filter:grayscale(1)"><figcaption class="kicker dim" style="padding:.75rem 1.25rem">Torrey Pines Tech Corridor · San Diego, CA</figcaption></figure>`;
     }
     if (id === "nuvvio") {
       html += `<p style="margin-top:2.5rem"><a class="kicker" href="https://www.nuvvio.online/" target="_blank" rel="noreferrer" style="text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line)">Open Nuvvio ↗</a></p>`;

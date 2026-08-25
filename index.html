@@ -25,7 +25,6 @@
   --paper: #f2efe6;
   --paper-2: #e7e2d6;
   --ink: #1c1c1a;
-  --ink-2: #2c2c28;
   --charcoal: #161614;
   --steel: #6f6d66;
   --fog: #9b9890;
@@ -80,7 +79,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .fog { color: var(--fog); }
 .steel { color: var(--steel); }
 .paper { color: var(--paper); }
-.ink { color: var(--ink); }
 .muted { color: var(--muted); }
 .dim { color: var(--dim); }
 
@@ -140,8 +138,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .btn:disabled { opacity: .4; pointer-events: none; }
 .btn-primary { background: var(--ink); color: var(--paper); }
 .btn-primary:hover { opacity: .9; }
-.btn-inverse { background: var(--paper); color: var(--ink); }
-.btn-inverse:hover { background: var(--paper-2); }
 #site-header.is-light .btn-access, #site-header.menu-open .btn-access {
   background: var(--ink); color: var(--paper);
 }
@@ -253,13 +249,8 @@ html.reduce .reduce-block { display: block; }
   pointer-events: none; position: absolute; inset-inline: 0; top: 4.75rem;
   text-align: center; display: none;
 }
-.theater-note {
-  pointer-events: none; position: absolute; bottom: 1rem; left: 50%;
-  width: min(92%, 52rem); transform: translateX(-50%);
-  text-align: center; display: none;
-}
 @media (min-width: 768px) {
-  .theater-kicker, .theater-note { display: block; }
+  .theater-kicker { display: block; }
 }
 
 /* Field / Response */
@@ -267,7 +258,14 @@ html.reduce .reduce-block { display: block; }
 #field { height: 200vh; }
 #response { height: 240vh; }
 html.reduce #field, html.reduce #response { height: auto; }
-.full-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; outline: none; }
+.full-img {
+  position: absolute; inset: 0;
+  width: 100% !important; height: 100% !important;
+  max-width: none !important; max-height: none !important;
+  object-fit: cover !important; object-position: center center !important;
+  transform-origin: center center;
+  outline: none;
+}
 .shade {
   position: absolute; inset: 0;
   background: linear-gradient(to bottom, rgba(22,22,20,.8), rgba(22,22,20,.25), rgba(22,22,20,.8));
@@ -291,7 +289,12 @@ html.reduce #field, html.reduce #response { height: auto; }
   padding: 7rem 0 2rem;
 }
 @media (min-width: 1024px) { .platform-head { grid-template-columns: 1fr 1fr; } }
-.arch-img { aspect-ratio: 16/7; width: 100%; object-fit: cover; }
+.arch-img {
+  position: absolute; inset: 0;
+  width: 100% !important; height: 100% !important;
+  max-width: none !important; max-height: none !important;
+  object-fit: cover !important; object-position: center center !important;
+}
 .two-col { display: grid; grid-template-columns: 1fr; gap: 2.5rem; max-width: 56rem; padding: 5rem 0; }
 @media (min-width: 768px) { .two-col { grid-template-columns: 1fr 1fr; } }
 .body-copy { font-size: 16px; font-weight: 300; line-height: 1.75; color: var(--muted); }
@@ -320,7 +323,6 @@ html.reduce .reduce-stages { display: grid; gap: 2.5rem; }
 @media (min-width: 768px) { html.reduce .reduce-stages { grid-template-columns: 1fr 1fr; } }
 html.reduce .stages-live { display: none; }
 .reduce-stages { display: none; }
-html.reduce .reduce-stages { display: grid; }
 .bar-track { height: 1px; background: var(--line-dark); margin-top: .5rem; }
 .bar-fill { height: 1px; background: rgba(242,239,230,.3); }
 .bar-fill.full { background: var(--paper); }
@@ -411,8 +413,9 @@ footer { background: var(--ink); color: var(--paper); }
 @media (min-width: 1024px) { .founder { grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr); } }
 .portrait { position: relative; aspect-ratio: 3/4; overflow: hidden; background: var(--paper-2); }
 .portrait img {
-  position: relative; z-index: 1;
-  width: 100%; height: 100%; object-fit: cover; object-position: top;
+  position: absolute; inset: 0; z-index: 1;
+  width: 100% !important; height: 100% !important; max-width: none !important;
+  object-fit: cover !important; object-position: top center !important;
   filter: grayscale(1) contrast(1.1);
   transition: filter .5s, transform .5s;
 }
@@ -431,7 +434,7 @@ footer { background: var(--ink); color: var(--paper); }
 @media (min-width: 1024px) { .team-grid { grid-template-columns: 1fr 1fr 1fr; } }
 .hq { margin-top: 6rem; border-top: 1px solid var(--line); padding-top: 4rem; }
 .hq-frame { margin-top: 2.5rem; overflow: hidden; border: 1px solid var(--line); }
-.hq-frame img { aspect-ratio: 16/8; width: 100%; object-fit: cover; }
+.hq-frame img { aspect-ratio: 16/8; width: 100% !important; max-width: none !important; object-fit: cover !important; object-position: center center !important; }
 .hq-cap {
   display: flex; flex-direction: column; gap: .5rem;
   border-top: 1px solid var(--line); padding: 1rem 1.25rem;
@@ -456,7 +459,7 @@ footer { background: var(--ink); color: var(--paper); }
 .spec-row dd { font-size: .875rem; color: var(--muted); }
 .partner-cards { margin-top: 2.5rem; display: grid; gap: 1.5rem; }
 .partner-cards figure { border: 1px solid var(--line); }
-.partner-cards img { aspect-ratio: 16/7; width: 100%; object-fit: cover; filter: grayscale(1); }
+.partner-cards img { aspect-ratio: 16/7; width: 100% !important; max-width: none !important; object-fit: cover !important; object-position: center center !important; filter: grayscale(1); }
 .partner-cards figcaption { padding: 1rem 1.25rem; }
 .doc-foot { margin-top: 4rem; border-top: 1px solid var(--line); padding-top: 1.5rem; font-size: .875rem; color: var(--dim); }
 .doc-foot button { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--line); }
@@ -478,20 +481,6 @@ footer { background: var(--ink); color: var(--paper); }
 .icon-sm { width: 1rem; height: 1rem; }
 
 
-/* Any file named laptop.jpg / console.jpg / operator.jpg / architecture.jpg
-   fills the same slot. The box size does not follow the photo's own dimensions. */
-img.full-img {
-  position: absolute;
-  inset: 0;
-  width: 100% !important;
-  height: 100% !important;
-  max-width: none !important;
-  max-height: none !important;
-  object-fit: cover !important;
-  object-position: center center !important;
-  transform-origin: center center;
-  outline: none;
-}
 .arch-frame {
   position: relative;
   display: block;
@@ -500,33 +489,6 @@ img.full-img {
   overflow: hidden;
   background: var(--paper-2);
 }
-img.arch-img {
-  position: absolute;
-  inset: 0;
-  width: 100% !important;
-  height: 100% !important;
-  max-width: none !important;
-  max-height: none !important;
-  object-fit: cover !important;
-  object-position: center center !important;
-}
-.portrait img {
-  position: absolute;
-  inset: 0;
-  width: 100% !important;
-  height: 100% !important;
-  max-width: none !important;
-  object-fit: cover !important;
-  object-position: top center !important;
-}
-.hq-frame > img,
-.partner-cards img {
-  width: 100% !important;
-  max-width: none !important;
-  object-fit: cover !important;
-  object-position: center center !important;
-}
-
 </style>
 </head>
 <body>
@@ -611,7 +573,7 @@ img.arch-img {
 
 <section id="field" data-theme="dark" data-chapter="B">
   <div class="sticky-frame">
-    <img class="full-img" id="field-img" src="cinematic/laptop.jpg" alt="Selixor Pulse on a field workstation — occupancy map of a physical volume" loading="lazy">
+    <img class="full-img" id="field-img" src="cinematic/laptop.jpg" alt="Selixor Pulse on a field workstation — occupancy map of a physical volume" fetchpriority="high" decoding="async">
     <div class="shade"></div>
     <div class="type-block" id="field-type">
       <p class="kicker fog">From orbit to the floor</p>
@@ -623,8 +585,8 @@ img.arch-img {
 
 <section id="response" data-theme="dark" data-chapter="C">
   <div class="sticky-frame">
-    <img class="full-img" id="console-img" src="cinematic/console.jpg" alt="Operator inspecting a volume on dual consoles" loading="lazy">
-    <img class="full-img" id="operator-img" src="cinematic/operator.jpg" alt="Duty officer facing a live occupancy map" loading="lazy">
+    <img class="full-img" id="console-img" src="cinematic/console.jpg" alt="Operator inspecting a volume on dual consoles" loading="lazy" decoding="async" fetchpriority="low">
+    <img class="full-img" id="operator-img" src="cinematic/operator.jpg" alt="Duty officer facing a live occupancy map" loading="lazy" decoding="async" fetchpriority="low">
     <div class="shade-2"></div>
     <div class="type-block" id="response-type">
       <p class="kicker fog">Duty tree · signed event</p>
@@ -645,7 +607,7 @@ img.arch-img {
         <p class="body-copy" style="max-width:36rem">Hospitals, governments, and industrial operators run physical space — wards, corridors, bays, secure floors — with software that was never designed to know what happened inside it. Cameras produce photographs. Photographs are a legal surface and a cultural dead end.</p>
       </div>
     </div>
-    <div class="arch-frame"><img class="arch-img" src="cinematic/architecture.jpg" alt="A volume under Pulse — mmWave sensing, no cameras" loading="lazy"></div>
+    <div class="arch-frame"><img class="arch-img" src="cinematic/architecture.jpg" alt="A volume under Pulse — mmWave sensing, no cameras" loading="lazy" decoding="async" fetchpriority="low"></div>
     <div class="two-col">
       <p class="body-copy">Selixor is the layer that gives a volume a state. Pulse nodes watch with millimeter-wave radio. They form no image. They infer an operational class on the device — occupied, still, fallen, unmatched — and emit a signed event into the duty tree the institution already staffs.</p>
       <p class="body-copy">The output is not a feed. It is a page to the person who is on duty. The waveform never leaves the building. Compatible with regulated privacy because the architecture never produces a photograph. Compatible with operations because nobody has to stare at a wall of glass.</p>
@@ -790,7 +752,7 @@ img.arch-img {
       <h2 style="margin-top:1rem;font-size:1.875rem">The floor that ships it</h2>
       <div class="founder">
         <div class="portrait">
-          <img src="team/misael-de-paz.jpeg" alt="Misael De Paz — Founder & Chief Executive Officer">
+          <img src="team/misael-de-paz.jpeg" alt="Misael De Paz — Founder & Chief Executive Officer" loading="lazy" decoding="async">
         </div>
         <div>
           <h3 class="statement">Misael De Paz</h3>
@@ -801,7 +763,7 @@ img.arch-img {
       </div>
       <div class="team-grid">
         <article>
-          <div class="portrait"><img src="team/marcos-aramburu.jpeg" alt="Marcos Aramburu — Chief Technology Officer"></div>
+          <div class="portrait"><img src="team/marcos-aramburu.jpeg" alt="Marcos Aramburu — Chief Technology Officer" loading="lazy" decoding="async"></div>
           <h3 style="margin-top:1.25rem;font-size:1.5rem">Marcos Aramburu</h3>
           <p class="kicker dim" style="margin-top:.25rem">Chief Technology Officer</p>
           <p class="muted" style="margin-top:.5rem;font-size:.75rem">Edge compute · Security · Infrastructure</p>
@@ -809,7 +771,7 @@ img.arch-img {
         <article>
           <div class="portrait">
             <span class="plate-pending kicker dim">Plate pending</span>
-            <img src="team/claire-ostrow.jpeg" alt="Claire Ostrow — Chief Sensing Officer">
+            <img src="team/claire-ostrow.jpeg" alt="Claire Ostrow — Chief Sensing Officer" loading="lazy" decoding="async">
           </div>
           <h3 style="margin-top:1.25rem;font-size:1.5rem">Claire Ostrow</h3>
           <p class="kicker dim" style="margin-top:.25rem">Chief Sensing Officer</p>
@@ -818,14 +780,14 @@ img.arch-img {
         <article>
           <div class="portrait">
             <span class="plate-pending kicker dim">Plate pending</span>
-            <img src="team/neil-brannigan.jpeg" alt="Neil Brannigan — Chief of Institutional Operations">
+            <img src="team/neil-brannigan.jpeg" alt="Neil Brannigan — Chief of Institutional Operations" loading="lazy" decoding="async">
           </div>
           <h3 style="margin-top:1.25rem;font-size:1.5rem">Neil Brannigan</h3>
           <p class="kicker dim" style="margin-top:.25rem">Chief of Institutional Operations</p>
           <p class="muted" style="margin-top:.5rem;font-size:.75rem">Duty tree · Escalation · Shift · Closed compound</p>
         </article>
         <article>
-          <div class="portrait"><img src="team/vanesa-sokoloff.jpeg" alt="Vanesa Sokoloff — Chief Implementation Officer"></div>
+          <div class="portrait"><img src="team/vanesa-sokoloff.jpeg" alt="Vanesa Sokoloff — Chief Implementation Officer" loading="lazy" decoding="async"></div>
           <h3 style="margin-top:1.25rem;font-size:1.5rem">Vanesa Sokoloff</h3>
           <p class="kicker dim" style="margin-top:.25rem">Chief Implementation Officer</p>
           <p class="muted" style="margin-top:.5rem;font-size:.75rem">Institutional networks · Deployment · Cutover</p>
@@ -833,7 +795,7 @@ img.arch-img {
         <article>
           <div class="portrait">
             <span class="plate-pending kicker dim">Plate pending</span>
-            <img src="team/helena-greaves.jpeg" alt="Helena Greaves — Chief Assurance Officer">
+            <img src="team/helena-greaves.jpeg" alt="Helena Greaves — Chief Assurance Officer" loading="lazy" decoding="async">
           </div>
           <h3 style="margin-top:1.25rem;font-size:1.5rem">Helena Greaves</h3>
           <p class="kicker dim" style="margin-top:.25rem">Chief Assurance Officer</p>
@@ -847,7 +809,7 @@ img.arch-img {
       <h2 style="margin-top:1rem;font-size:1.875rem">Torrey Pines, San Diego</h2>
       <p class="muted" style="margin-top:1rem;max-width:36rem;font-size:15px;line-height:1.7">Not a skyline office. A technical corridor — applied biology, communications, defense-adjacent engineering. RF benches, a silent test volume, the concentrator hardware we actually ship.</p>
       <div class="hq-frame">
-        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=80" alt="Selixor headquarters, Torrey Pines Tech Corridor, San Diego">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=80" alt="Selixor headquarters, Torrey Pines Tech Corridor, San Diego" loading="lazy" decoding="async">
         <div class="hq-cap">
           <p class="kicker dim">10290 Campus Point Drive, Suite 300 · San Diego, CA 92121</p>
           <p class="kicker dim">info@selixor.cloud</p>
@@ -1031,12 +993,29 @@ window.FOOTER_COLUMNS = window.CONTENT.FOOTER_COLUMNS;
     }
     const events = [{lat:0.58,lng:0.35},{lat:0.22,lng:2.05},{lat:-0.38,lng:4.15},{lat:0.72,lng:5.4},{lat:-0.12,lng:1.15},{lat:0.34,lng:3.35},{lat:-0.55,lng:0.9},{lat:0.08,lng:4.8}];
 
-    const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; }, { threshold: 0.04 });
+    function startLoop() {
+      if (running) return;
+      running = true;
+      raf = requestAnimationFrame(draw);
+    }
+    function stopLoop() {
+      running = false;
+      cancelAnimationFrame(raf);
+    }
+    const io = new IntersectionObserver(([e]) => {
+      visible = e.isIntersecting;
+      if (visible && !document.hidden) startLoop(); else stopLoop();
+    }, { threshold: 0.04 });
     io.observe(wrap);
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden && visible) startLoop(); else stopLoop();
+    });
 
+    let boxW = 0, boxH = 0;
     function resize() {
       const dpr = Math.min(2, window.devicePixelRatio || 1);
       const { width, height } = wrap.getBoundingClientRect();
+      boxW = width; boxH = height;
       canvas.width = Math.max(1, Math.floor(width * dpr));
       canvas.height = Math.max(1, Math.floor(height * dpr));
       canvas.style.width = width + "px";
@@ -1048,7 +1027,7 @@ window.FOOTER_COLUMNS = window.CONTENT.FOOTER_COLUMNS;
 
     function draw(t) {
       if (!running) return;
-      const { width, height } = wrap.getBoundingClientRect();
+      const width = boxW, height = boxH;
       ctx.clearRect(0, 0, width, height);
       const cx = width * 0.5, cy = height * 0.52, r = Math.min(width, height) * 0.46;
       if (!reduce && visible) rot += 0.00105;
@@ -1339,7 +1318,7 @@ window.FOOTER_COLUMNS = window.CONTENT.FOOTER_COLUMNS;
       html += `<div class="partner-cards">${PARTNERS.map((c) => `<figure><img src="${c.img}" alt="${esc(c.alt)}" loading="lazy"><figcaption><p class="kicker dim">${esc(c.role)}</p><p style="margin-top:.25rem;font-size:1.25rem;font-weight:300">${esc(c.name)}</p><p class="muted" style="margin-top:.5rem;font-size:.875rem">${esc(c.copy)}</p></figcaption></figure>`).join("")}</div>`;
     }
     if (id === "headquarters") {
-      html += `<figure class="hq-frame" style="margin-top:2.5rem"><img src="${OFFICE}" alt="Selixor office, Torrey Pines Tech Corridor, San Diego, California" style="filter:grayscale(1)"><figcaption class="kicker dim" style="padding:.75rem 1.25rem">Torrey Pines Tech Corridor · San Diego, CA</figcaption></figure>`;
+      html += `<figure class="hq-frame" style="margin-top:2.5rem"><img src="${OFFICE}" alt="Selixor office, Torrey Pines Tech Corridor, San Diego, California" style="filter:grayscale(1)" loading="lazy" decoding="async"><figcaption class="kicker dim" style="padding:.75rem 1.25rem">Torrey Pines Tech Corridor · San Diego, CA</figcaption></figure>`;
     }
     if (id === "nuvvio") {
       html += `<p style="margin-top:2.5rem"><a class="kicker" href="https://www.nuvvio.online/" target="_blank" rel="noreferrer" style="text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line)">Open Nuvvio ↗</a></p>`;

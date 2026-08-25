@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#F2EFE6">
 <meta name="description" content="Selixor Pulse returns a class for presence inside a volume without forming an image. On-node inference. Signed event into the duty tree or C2.">
 <title>Selixor — Pulse</title>
@@ -17,10 +17,6 @@
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://selixor.cloud/">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="preload" as="image" href="cinematic/laptop.jpg" fetchpriority="high">
-<link rel="prefetch" as="image" href="cinematic/console.jpg">
-<link rel="prefetch" as="image" href="cinematic/operator.jpg">
-<link rel="prefetch" as="image" href="cinematic/architecture.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -57,11 +53,14 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 body {
   margin: 0;
   min-width: 320px;
-  overflow-x: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
   background: var(--paper);
   color: var(--ink);
   font-family: var(--sans);
@@ -198,13 +197,16 @@ body.theme-light .chapter-rail a:hover { color: rgba(28,28,26,.7); }
 body.theme-light .chapter-rail a.is-on { color: var(--ink); }
 
 /* Opening */
-#top { position: relative; background: var(--charcoal); color: var(--paper); height: 280vh; }
+#top { position: relative; background: var(--charcoal); color: var(--paper); height: 280vh; overflow: visible; }
 @media (min-width: 768px) { #top { height: 320vh; } }
 html.reduce #top { height: auto; }
 .sticky-frame {
   position: sticky; top: 0;
   display: flex; flex-direction: column;
-  height: 100svh; overflow: hidden;
+  width: 100%;
+  height: 100svh;
+  min-height: 100svh;
+  overflow: hidden;
 }
 html.reduce .sticky-frame { position: relative; }
 #globe { position: absolute; inset: 0; }
@@ -229,6 +231,7 @@ html.reduce .reduce-block { display: block; }
   max-height: 40%; overflow: auto;
   border: 1px solid var(--line-dark);
   background: rgba(22,22,20,.92);
+  z-index: 4;
 }
 @media (min-width: 768px) {
   .volumes {
@@ -267,19 +270,21 @@ html.reduce .reduce-block { display: block; }
 }
 
 /* Field / Response */
-#field, #response { position: relative; background: var(--charcoal); color: var(--paper); }
+#field, #response { position: relative; background: var(--charcoal); color: var(--paper); overflow: visible; }
 #field { height: 200vh; }
 #response { height: 240vh; }
 html.reduce #field, html.reduce #response { height: auto; }
-.full-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; outline: none; }
+.full-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; outline: none; opacity: 1; will-change: transform; z-index: 0; }
 .shade {
   position: absolute; inset: 0;
-  background: linear-gradient(to bottom, rgba(22,22,20,.8), rgba(22,22,20,.25), rgba(22,22,20,.8));
+  z-index: 1;
+  background: linear-gradient(to bottom, rgba(22,22,20,.38), rgba(22,22,20,.04), rgba(22,22,20,.42));
   pointer-events: none;
 }
 .shade-2 {
   position: absolute; inset: 0;
-  background: linear-gradient(to bottom, rgba(22,22,20,.7), rgba(22,22,20,.2), rgba(22,22,20,.75));
+  z-index: 1;
+  background: linear-gradient(to bottom, rgba(22,22,20,.32), rgba(22,22,20,.04), rgba(22,22,20,.4));
   pointer-events: none;
 }
 .type-block {
@@ -495,6 +500,13 @@ img.full-img {
   object-position: center center !important;
   transform-origin: center center;
   outline: none;
+  opacity: 1;
+  color: transparent;
+  font-size: 0;
+}
+img.arch-img {
+  color: transparent;
+  font-size: 0;
 }
 .arch-frame {
   position: relative;
@@ -538,9 +550,10 @@ img.arch-img {
   pointer-events: none;
 }
 
-html, body {
+html, body, #selixor-mount {
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 .wordmark {
@@ -585,7 +598,7 @@ input, textarea {
     gap: 2rem;
   }
   .volumes {
-    max-height: 32%;
+    max-height: 44%;
   }
   .form-foot {
     flex-wrap: wrap;
@@ -608,6 +621,9 @@ input, textarea {
     padding: 5rem 0;
   }
 }
+
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+button, a, .btn, .menu-btn, .back-btn { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 
 </style>
 </head>
@@ -676,7 +692,7 @@ input, textarea {
             <p class="kicker steel">Site-04 North</p>
           </div>
           <div class="vol-sub">
-            <p class="kicker fog">Ready to task</p>
+            <p class="kicker fog">On-node</p>
             <p class="kicker paper" style="font-variant-numeric:tabular-nums">10</p>
           </div>
           <ul id="vol-list"></ul>
@@ -693,7 +709,7 @@ input, textarea {
 
 <section id="field" data-theme="dark" data-chapter="B">
   <div class="sticky-frame">
-    <img class="full-img" id="field-img" src="cinematic/laptop.jpg" alt="Selixor Pulse on a field workstation — occupancy map of a physical volume" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async">
+    <img class="full-img" id="field-img" src="cinematic/laptop.jpg" alt="Pulse occupancy map on a field workstation" width="1600" height="900" loading="lazy" decoding="async">
     <div class="shade"></div>
     <div class="type-block" id="field-type">
       <p class="kicker fog">Pulse · on-node class</p>
@@ -706,7 +722,7 @@ input, textarea {
 <section id="response" data-theme="dark" data-chapter="C">
   <div class="sticky-frame">
     <img class="full-img" id="console-img" src="cinematic/console.jpg" alt="Operator inspecting a volume on dual consoles" width="1600" height="900" loading="lazy" decoding="async">
-    <img class="full-img" id="operator-img" src="cinematic/operator.jpg" alt="Empty secure corridor — a volume under Pulse, no photograph" width="1600" height="900" loading="lazy" decoding="async">
+    <img class="full-img" id="operator-img" src="cinematic/operator.jpg" alt="Empty secure corridor — a volume under Pulse" width="1600" height="900" loading="lazy" decoding="async">
     <div class="shade-2"></div>
     <div class="type-block" id="response-type">
       <p class="kicker fog">Duty tree · signed event</p>
@@ -727,7 +743,7 @@ input, textarea {
         <p class="body-copy" style="max-width:36rem">Commands, border operators, and critical infrastructure run volumes they cannot photograph. Cameras produce a record of a person. Pulse produces a record of a state.</p>
       </div>
     </div>
-    <div class="arch-frame"><img class="arch-img" src="cinematic/architecture.jpg" alt="Pulse node in the palm — SELIXOR PULSE, tactical airframe" width="1600" height="900" loading="lazy" decoding="async"></div>
+    <div class="arch-frame"><img class="arch-img" src="cinematic/architecture.jpg" alt="Pulse node in the palm — SELIXOR PULSE" width="1600" height="900" loading="lazy" decoding="async"></div>
     <div class="two-col">
       <p class="body-copy">Selixor is the layer that gives a volume a state. Pulse nodes watch with radio, not optics. They form no image. Occupied, still, fallen, vital, unmatched — a class on the device. A signed event into the duty tree or C2 the operator already runs.</p>
       <p class="body-copy">The output is not a feed. It is a class with a signature. The waveform does not leave the node. The same node on a mast, in a doorway, or on an airframe.</p>
@@ -956,18 +972,20 @@ window.DOCS = window.CONTENT.DOCS;
 window.FOOTER_COLUMNS = window.CONTENT.FOOTER_COLUMNS;
 (function () {
   "use strict";
+  if (window.__selixorPulse) return;
+  window.__selixorPulse = true;
 
   const EVENTS = [
-    { name: "Hull 2", kind: "Vital class", queue: "Detect / still", pri: "P1", ms: "48 ms" },
-    { name: "Bay 12", kind: "Stillness", queue: "Infer queue", pri: "P1", ms: "112 ms" },
-    { name: "Corridor C", kind: "Rapid transition", queue: "Escalate", pri: "P1", ms: "164 ms" },
-    { name: "Border-N", kind: "Unmatched", queue: "Watch", pri: "P1", ms: "—" },
-    { name: "Mast-04", kind: "Occupancy", queue: "Detect / still", pri: "P2", ms: "61 ms" },
-    { name: "Stair A", kind: "Unmatched", queue: "Challenge", pri: "P2", ms: "138 ms" },
-    { name: "Cabin-1", kind: "Vital class", queue: "Infer queue", pri: "P2", ms: "97 ms" },
-    { name: "Loading", kind: "Vehicle class", queue: "Watch", pri: "P3", ms: "—" },
-    { name: "Secure-1", kind: "Occupancy", queue: "Detect / still", pri: "P1", ms: "44 ms" },
-    { name: "Airframe", kind: "Through-wall", queue: "Infer queue", pri: "P2", ms: "121 ms" },
+    { name: "HULL-02", kind: "vital", conf: "0.94", node: "n7f3c", pri: "P1", ms: "48 ms" },
+    { name: "AIRFRAME", kind: "through-wall", conf: "0.88", node: "n2a19", pri: "P1", ms: "121 ms" },
+    { name: "BORDER-N", kind: "unmatched", conf: "0.81", node: "n9c04", pri: "P1", ms: "—" },
+    { name: "CORR-C", kind: "rapid", conf: "0.90", node: "n4e21", pri: "P1", ms: "164 ms" },
+    { name: "MAST-04", kind: "occupied", conf: "0.96", node: "n1b70", pri: "P2", ms: "61 ms" },
+    { name: "CABIN-01", kind: "vital", conf: "0.87", node: "n6d33", pri: "P2", ms: "97 ms" },
+    { name: "LOADING", kind: "vehicle", conf: "0.72", node: "n0f18", pri: "P3", ms: "—" },
+    { name: "SEC-01", kind: "occupied", conf: "0.95", node: "n8a55", pri: "P1", ms: "44 ms" },
+    { name: "WARD-4B", kind: "still", conf: "0.83", node: "n3c12", pri: "P2", ms: "112 ms" },
+    { name: "STAIR-A", kind: "unmatched", conf: "0.79", node: "n5e08", pri: "P2", ms: "138 ms" },
   ];
 
   const STAGES = [
@@ -1017,7 +1035,7 @@ window.FOOTER_COLUMNS = window.CONTENT.FOOTER_COLUMNS;
           <p class="paper" style="display:flex;align-items:center;gap:.5rem;font-size:.875rem">
             <span class="dot${e.pri === "P1" ? " p1" : ""}"></span>${e.name}
           </p>
-          <p class="steel" style="margin-top:2px;padding-left:14px;font-size:.75rem">${e.kind} · ${e.queue}</p>
+          <p class="steel" style="margin-top:2px;padding-left:14px;font-size:.75rem;font-variant-numeric:tabular-nums">${e.kind} · e ${e.conf} · ${e.node}</p>
         </div>
         <div style="flex-shrink:0;text-align:right">
           <p class="kicker fog">${e.pri}</p>
@@ -1031,7 +1049,7 @@ window.FOOTER_COLUMNS = window.CONTENT.FOOTER_COLUMNS;
   if (detectSvg) {
     let html = "";
     for (let i = 0; i < 18; i++) {
-      html += `<rect x="${20 + (i % 9) * 40}" y="${30 + Math.floor(i / 9) * 90}" width="28" height="${40 + ((i * 17) % 50)}" fill="rgba(242,239,230,0.08)"/>`;
+      html += `<rect x="${20 + (i % 9) * 40}" y="${30 + Math.floor(i / 9) * 90}" width="28" height="${40 + ((i * 17) % 50)}" fill="rgba(242,239,230,0.22)"/>`;
     }
     html += `<rect x="140" y="70" width="28" height="86" fill="rgba(166,93,63,0.55)"/>`;
     html += `<rect x="180" y="92" width="28" height="64" fill="rgba(166,93,63,0.35)"/>`;
@@ -1096,7 +1114,7 @@ window.FOOTER_COLUMNS = window.CONTENT.FOOTER_COLUMNS;
     let raf = 0, rot = 0.55, running = true, visible = true;
     const points = [];
     const lands = [[0.72,0.55,0.62],[0.18,0.95,0.42],[0.88,1.45,0.38],[0.2,1.75,0.58],[0.55,3.35,0.95],[0.15,2.55,0.42],[-0.42,4.65,0.38],[-0.15,2.2,0.22]];
-    const n = 6200;
+    const n = 1800;
     for (let i = 0; i < n; i++) {
       const y = 1 - (i / (n - 1)) * 2;
       const theta = i * 2.399963229;
@@ -1130,6 +1148,8 @@ window.FOOTER_COLUMNS = window.CONTENT.FOOTER_COLUMNS;
 
     function draw(t) {
       if (!running) return;
+      raf = requestAnimationFrame(draw);
+      if (!visible) return;
       const { width, height } = wrap.getBoundingClientRect();
       ctx.clearRect(0, 0, width, height);
       const cx = width * 0.5, cy = height * 0.52, r = Math.min(width, height) * 0.46;
@@ -1189,7 +1209,6 @@ window.FOOTER_COLUMNS = window.CONTENT.FOOTER_COLUMNS;
         ctx.beginPath(); ctx.arc(p.x, p.y, 9 * pulse, 0, Math.PI * 2);
         ctx.strokeStyle = `rgba(166,93,63,${0.28 + 0.3 * p.z})`; ctx.lineWidth = 1; ctx.stroke();
       }
-      raf = requestAnimationFrame(draw);
     }
     raf = requestAnimationFrame(draw);
   })();
@@ -1267,8 +1286,8 @@ window.FOOTER_COLUMNS = window.CONTENT.FOOTER_COLUMNS;
     if (fieldEl && fieldImg) {
       const p = reduce ? 1 : pinnedProgress(fieldEl);
       const typeOp = reduce ? 1 : fade(p, 0, 0.08, 0.34, 0.52);
-      const imgP = reduce ? 1 : clamp01((p - 0.2) / 0.55);
-      fieldImg.style.opacity = String(imgP);
+      const imgP = reduce ? 1 : clamp01((p - 0.08) / 0.55);
+      fieldImg.style.opacity = "1";
       fieldImg.style.transform = `scale(${1.08 - imgP * 0.08}) translate3d(0, ${(1 - imgP) * 8}%, 0)`;
       if (fieldType) fieldType.style.opacity = String(typeOp);
     }
@@ -1276,9 +1295,9 @@ window.FOOTER_COLUMNS = window.CONTENT.FOOTER_COLUMNS;
     if (respEl && consoleImg) {
       const p = reduce ? 1 : pinnedProgress(respEl);
       const typeOp = reduce ? 1 : fade(p, 0, 0.08, 0.28, 0.42);
-      const consoleP = reduce ? 1 : clamp01((p - 0.18) / 0.4);
+      const consoleP = reduce ? 1 : clamp01((p - 0.08) / 0.4);
       const operatorP = reduce ? 0 : clamp01((p - 0.58) / 0.28);
-      consoleImg.style.opacity = String(consoleP * (1 - operatorP));
+      consoleImg.style.opacity = String(1 - operatorP);
       consoleImg.style.transform = `scale(${1.06 - consoleP * 0.06})`;
       if (operatorImg) operatorImg.style.opacity = String(operatorP);
       if (respType) respType.style.opacity = String(Math.max(typeOp, operatorP * 0.15));

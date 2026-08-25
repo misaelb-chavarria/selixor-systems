@@ -4,19 +4,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#F2EFE6">
-<meta name="description" content="Selixor is the operating system for physical space. mmWave sensing, on-node inference, and signed events into the duty tree. No cameras. For hospitals, governments, and industrial operators. Same computational architecture as Nuvvio.">
-<title>Selixor — Operating System for Physical Intelligence</title>
-<meta property="og:title" content="Selixor — Operating System for Physical Intelligence">
-<meta property="og:description" content="Selixor is the operating system for physical space: mmWave sensing, on-node inference, and a signed event into the duty tree. No cameras. For hospitals, governments, and industrial operators.">
+<meta name="description" content="Selixor Pulse returns a class for presence inside a volume without forming an image. On-node inference. Signed event into the duty tree or C2.">
+<title>Selixor — Pulse</title>
+<meta property="og:title" content="Selixor — Pulse">
+<meta property="og:description" content="Pulse returns a class for presence inside a volume without forming an image. On-node class. Signed event into the duty tree or C2.">
 <meta property="og:image" content="og.jpg">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://selixor.cloud">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Selixor — Operating System for Physical Intelligence">
-<meta name="twitter:description" content="mmWave sensing, on-node inference, signed events into the duty tree. No cameras. Operating system for physical space.">
+<meta name="twitter:title" content="Selixor — Pulse">
+<meta name="twitter:description" content="A class, decided on the node. No photograph. Signed event into the duty tree or C2.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://selixor.cloud/">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preload" as="image" href="cinematic/laptop.jpg" fetchpriority="high">
+<link rel="prefetch" as="image" href="cinematic/console.jpg">
+<link rel="prefetch" as="image" href="cinematic/operator.jpg">
+<link rel="prefetch" as="image" href="cinematic/architecture.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -25,6 +29,7 @@
   --paper: #f2efe6;
   --paper-2: #e7e2d6;
   --ink: #1c1c1a;
+  --ink-2: #2c2c28;
   --charcoal: #161614;
   --steel: #6f6d66;
   --fog: #9b9890;
@@ -79,6 +84,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .fog { color: var(--fog); }
 .steel { color: var(--steel); }
 .paper { color: var(--paper); }
+.ink { color: var(--ink); }
 .muted { color: var(--muted); }
 .dim { color: var(--dim); }
 
@@ -138,6 +144,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .btn:disabled { opacity: .4; pointer-events: none; }
 .btn-primary { background: var(--ink); color: var(--paper); }
 .btn-primary:hover { opacity: .9; }
+.btn-inverse { background: var(--paper); color: var(--ink); }
+.btn-inverse:hover { background: var(--paper-2); }
 #site-header.is-light .btn-access, #site-header.menu-open .btn-access {
   background: var(--ink); color: var(--paper);
 }
@@ -249,8 +257,13 @@ html.reduce .reduce-block { display: block; }
   pointer-events: none; position: absolute; inset-inline: 0; top: 4.75rem;
   text-align: center; display: none;
 }
+.theater-note {
+  pointer-events: none; position: absolute; bottom: 1rem; left: 50%;
+  width: min(92%, 52rem); transform: translateX(-50%);
+  text-align: center; display: none;
+}
 @media (min-width: 768px) {
-  .theater-kicker { display: block; }
+  .theater-kicker, .theater-note { display: block; }
 }
 
 /* Field / Response */
@@ -258,14 +271,7 @@ html.reduce .reduce-block { display: block; }
 #field { height: 200vh; }
 #response { height: 240vh; }
 html.reduce #field, html.reduce #response { height: auto; }
-.full-img {
-  position: absolute; inset: 0;
-  width: 100% !important; height: 100% !important;
-  max-width: none !important; max-height: none !important;
-  object-fit: cover !important; object-position: center center !important;
-  transform-origin: center center;
-  outline: none;
-}
+.full-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; outline: none; }
 .shade {
   position: absolute; inset: 0;
   background: linear-gradient(to bottom, rgba(22,22,20,.8), rgba(22,22,20,.25), rgba(22,22,20,.8));
@@ -289,12 +295,7 @@ html.reduce #field, html.reduce #response { height: auto; }
   padding: 7rem 0 2rem;
 }
 @media (min-width: 1024px) { .platform-head { grid-template-columns: 1fr 1fr; } }
-.arch-img {
-  position: absolute; inset: 0;
-  width: 100% !important; height: 100% !important;
-  max-width: none !important; max-height: none !important;
-  object-fit: cover !important; object-position: center center !important;
-}
+.arch-img { aspect-ratio: 16/7; width: 100%; object-fit: cover; }
 .two-col { display: grid; grid-template-columns: 1fr; gap: 2.5rem; max-width: 56rem; padding: 5rem 0; }
 @media (min-width: 768px) { .two-col { grid-template-columns: 1fr 1fr; } }
 .body-copy { font-size: 16px; font-weight: 300; line-height: 1.75; color: var(--muted); }
@@ -323,6 +324,7 @@ html.reduce .reduce-stages { display: grid; gap: 2.5rem; }
 @media (min-width: 768px) { html.reduce .reduce-stages { grid-template-columns: 1fr 1fr; } }
 html.reduce .stages-live { display: none; }
 .reduce-stages { display: none; }
+html.reduce .reduce-stages { display: grid; }
 .bar-track { height: 1px; background: var(--line-dark); margin-top: .5rem; }
 .bar-fill { height: 1px; background: rgba(242,239,230,.3); }
 .bar-fill.full { background: var(--paper); }
@@ -413,9 +415,8 @@ footer { background: var(--ink); color: var(--paper); }
 @media (min-width: 1024px) { .founder { grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr); } }
 .portrait { position: relative; aspect-ratio: 3/4; overflow: hidden; background: var(--paper-2); }
 .portrait img {
-  position: absolute; inset: 0; z-index: 1;
-  width: 100% !important; height: 100% !important; max-width: none !important;
-  object-fit: cover !important; object-position: top center !important;
+  position: relative; z-index: 1;
+  width: 100%; height: 100%; object-fit: cover; object-position: top;
   filter: grayscale(1) contrast(1.1);
   transition: filter .5s, transform .5s;
 }
@@ -434,7 +435,7 @@ footer { background: var(--ink); color: var(--paper); }
 @media (min-width: 1024px) { .team-grid { grid-template-columns: 1fr 1fr 1fr; } }
 .hq { margin-top: 6rem; border-top: 1px solid var(--line); padding-top: 4rem; }
 .hq-frame { margin-top: 2.5rem; overflow: hidden; border: 1px solid var(--line); }
-.hq-frame img { aspect-ratio: 16/8; width: 100% !important; max-width: none !important; object-fit: cover !important; object-position: center center !important; }
+.hq-frame img { aspect-ratio: 16/8; width: 100%; object-fit: cover; }
 .hq-cap {
   display: flex; flex-direction: column; gap: .5rem;
   border-top: 1px solid var(--line); padding: 1rem 1.25rem;
@@ -459,7 +460,7 @@ footer { background: var(--ink); color: var(--paper); }
 .spec-row dd { font-size: .875rem; color: var(--muted); }
 .partner-cards { margin-top: 2.5rem; display: grid; gap: 1.5rem; }
 .partner-cards figure { border: 1px solid var(--line); }
-.partner-cards img { aspect-ratio: 16/7; width: 100% !important; max-width: none !important; object-fit: cover !important; object-position: center center !important; filter: grayscale(1); }
+.partner-cards img { aspect-ratio: 16/7; width: 100%; object-fit: cover; filter: grayscale(1); }
 .partner-cards figcaption { padding: 1rem 1.25rem; }
 .doc-foot { margin-top: 4rem; border-top: 1px solid var(--line); padding-top: 1.5rem; font-size: .875rem; color: var(--dim); }
 .doc-foot button { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--line); }
@@ -481,6 +482,20 @@ footer { background: var(--ink); color: var(--paper); }
 .icon-sm { width: 1rem; height: 1rem; }
 
 
+/* Any file named laptop.jpg / console.jpg / operator.jpg / architecture.jpg
+   fills the same slot. The box size does not follow the photo's own dimensions. */
+img.full-img {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  transform-origin: center center;
+  outline: none;
+}
 .arch-frame {
   position: relative;
   display: block;
@@ -489,6 +504,111 @@ footer { background: var(--ink); color: var(--paper); }
   overflow: hidden;
   background: var(--paper-2);
 }
+img.arch-img {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+.portrait img {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: top center !important;
+}
+.hq-frame > img,
+.partner-cards img {
+  width: 100% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+/* First paint: only the opening wordmark. JS reveals the other chapters on scroll. */
+#ov-statement,
+#ov-theater {
+  opacity: 0;
+  pointer-events: none;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.wordmark {
+  max-width: 100%;
+}
+
+input, textarea {
+  font-size: 16px;
+}
+
+@media (max-width: 639px) {
+  :root {
+    --wordmark: clamp(3.15rem, 17vw, 4.75rem);
+    --statement: clamp(1.7rem, 8vw, 2.4rem);
+  }
+  .btn {
+    min-height: 2.75rem;
+    padding: 0 1rem;
+  }
+  .enter-grid {
+    margin-top: 1.5rem;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+  .type-block {
+    padding: 0 1.25rem;
+  }
+  .platform-head {
+    padding: 5rem 0 1.5rem;
+    gap: 1.75rem;
+  }
+  .two-col {
+    padding: 3rem 0;
+    gap: 1.75rem;
+  }
+  .access-grid {
+    padding: 4rem 0;
+    gap: 2.5rem;
+  }
+  .stages-grid {
+    padding: 4.5rem 0;
+    gap: 2rem;
+  }
+  .volumes {
+    max-height: 32%;
+  }
+  .form-foot {
+    flex-wrap: wrap;
+  }
+  .nav,
+  .wrap {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+  .mobile-menu a {
+    min-height: 2.75rem;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .type-block {
+    padding: 0 2rem;
+  }
+  .stages-grid {
+    padding: 5rem 0;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -537,15 +657,15 @@ footer { background: var(--ink); color: var(--paper); }
       <p class="kicker fog">Selixor // Pulse</p>
       <h1 class="wordmark paper" style="margin-top:1rem;max-width:100vw;overflow:hidden;padding:0 .5rem;text-align:center">Selixor</h1>
       <div class="enter-grid">
-        <p class="kicker fog">You are now entering</p>
-        <p class="kicker fog">Scroll to explore</p>
-        <p class="kicker fog">The operating system for physical space</p>
+        <p class="kicker fog">No image</p>
+        <p class="kicker fog">A class</p>
+        <p class="kicker fog">A signed event</p>
       </div>
     </div>
 
     <div class="overlay center" id="ov-statement" style="padding:0 1.5rem">
       <h2 class="statement paper" style="max-width:64rem;text-align:center">Your software is the sensing system</h2>
-      <p class="fog" style="margin-top:2rem;text-align:center;font-size:.875rem;font-weight:300">Operating System for<br>Physical Intelligence</p>
+      <p class="fog" style="margin-top:2rem;text-align:center;font-size:.875rem;font-weight:300">A class, decided on the node.<br>No photograph.</p>
     </div>
 
     <div class="overlay" id="ov-theater">
@@ -561,37 +681,37 @@ footer { background: var(--ink); color: var(--paper); }
           </div>
           <ul id="vol-list"></ul>
         </aside>
-        <p class="theater-kicker kicker fog">Operating System for Physical Intelligence</p>
+        <p class="theater-kicker kicker fog">Pulse · live on the volume</p>
       </div>
     </div>
   </div>
   <div class="reduce-block">
     <h2 class="statement">Your software is the sensing system</h2>
-    <p class="fog" style="margin-top:1.5rem">Operating System for Physical Intelligence</p>
+    <p class="fog" style="margin-top:1.5rem">A class, decided on the node. No photograph.</p>
   </div>
 </section>
 
 <section id="field" data-theme="dark" data-chapter="B">
   <div class="sticky-frame">
-    <img class="full-img" id="field-img" src="cinematic/laptop.jpg" alt="Selixor Pulse on a field workstation — occupancy map of a physical volume" fetchpriority="high" decoding="async">
+    <img class="full-img" id="field-img" src="cinematic/laptop.jpg" alt="Selixor Pulse on a field workstation — occupancy map of a physical volume" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async">
     <div class="shade"></div>
     <div class="type-block" id="field-type">
-      <p class="kicker fog">From orbit to the floor</p>
-      <h2 class="statement" style="margin-top:1.5rem;max-width:64rem">Decision dominance from orbit to the floor</h2>
-      <p class="fog" style="margin-top:2rem;max-width:28rem;font-size:.875rem;font-weight:300">Nuvvio computes reentry. Pulse computes the room. Same numerical conscience. Different state vector.</p>
+      <p class="kicker fog">Pulse · on-node class</p>
+      <h2 class="statement" style="margin-top:1.5rem;max-width:64rem">The volume has a state. It never had a picture.</h2>
+      <p class="fog" style="margin-top:2rem;max-width:28rem;font-size:.875rem;font-weight:300">Occupied, still, vital, unmatched. A class. No optical reconstruction.</p>
     </div>
   </div>
 </section>
 
 <section id="response" data-theme="dark" data-chapter="C">
   <div class="sticky-frame">
-    <img class="full-img" id="console-img" src="cinematic/console.jpg" alt="Operator inspecting a volume on dual consoles" loading="lazy" decoding="async" fetchpriority="low">
-    <img class="full-img" id="operator-img" src="cinematic/operator.jpg" alt="Duty officer facing a live occupancy map" loading="lazy" decoding="async" fetchpriority="low">
+    <img class="full-img" id="console-img" src="cinematic/console.jpg" alt="Operator inspecting a volume on dual consoles" width="1600" height="900" loading="lazy" decoding="async">
+    <img class="full-img" id="operator-img" src="cinematic/operator.jpg" alt="Empty secure corridor — a volume under Pulse, no photograph" width="1600" height="900" loading="lazy" decoding="async">
     <div class="shade-2"></div>
     <div class="type-block" id="response-type">
       <p class="kicker fog">Duty tree · signed event</p>
-      <h2 class="statement" id="response-h" style="margin-top:1.5rem;max-width:64rem">Orchestrate the response</h2>
-      <p class="fog" id="response-p" style="margin-top:2rem;max-width:32rem;font-size:.875rem;font-weight:300">A page to the person who is on duty. Not a dashboard someone has to stare at. The graph is versioned like code.</p>
+      <h2 class="statement" id="response-h" style="margin-top:1.5rem;max-width:64rem">The event enters the stack you already run.</h2>
+      <p class="fog" id="response-p" style="margin-top:2rem;max-width:32rem;font-size:.875rem;font-weight:300">A signed class from the node into the duty tree or the C2 bus. Not a video wall. Pulse does not replace the chain.</p>
     </div>
   </div>
 </section>
@@ -600,17 +720,17 @@ footer { background: var(--ink); color: var(--paper); }
   <div class="wrap">
     <div class="platform-head">
       <div class="reveal">
-        <p class="kicker steel">The product</p>
+        <p class="kicker steel">The system</p>
         <h2 class="statement" style="margin-top:1.25rem">An operating system for a volume that used to be blind.</h2>
       </div>
       <div class="reveal">
-        <p class="body-copy" style="max-width:36rem">Hospitals, governments, and industrial operators run physical space — wards, corridors, bays, secure floors — with software that was never designed to know what happened inside it. Cameras produce photographs. Photographs are a legal surface and a cultural dead end.</p>
+        <p class="body-copy" style="max-width:36rem">Commands, border operators, and critical infrastructure run volumes they cannot photograph. Cameras produce a record of a person. Pulse produces a record of a state.</p>
       </div>
     </div>
-    <div class="arch-frame"><img class="arch-img" src="cinematic/architecture.jpg" alt="A volume under Pulse — mmWave sensing, no cameras" loading="lazy" decoding="async" fetchpriority="low"></div>
+    <div class="arch-frame"><img class="arch-img" src="cinematic/architecture.jpg" alt="Pulse node in the palm — SELIXOR PULSE, tactical airframe" width="1600" height="900" loading="lazy" decoding="async"></div>
     <div class="two-col">
-      <p class="body-copy">Selixor is the layer that gives a volume a state. Pulse nodes watch with millimeter-wave radio. They form no image. They infer an operational class on the device — occupied, still, fallen, unmatched — and emit a signed event into the duty tree the institution already staffs.</p>
-      <p class="body-copy">The output is not a feed. It is a page to the person who is on duty. The waveform never leaves the building. Compatible with regulated privacy because the architecture never produces a photograph. Compatible with operations because nobody has to stare at a wall of glass.</p>
+      <p class="body-copy">Selixor is the layer that gives a volume a state. Pulse nodes watch with radio, not optics. They form no image. Occupied, still, fallen, vital, unmatched — a class on the device. A signed event into the duty tree or C2 the operator already runs.</p>
+      <p class="body-copy">The output is not a feed. It is a class with a signature. The waveform does not leave the node. The same node on a mast, in a doorway, or on an airframe.</p>
     </div>
   </div>
 
@@ -621,7 +741,7 @@ footer { background: var(--ink); color: var(--paper); }
           <div>
             <p class="kicker steel" id="stage-kicker">01 — Detect</p>
             <h3 class="statement" id="stage-title" style="margin-top:1rem">Detect</h3>
-            <p class="muted" id="stage-body" style="margin-top:1.5rem;max-width:28rem;font-size:15px;line-height:1.7">Institutional-grade presence sensors watch a volume continuously. Millimeter-wave radio. No video, no wearable, no optical reconstruction. Processing stays on the node.</p>
+            <p class="muted" id="stage-body" style="margin-top:1.5rem;max-width:28rem;font-size:15px;line-height:1.7">Nodes watch a volume continuously. Radio, not optics. No video, no wearable, no reconstruction of a body. The class stays on the device.</p>
             <ol class="stage-nums" id="stage-nums">
               <li class="is-on">01</li><li>02</li><li>03</li><li>04</li>
             </ol>
@@ -636,9 +756,9 @@ footer { background: var(--ink); color: var(--paper); }
             </div>
             <div class="viz viz-pad" id="viz-2" style="display:none;flex-direction:column;justify-content:space-between">
               <p class="kicker fog">Voice challenge · not retained</p>
-              <p style="font-size:1.5rem;font-weight:300;line-height:1.35">“Ward 4B. Please confirm you are all right.”</p>
+              <p style="font-size:1.5rem;font-weight:300;line-height:1.35">“Hull 2. Vital class. Unmatched occupancy.”</p>
               <div class="kicker fog" style="display:flex;justify-content:space-between">
-                <span>ES · tone institutional · retry 1/2</span>
+                <span>EN · tone institutional · retry 1/2</span>
                 <span>Audio buffer: none</span>
               </div>
             </div>
@@ -647,9 +767,9 @@ footer { background: var(--ink); color: var(--paper); }
               <svg viewBox="0 0 360 180" style="margin-top:1rem;width:100%" aria-hidden="true">
                 <path d="M180 20 L80 80 L180 140 L280 80 Z" fill="none" stroke="rgba(242,239,230,0.25)"/>
                 <g transform="translate(180,20)"><circle r="5" fill="#f2efe6"/><text y="22" text-anchor="middle" fill="rgba(242,239,230,0.7)" font-size="10" font-family="IBM Plex Sans, sans-serif">Event</text></g>
-                <g transform="translate(80,80)"><circle r="5" fill="#f2efe6"/><text y="22" text-anchor="middle" fill="rgba(242,239,230,0.7)" font-size="10" font-family="IBM Plex Sans, sans-serif">Charge</text></g>
-                <g transform="translate(280,80)"><circle r="5" fill="#f2efe6"/><text y="22" text-anchor="middle" fill="rgba(242,239,230,0.7)" font-size="10" font-family="IBM Plex Sans, sans-serif">Floor</text></g>
-                <g transform="translate(180,140)"><circle r="5" fill="#f2efe6"/><text y="22" text-anchor="middle" fill="rgba(242,239,230,0.7)" font-size="10" font-family="IBM Plex Sans, sans-serif">On-call</text></g>
+                <g transform="translate(80,80)"><circle r="5" fill="#f2efe6"/><text y="22" text-anchor="middle" fill="rgba(242,239,230,0.7)" font-size="10" font-family="IBM Plex Sans, sans-serif">Watch</text></g>
+                <g transform="translate(280,80)"><circle r="5" fill="#f2efe6"/><text y="22" text-anchor="middle" fill="rgba(242,239,230,0.7)" font-size="10" font-family="IBM Plex Sans, sans-serif">Duty</text></g>
+                <g transform="translate(180,140)"><circle r="5" fill="#f2efe6"/><text y="22" text-anchor="middle" fill="rgba(242,239,230,0.7)" font-size="10" font-family="IBM Plex Sans, sans-serif">C2</text></g>
               </svg>
             </div>
           </div>
@@ -665,7 +785,7 @@ footer { background: var(--ink); color: var(--paper); }
     <div class="reveal">
       <p class="kicker steel">Engineering access</p>
       <h2 class="statement" style="margin-top:1.25rem">Allocated, not marketed.</h2>
-      <p class="body-copy" style="margin-top:1.5rem;max-width:28rem">For institutions that cannot operate a blind volume — hospitals, governments, industrial operators. Capacity is surveyed, then scheduled. There is no public waitlist and no sequence.</p>
+      <p class="body-copy" style="margin-top:1.5rem;max-width:28rem">For commands and operators that cannot run a blind volume. Capacity is surveyed, then scheduled. There is no public waitlist, no consumer SKU, and no sequence.</p>
       <p class="muted" style="margin-top:2.5rem;font-size:.875rem">
         10290 Campus Point Drive, Suite 300<br>
         Torrey Pines · San Diego, CA 92121<br>
@@ -699,7 +819,7 @@ footer { background: var(--ink); color: var(--paper); }
         </div>
         <div style="margin-top:1.5rem">
           <label for="msg">The volume</label>
-          <textarea id="msg" name="message" rows="3" placeholder="Ward, corridor, facility, constraint."></textarea>
+          <textarea id="msg" name="message" rows="3" placeholder="Hull, corridor, border, constraint."></textarea>
         </div>
         <div class="form-foot">
           <p class="dim" id="form-hint" style="font-size:.75rem">No marketing sequence.</p>
@@ -715,7 +835,7 @@ footer { background: var(--ink); color: var(--paper); }
   <div class="wrap">
     <div class="foot-grid" id="foot-grid"></div>
     <div class="nuvvio-note">
-      <p><span style="color:var(--paper)">NUVVIO</span> is a technology company born from Selixor infrastructure. It shares the same proprietary software architecture, predictive algorithms, and signal-processing core that Nuvvio uses to simulate orbital reentry trajectories and spacecraft debris toward Point Nemo. <a href="https://www.nuvvio.online/" target="_blank" rel="noreferrer">nuvvio.online</a></p>
+      <p><span style="color:var(--paper)">NUVVIO</span> runs the same numerical core against a different state vector — reentry, debris, Point Nemo. Selixor runs it against the volume. <a href="https://www.nuvvio.online/" target="_blank" rel="noreferrer">nuvvio.online</a></p>
     </div>
     <div class="foot-end">
       <div>
@@ -738,21 +858,21 @@ footer { background: var(--ink); color: var(--paper); }
   <article class="about-body">
     <p class="kicker steel">Origin</p>
     <h1 id="about-title" class="statement" style="margin-top:1.5rem;max-width:56rem">
-      First we tried to see through walls.
-      <span class="muted" style="display:block;margin-top:.75rem">Then we learned the planet needed the same kind of sight.</span>
+      First we refused the photograph.
+      <span class="muted" style="display:block;margin-top:.75rem">Then the volume was no longer only a room.</span>
     </h1>
     <div class="origin">
-      <p>The idea did not begin as a company. It began as a constraint Misael refused to drop: if a human body is in a room, the room should know whether that body is still in trouble — without a camera, without a wearable, without asking permission of the light.</p>
-      <p>mmWave was the answer that survived contact with physics. A chirp that returns range and motion. A classifier that returns a class, not a face. A node that decides locally because the WAN is not a life-support system. Non-invasive not as a slogan — as an architectural refusal to produce an image of a person.</p>
-      <p>That same refusal scaled. A hospital bay is a volume. A launch corridor is a volume. The atmosphere between orbit and Point Nemo is a volume. The software that predicts a fall-class event and the software that predicts a debris footprint are the same conscience pointed at different state vectors. Selixor stayed with the rooms. Nuvvio took the sky. The numerical core did not split.</p>
-      <p>We are not here to narrate care. We are here to make physical reality computable for the people and the planet that have to live in it — quietly, at the edge, with a signature on every number.</p>
+      <p>The idea did not begin as a company. It began as a constraint: if a body is inside a volume, the volume should return a state — without a camera, without a wearable, without asking permission of the light. A fall in a bathroom was the first case. It was never the only one.</p>
+      <p>Radio was the answer that survived contact with physics. A chirp that returns range and motion. A classifier that returns a class, not a face. A node that decides locally because the WAN is not a life-support system. Non-optical not as a slogan — as a refusal to produce an image of a person.</p>
+      <p>The architecture did not change when the volume became a hull, a corridor, a border line, or a payload on an airframe. Occupied, still, vital, unmatched. Millimeter-wave on interiors. S-band when the wall is armor. The event is signed. It enters the duty tree or the C2 bus the operator already runs.</p>
+      <p>We are not here to narrate care, and we are not here for the public. We make an opaque volume computable — on the node, with a signature on every class.</p>
     </div>
     <div class="roster">
       <p class="kicker steel">Executive roster</p>
       <h2 style="margin-top:1rem;font-size:1.875rem">The floor that ships it</h2>
       <div class="founder">
         <div class="portrait">
-          <img src="team/misael-de-paz.jpeg" alt="Misael De Paz — Founder & Chief Executive Officer" loading="lazy" decoding="async">
+          <img src="team/misael-de-paz.jpeg" alt="Misael De Paz — Founder & Chief Executive Officer" width="800" height="1066" loading="lazy" decoding="async">
         </div>
         <div>
           <h3 class="statement">Misael De Paz</h3>
@@ -763,7 +883,7 @@ footer { background: var(--ink); color: var(--paper); }
       </div>
       <div class="team-grid">
         <article>
-          <div class="portrait"><img src="team/marcos-aramburu.jpeg" alt="Marcos Aramburu — Chief Technology Officer" loading="lazy" decoding="async"></div>
+          <div class="portrait"><img src="team/marcos-aramburu.jpeg" alt="Marcos Aramburu — Chief Technology Officer" width="800" height="1066" loading="lazy" decoding="async"></div>
           <h3 style="margin-top:1.25rem;font-size:1.5rem">Marcos Aramburu</h3>
           <p class="kicker dim" style="margin-top:.25rem">Chief Technology Officer</p>
           <p class="muted" style="margin-top:.5rem;font-size:.75rem">Edge compute · Security · Infrastructure</p>
@@ -771,7 +891,7 @@ footer { background: var(--ink); color: var(--paper); }
         <article>
           <div class="portrait">
             <span class="plate-pending kicker dim">Plate pending</span>
-            <img src="team/claire-ostrow.jpeg" alt="Claire Ostrow — Chief Sensing Officer" loading="lazy" decoding="async">
+            <img src="team/claire-ostrow.jpeg" alt="Claire Ostrow — Chief Sensing Officer" width="800" height="1066" loading="lazy" decoding="async">
           </div>
           <h3 style="margin-top:1.25rem;font-size:1.5rem">Claire Ostrow</h3>
           <p class="kicker dim" style="margin-top:.25rem">Chief Sensing Officer</p>
@@ -780,14 +900,14 @@ footer { background: var(--ink); color: var(--paper); }
         <article>
           <div class="portrait">
             <span class="plate-pending kicker dim">Plate pending</span>
-            <img src="team/neil-brannigan.jpeg" alt="Neil Brannigan — Chief of Institutional Operations" loading="lazy" decoding="async">
+            <img src="team/neil-brannigan.jpeg" alt="Neil Brannigan — Chief of Institutional Operations" width="800" height="1066" loading="lazy" decoding="async">
           </div>
           <h3 style="margin-top:1.25rem;font-size:1.5rem">Neil Brannigan</h3>
           <p class="kicker dim" style="margin-top:.25rem">Chief of Institutional Operations</p>
           <p class="muted" style="margin-top:.5rem;font-size:.75rem">Duty tree · Escalation · Shift · Closed compound</p>
         </article>
         <article>
-          <div class="portrait"><img src="team/vanesa-sokoloff.jpeg" alt="Vanesa Sokoloff — Chief Implementation Officer" loading="lazy" decoding="async"></div>
+          <div class="portrait"><img src="team/vanesa-sokoloff.jpeg" alt="Vanesa Sokoloff — Chief Implementation Officer" width="800" height="1066" loading="lazy" decoding="async"></div>
           <h3 style="margin-top:1.25rem;font-size:1.5rem">Vanesa Sokoloff</h3>
           <p class="kicker dim" style="margin-top:.25rem">Chief Implementation Officer</p>
           <p class="muted" style="margin-top:.5rem;font-size:.75rem">Institutional networks · Deployment · Cutover</p>
@@ -795,7 +915,7 @@ footer { background: var(--ink); color: var(--paper); }
         <article>
           <div class="portrait">
             <span class="plate-pending kicker dim">Plate pending</span>
-            <img src="team/helena-greaves.jpeg" alt="Helena Greaves — Chief Assurance Officer" loading="lazy" decoding="async">
+            <img src="team/helena-greaves.jpeg" alt="Helena Greaves — Chief Assurance Officer" width="800" height="1066" loading="lazy" decoding="async">
           </div>
           <h3 style="margin-top:1.25rem;font-size:1.5rem">Helena Greaves</h3>
           <p class="kicker dim" style="margin-top:.25rem">Chief Assurance Officer</p>
@@ -809,7 +929,7 @@ footer { background: var(--ink); color: var(--paper); }
       <h2 style="margin-top:1rem;font-size:1.875rem">Torrey Pines, San Diego</h2>
       <p class="muted" style="margin-top:1rem;max-width:36rem;font-size:15px;line-height:1.7">Not a skyline office. A technical corridor — applied biology, communications, defense-adjacent engineering. RF benches, a silent test volume, the concentrator hardware we actually ship.</p>
       <div class="hq-frame">
-        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=80" alt="Selixor headquarters, Torrey Pines Tech Corridor, San Diego" loading="lazy" decoding="async">
+        <img src="office.jpg" alt="Selixor headquarters, Torrey Pines Tech Corridor, San Diego" width="1400" height="933" loading="lazy" decoding="async">
         <div class="hq-cap">
           <p class="kicker dim">10290 Campus Point Drive, Suite 300 · San Diego, CA 92121</p>
           <p class="kicker dim">info@selixor.cloud</p>
@@ -838,32 +958,32 @@ window.FOOTER_COLUMNS = window.CONTENT.FOOTER_COLUMNS;
   "use strict";
 
   const EVENTS = [
-    { name: "Ward 4B", kind: "Occupancy", queue: "Detect / still", pri: "P1", ms: "48 ms" },
+    { name: "Hull 2", kind: "Vital class", queue: "Detect / still", pri: "P1", ms: "48 ms" },
     { name: "Bay 12", kind: "Stillness", queue: "Infer queue", pri: "P1", ms: "112 ms" },
     { name: "Corridor C", kind: "Rapid transition", queue: "Escalate", pri: "P1", ms: "164 ms" },
-    { name: "OR-3", kind: "Empty", queue: "Watch", pri: "P3", ms: "—" },
-    { name: "Pharmacy", kind: "Occupancy", queue: "Detect / still", pri: "P2", ms: "61 ms" },
+    { name: "Border-N", kind: "Unmatched", queue: "Watch", pri: "P1", ms: "—" },
+    { name: "Mast-04", kind: "Occupancy", queue: "Detect / still", pri: "P2", ms: "61 ms" },
     { name: "Stair A", kind: "Unmatched", queue: "Challenge", pri: "P2", ms: "138 ms" },
-    { name: "ICU-2", kind: "Gait", queue: "Infer queue", pri: "P2", ms: "97 ms" },
+    { name: "Cabin-1", kind: "Vital class", queue: "Infer queue", pri: "P2", ms: "97 ms" },
     { name: "Loading", kind: "Vehicle class", queue: "Watch", pri: "P3", ms: "—" },
     { name: "Secure-1", kind: "Occupancy", queue: "Detect / still", pri: "P1", ms: "44 ms" },
-    { name: "Bay 07", kind: "Transfer", queue: "Infer queue", pri: "P2", ms: "121 ms" },
+    { name: "Airframe", kind: "Through-wall", queue: "Infer queue", pri: "P2", ms: "121 ms" },
   ];
 
   const STAGES = [
-    { n: "01", title: "Detect", body: "Institutional-grade presence sensors watch a volume continuously. Millimeter-wave radio. No video, no wearable, no optical reconstruction. Processing stays on the node." },
-    { n: "02", title: "Infer", body: "Range-Doppler maps and micro-Doppler spectrograms are classified against a pinned model. Output is an operational class and a calibrated confidence — not a diagnosis." },
-    { n: "03", title: "Challenge", body: "Optional on-node voice confirmation, parameterized by the institution. Language, tone, retries. Audio is not retained. The sensor still fires if voice is off." },
-    { n: "04", title: "Escalate", body: "A signed event hits a duty tree the operator actually staffs. The graph is versioned like code. Noise is a configuration error, not a feature." },
+    { n: "01", title: "Detect", body: "Nodes watch a volume continuously. Radio, not optics. No video, no wearable, no reconstruction of a body. The class stays on the device." },
+    { n: "02", title: "Infer", body: "Range-Doppler maps and micro-Doppler returns are matched against a pinned model. Output is an operational class and a calibrated confidence — not an identity." },
+    { n: "03", title: "Challenge", body: "Optional on-node voice confirmation, parameterized by the operator. Language, tone, retries. Audio is not retained. The sensor still fires if voice is off." },
+    { n: "04", title: "Escalate", body: "A signed event hits the duty tree or the C2 bus the operator already runs. The graph is versioned like code. Noise is a configuration error, not a feature." },
   ];
 
   const PARTNERS = [
-    { name: "Tecnológico de Monterrey", role: "Research & talent", img: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1400&q=80", alt: "University research campus — Tecnológico de Monterrey partnership", copy: "Applied electromagnetics, embedded inference, evaluation methods that survive a volume that is not a lab. Pipeline, not billboard." },
-    { name: "Centro Médico ABC", role: "Clinical proving ground", img: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1400&q=80", alt: "Clinical facility — Centro Médico ABC partnership", copy: "Privacy regulation, live HIS, real paging load. Protocols and false-page budgets were shaped here." },
-    { name: "Varda Space Industries", role: "Orbital manufacturing · via Nuvvio", img: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1400&q=80", alt: "Orbital operations — Varda Space Industries partnership", copy: "Same solver family, different state vector. Reentry analysis of returning hardware. They do not run Pulse. They run the conscience." },
+    { name: "Tecnológico de Monterrey", role: "Research & talent", img: "partners/tec.jpg", alt: "University research campus — Tecnológico de Monterrey partnership", copy: "Applied electromagnetics, embedded inference, evaluation methods that survive a volume that is not a lab. Pipeline, not billboard." },
+    { name: "Centro Médico ABC", role: "Clinical proving ground", img: "partners/abc.jpg", alt: "Clinical facility — Centro Médico ABC partnership", copy: "One volume among others. Fall-class, vital motion, no photograph. Protocols were shaped where a camera was not an option." },
+    { name: "Varda Space Industries", role: "Orbital manufacturing · via Nuvvio", img: "partners/varda.jpg", alt: "Orbital operations — Varda Space Industries partnership", copy: "Same solver family, different state vector. Reentry analysis of returning hardware. They do not run Pulse. They run the conscience." },
   ];
 
-  const OFFICE = "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=80";
+  const OFFICE = "office.jpg";
 
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (reduce) document.documentElement.classList.add("reduce");
@@ -921,7 +1041,7 @@ window.FOOTER_COLUMNS = window.CONTENT.FOOTER_COLUMNS;
 
   const inferRows = document.getElementById("infer-rows");
   if (inferRows) {
-    const rows = [["Occupied", "0.91"], ["Stillness", "0.14"], ["Rapid transition", "0.04"], ["Unmatched", "0.02"]];
+    const rows = [["Occupied", "0.91"], ["Vital motion", "0.14"], ["Stillness", "0.04"], ["Unmatched", "0.02"]];
     inferRows.innerHTML = rows.map(([k, v], i) => `
       <li style="margin-top:${i ? "1rem" : "0"}">
         <div style="display:flex;justify-content:space-between;font-size:.875rem"><span>${k}</span><span class="fog" style="font-variant-numeric:tabular-nums">${v}</span></div>
@@ -993,29 +1113,12 @@ window.FOOTER_COLUMNS = window.CONTENT.FOOTER_COLUMNS;
     }
     const events = [{lat:0.58,lng:0.35},{lat:0.22,lng:2.05},{lat:-0.38,lng:4.15},{lat:0.72,lng:5.4},{lat:-0.12,lng:1.15},{lat:0.34,lng:3.35},{lat:-0.55,lng:0.9},{lat:0.08,lng:4.8}];
 
-    function startLoop() {
-      if (running) return;
-      running = true;
-      raf = requestAnimationFrame(draw);
-    }
-    function stopLoop() {
-      running = false;
-      cancelAnimationFrame(raf);
-    }
-    const io = new IntersectionObserver(([e]) => {
-      visible = e.isIntersecting;
-      if (visible && !document.hidden) startLoop(); else stopLoop();
-    }, { threshold: 0.04 });
+    const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; }, { threshold: 0.04 });
     io.observe(wrap);
-    document.addEventListener("visibilitychange", () => {
-      if (!document.hidden && visible) startLoop(); else stopLoop();
-    });
 
-    let boxW = 0, boxH = 0;
     function resize() {
       const dpr = Math.min(2, window.devicePixelRatio || 1);
       const { width, height } = wrap.getBoundingClientRect();
-      boxW = width; boxH = height;
       canvas.width = Math.max(1, Math.floor(width * dpr));
       canvas.height = Math.max(1, Math.floor(height * dpr));
       canvas.style.width = width + "px";
@@ -1027,7 +1130,7 @@ window.FOOTER_COLUMNS = window.CONTENT.FOOTER_COLUMNS;
 
     function draw(t) {
       if (!running) return;
-      const width = boxW, height = boxH;
+      const { width, height } = wrap.getBoundingClientRect();
       ctx.clearRect(0, 0, width, height);
       const cx = width * 0.5, cy = height * 0.52, r = Math.min(width, height) * 0.46;
       if (!reduce && visible) rot += 0.00105;
@@ -1318,7 +1421,7 @@ window.FOOTER_COLUMNS = window.CONTENT.FOOTER_COLUMNS;
       html += `<div class="partner-cards">${PARTNERS.map((c) => `<figure><img src="${c.img}" alt="${esc(c.alt)}" loading="lazy"><figcaption><p class="kicker dim">${esc(c.role)}</p><p style="margin-top:.25rem;font-size:1.25rem;font-weight:300">${esc(c.name)}</p><p class="muted" style="margin-top:.5rem;font-size:.875rem">${esc(c.copy)}</p></figcaption></figure>`).join("")}</div>`;
     }
     if (id === "headquarters") {
-      html += `<figure class="hq-frame" style="margin-top:2.5rem"><img src="${OFFICE}" alt="Selixor office, Torrey Pines Tech Corridor, San Diego, California" style="filter:grayscale(1)" loading="lazy" decoding="async"><figcaption class="kicker dim" style="padding:.75rem 1.25rem">Torrey Pines Tech Corridor · San Diego, CA</figcaption></figure>`;
+      html += `<figure class="hq-frame" style="margin-top:2.5rem"><img src="${OFFICE}" alt="Selixor office, Torrey Pines Tech Corridor, San Diego, California" style="filter:grayscale(1)"><figcaption class="kicker dim" style="padding:.75rem 1.25rem">Torrey Pines Tech Corridor · San Diego, CA</figcaption></figure>`;
     }
     if (id === "nuvvio") {
       html += `<p style="margin-top:2.5rem"><a class="kicker" href="https://www.nuvvio.online/" target="_blank" rel="noreferrer" style="text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line)">Open Nuvvio ↗</a></p>`;

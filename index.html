@@ -477,6 +477,56 @@ footer { background: var(--ink); color: var(--paper); }
 .icon[hidden], .icon-sm[hidden] { display: none; }
 .icon-sm { width: 1rem; height: 1rem; }
 
+
+/* Any file named laptop.jpg / console.jpg / operator.jpg / architecture.jpg
+   fills the same slot. The box size does not follow the photo's own dimensions. */
+img.full-img {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  transform-origin: center center;
+  outline: none;
+}
+.arch-frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  overflow: hidden;
+  background: var(--paper-2);
+}
+img.arch-img {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+.portrait img {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: top center !important;
+}
+.hq-frame > img,
+.partner-cards img {
+  width: 100% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
 </style>
 </head>
 <body>
@@ -595,7 +645,7 @@ footer { background: var(--ink); color: var(--paper); }
         <p class="body-copy" style="max-width:36rem">Hospitals, governments, and industrial operators run physical space — wards, corridors, bays, secure floors — with software that was never designed to know what happened inside it. Cameras produce photographs. Photographs are a legal surface and a cultural dead end.</p>
       </div>
     </div>
-    <img class="arch-img" src="cinematic/architecture.jpg" alt="A volume under Pulse — mmWave sensing, no cameras" loading="lazy">
+    <div class="arch-frame"><img class="arch-img" src="cinematic/architecture.jpg" alt="A volume under Pulse — mmWave sensing, no cameras" loading="lazy"></div>
     <div class="two-col">
       <p class="body-copy">Selixor is the layer that gives a volume a state. Pulse nodes watch with millimeter-wave radio. They form no image. They infer an operational class on the device — occupied, still, fallen, unmatched — and emit a signed event into the duty tree the institution already staffs.</p>
       <p class="body-copy">The output is not a feed. It is a page to the person who is on duty. The waveform never leaves the building. Compatible with regulated privacy because the architecture never produces a photograph. Compatible with operations because nobody has to stare at a wall of glass.</p>

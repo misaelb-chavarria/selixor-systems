@@ -270,27 +270,26 @@ html.reduce .reduce-block { display: block; }
 }
 
 /* Field / Response */
-#field, #response { position: relative; background: var(--charcoal); color: var(--paper); overflow: visible; }
-#field { height: 200vh; }
-#response { height: 240vh; }
-html.reduce #field, html.reduce #response { height: auto; }
-.full-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; outline: none; opacity: 1; will-change: transform; z-index: 0; }
-.shade {
-  position: absolute; inset: 0;
-  z-index: 1;
+#field { position: relative; background: var(--charcoal); color: var(--paper); overflow: visible; height: 400vh; }
+html.reduce #field { height: auto; }
+.cinematic-sticky { position: sticky; top: 0; width: 100%; height: 100svh; min-height: 100svh; overflow: hidden; }
+.cinematic-layer { position: absolute; inset: 0; overflow: hidden; background: var(--charcoal); }
+.cinematic-media { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center center; outline: none; max-width: none; max-height: none; will-change: transform, opacity; }
+.cinematic-layer video { background: var(--charcoal); filter: brightness(1.14) contrast(1.06); }
+.cinematic-shade {
+  position: absolute; inset: 0; z-index: 4;
   background: linear-gradient(to bottom, rgba(22,22,20,.38), rgba(22,22,20,.04), rgba(22,22,20,.42));
   pointer-events: none;
 }
-.shade-2 {
-  position: absolute; inset: 0;
-  z-index: 1;
-  background: linear-gradient(to bottom, rgba(22,22,20,.32), rgba(22,22,20,.04), rgba(22,22,20,.4));
+.cinematic-type {
+  position: absolute; inset: 0; z-index: 10;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  height: 100%; padding: env(safe-area-inset-top) max(1.25rem, env(safe-area-inset-left)) env(safe-area-inset-bottom) max(1.25rem, env(safe-area-inset-right)); text-align: center;
   pointer-events: none;
 }
-.type-block {
-  position: relative; z-index: 10;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  height: 100%; padding: 0 1.5rem; text-align: center;
+#response-marker {
+  position: absolute; top: 32vh; left: 0; width: 100%; height: 368vh;
+  pointer-events: none;
 }
 
 /* Platform / light */
@@ -480,6 +479,7 @@ footer { background: var(--ink); color: var(--paper); }
   html { scroll-behavior: auto; }
   .reveal, .reveal.is-visible { opacity: 1; transform: none; transition: none; }
   .sheet.is-open { animation: none; }
+  .cinematic-layer { transform: none !important; }
 }
 
 .icon { width: 1.25rem; height: 1.25rem; display: block; }
@@ -487,33 +487,11 @@ footer { background: var(--ink); color: var(--paper); }
 .icon-sm { width: 1rem; height: 1rem; }
 
 
-/* Any file named laptop.jpg / console.jpg / operator.jpg / architecture.jpg
-   fills the same slot. The box size does not follow the photo's own dimensions. */
-img.full-img,
-video.full-img {
-  position: absolute;
-  inset: 0;
-  width: 100% !important;
-  height: 100% !important;
-  max-width: none !important;
-  max-height: none !important;
-  object-fit: cover !important;
-  object-position: center center !important;
-  transform-origin: center center;
-  outline: none;
-  opacity: 1;
+/* Cinematic media uses a fixed viewport box; Ken Burns is applied to the wrapper/layer, never to layout. */
+.cinematic-media {
   color: transparent;
   font-size: 0;
-}
-video.full-img {
-  opacity: 1;
-  z-index: 0;
-  pointer-events: none;
-  background: var(--charcoal);
-  filter: brightness(1.14) contrast(1.06);
-}
-video.full-img.is-on {
-  opacity: 1;
+  transform-origin: center center;
 }
 img.arch-img {
   color: transparent;
@@ -719,30 +697,31 @@ button, a, .btn, .menu-btn, .back-btn { touch-action: manipulation; -webkit-tap-
 </section>
 
 <section id="field" data-theme="dark" data-chapter="B">
-  <div class="sticky-frame">
-    <video class="full-img" id="field-vid" muted loop playsinline webkit-playsinline preload="none" disablepictureinpicture>
-      <source src="cinematic/pulse.mp4" type="video/mp4">
-    </video>
-    <div class="shade"></div>
-    <div class="type-block" id="field-type">
+  <div class="cinematic-sticky">
+    <div class="cinematic-layer" id="pulse-layer">
+      <video class="cinematic-media" id="field-vid" muted loop playsinline webkit-playsinline preload="none" disablepictureinpicture aria-hidden="true">
+        <source src="cinematic/pulse.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="cinematic-layer" id="console-layer" style="opacity:0">
+      <img class="cinematic-media" id="console-img" src="cinematic/console.jpg" alt="Operator inspecting a volume on dual consoles" width="1600" height="900" loading="lazy" decoding="async">
+    </div>
+    <div class="cinematic-layer" id="operator-layer" style="opacity:0">
+      <img class="cinematic-media" id="operator-img" src="cinematic/operator.jpg" alt="Empty secure corridor — a volume under Pulse" width="1600" height="900" loading="lazy" decoding="async">
+    </div>
+    <div class="cinematic-shade"></div>
+    <div class="cinematic-type" id="field-type">
       <p class="kicker fog">Pulse · on-node class</p>
       <h2 class="statement" style="margin-top:1.5rem;max-width:64rem">The volume has a state. It never had a picture.</h2>
       <p class="fog" style="margin-top:2rem;max-width:28rem;font-size:.875rem;font-weight:300">Occupied, still, vital, unmatched. A class. No optical reconstruction.</p>
     </div>
-  </div>
-</section>
-
-<section id="response" data-theme="dark" data-chapter="C">
-  <div class="sticky-frame">
-    <img class="full-img" id="console-img" src="cinematic/console.jpg" alt="Operator inspecting a volume on dual consoles" width="1600" height="900" loading="lazy" decoding="async">
-    <img class="full-img" id="operator-img" src="cinematic/operator.jpg" alt="Empty secure corridor — a volume under Pulse" width="1600" height="900" loading="lazy" decoding="async">
-    <div class="shade-2"></div>
-    <div class="type-block" id="response-type">
+    <div class="cinematic-type" id="response-type" style="opacity:0">
       <p class="kicker fog">Duty tree · signed event</p>
       <h2 class="statement" id="response-h" style="margin-top:1.5rem;max-width:64rem">The event enters the stack you already run.</h2>
       <p class="fog" id="response-p" style="margin-top:2rem;max-width:32rem;font-size:.875rem;font-weight:300">A signed class from the node into the duty tree or the C2 bus. Not a video wall. Pulse does not replace the chain.</p>
     </div>
   </div>
+  <div id="response-marker" data-theme="dark" data-chapter="C" aria-hidden="true"></div>
 </section>
 
 <section id="platform" data-theme="light" data-chapter="D">
@@ -1229,31 +1208,39 @@ window.FOOTER_COLUMNS = window.CONTENT.FOOTER_COLUMNS;
   /* scroll-driven */
   const topEl = document.getElementById("top");
   const fieldEl = document.getElementById("field");
-  const respEl = document.getElementById("response");
+  const respEl = fieldEl;
   const stagesEl = document.getElementById("stages");
   const ovName = document.getElementById("ov-name");
   const ovStmt = document.getElementById("ov-statement");
   const ovTh = document.getElementById("ov-theater");
   const veil = document.getElementById("veil");
   const fieldVid = document.getElementById("field-vid");
+  const pulseLayer = document.getElementById("pulse-layer");
+  const consoleLayer = document.getElementById("console-layer");
+  const operatorLayer = document.getElementById("operator-layer");
+  const consoleImg = document.getElementById("console-img");
+  const operatorImg = document.getElementById("operator-img");
+  const fieldType = document.getElementById("field-type");
+  const respType = document.getElementById("response-type");
   if (fieldVid && fieldEl && !reduce) {
     const kick = () => {
-      fieldVid.preload = "auto";
+      fieldVid.preload = "metadata";
       const p = fieldVid.play();
-      if (p && p.then) p.then(() => fieldVid.classList.add("is-on")).catch(() => {});
+      if (p && p.catch) p.catch(() => {});
     };
     if ("IntersectionObserver" in window) {
       const vio = new IntersectionObserver(([e]) => {
         if (e.isIntersecting) kick();
         else fieldVid.pause();
-      }, { threshold: 0.12, rootMargin: "280px 0px" });
+      }, { threshold: 0, rootMargin: "280px 0px" });
       vio.observe(fieldEl);
+    } else {
+      kick();
     }
+  } else if (fieldVid) {
+    fieldVid.pause();
+    fieldVid.currentTime = 0;
   }
-  const fieldType = document.getElementById("field-type");
-  const consoleImg = document.getElementById("console-img");
-  const operatorImg = document.getElementById("operator-img");
-  const respType = document.getElementById("response-type");
   const respH = document.getElementById("response-h");
   const respP = document.getElementById("response-p");
   const header = document.getElementById("site-header");
@@ -1312,23 +1299,24 @@ window.FOOTER_COLUMNS = window.CONTENT.FOOTER_COLUMNS;
 
     if (fieldEl && fieldVid) {
       const p = reduce ? 1 : pinnedProgress(fieldEl);
-      const typeOp = reduce ? 1 : fade(p, 0, 0.08, 0.34, 0.52);
-      const imgP = reduce ? 1 : clamp01((p - 0.08) / 0.55);
-      fieldVid.style.transform = `scale(${1.08 - imgP * 0.08}) translate3d(0, ${(1 - imgP) * 8}%, 0)`;
-      if (fieldType) fieldType.style.opacity = String(typeOp);
-    }
-
-    if (respEl && consoleImg) {
-      const p = reduce ? 1 : pinnedProgress(respEl);
-      const typeOp = reduce ? 1 : fade(p, 0, 0.08, 0.28, 0.42);
-      const consoleP = reduce ? 1 : clamp01((p - 0.08) / 0.4);
-      const operatorP = reduce ? 0 : clamp01((p - 0.58) / 0.28);
-      consoleImg.style.opacity = String(1 - operatorP);
-      consoleImg.style.transform = `scale(${1.06 - consoleP * 0.06})`;
-      if (operatorImg) operatorImg.style.opacity = String(operatorP);
-      if (respType) respType.style.opacity = String(Math.max(typeOp, operatorP * 0.15));
-      if (respH) respH.style.opacity = String(typeOp);
-      if (respP) respP.style.opacity = String(typeOp);
+      const pulseToConsole = reduce ? 0 : clamp01((p - 0.08) / 0.28);
+      const consoleToOperator = reduce ? 0 : clamp01((p - 0.58) / 0.28);
+      const consoleBurn = reduce ? 1 : clamp01((p - 0.36) / 0.22);
+      const operatorBurn = reduce ? 1 : clamp01((p - 0.86) / 0.14);
+      if (pulseLayer) {
+        pulseLayer.style.opacity = String(1 - pulseToConsole);
+        pulseLayer.style.transform = `scale(${1.08 - clamp01(p / 0.36) * 0.08}) translate3d(0, ${(1 - clamp01(p / 0.36)) * 8}%, 0)`;
+      }
+      if (consoleLayer) {
+        consoleLayer.style.opacity = String(pulseToConsole * (1 - consoleToOperator));
+        consoleLayer.style.transform = `scale(${1.06 - consoleBurn * 0.06})`;
+      }
+      if (operatorLayer) {
+        operatorLayer.style.opacity = String(consoleToOperator);
+        operatorLayer.style.transform = `scale(${1.06 - operatorBurn * 0.06})`;
+      }
+      if (fieldType) fieldType.style.opacity = String(1 - pulseToConsole);
+      if (respType) respType.style.opacity = String(pulseToConsole);
     }
 
     if (!reduce && stagesEl) {

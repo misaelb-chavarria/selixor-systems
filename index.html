@@ -489,7 +489,8 @@ footer { background: var(--ink); color: var(--paper); }
 
 /* Any file named laptop.jpg / console.jpg / operator.jpg / architecture.jpg
    fills the same slot. The box size does not follow the photo's own dimensions. */
-img.full-img {
+img.full-img,
+video.full-img {
   position: absolute;
   inset: 0;
   width: 100% !important;
@@ -503,6 +504,16 @@ img.full-img {
   opacity: 1;
   color: transparent;
   font-size: 0;
+}
+video.full-img {
+  opacity: 1;
+  z-index: 0;
+  pointer-events: none;
+  background: var(--charcoal);
+  filter: brightness(1.14) contrast(1.06);
+}
+video.full-img.is-on {
+  opacity: 1;
 }
 img.arch-img {
   color: transparent;
@@ -709,7 +720,9 @@ button, a, .btn, .menu-btn, .back-btn { touch-action: manipulation; -webkit-tap-
 
 <section id="field" data-theme="dark" data-chapter="B">
   <div class="sticky-frame">
-    <img class="full-img" id="field-img" src="cinematic/laptop.jpg" alt="Pulse occupancy map on a field workstation" width="1600" height="900" loading="lazy" decoding="async">
+    <video class="full-img" id="field-vid" muted loop playsinline webkit-playsinline preload="none" disablepictureinpicture>
+      <source src="cinematic/pulse.mp4" type="video/mp4">
+    </video>
     <div class="shade"></div>
     <div class="type-block" id="field-type">
       <p class="kicker fog">Pulse · on-node class</p>
@@ -1222,7 +1235,21 @@ window.FOOTER_COLUMNS = window.CONTENT.FOOTER_COLUMNS;
   const ovStmt = document.getElementById("ov-statement");
   const ovTh = document.getElementById("ov-theater");
   const veil = document.getElementById("veil");
-  const fieldImg = document.getElementById("field-img");
+  const fieldVid = document.getElementById("field-vid");
+  if (fieldVid && fieldEl && !reduce) {
+    const kick = () => {
+      fieldVid.preload = "auto";
+      const p = fieldVid.play();
+      if (p && p.then) p.then(() => fieldVid.classList.add("is-on")).catch(() => {});
+    };
+    if ("IntersectionObserver" in window) {
+      const vio = new IntersectionObserver(([e]) => {
+        if (e.isIntersecting) kick();
+        else fieldVid.pause();
+      }, { threshold: 0.12, rootMargin: "280px 0px" });
+      vio.observe(fieldEl);
+    }
+  }
   const fieldType = document.getElementById("field-type");
   const consoleImg = document.getElementById("console-img");
   const operatorImg = document.getElementById("operator-img");
@@ -1283,12 +1310,11 @@ window.FOOTER_COLUMNS = window.CONTENT.FOOTER_COLUMNS;
       setOverlay(ovTh, 0);
     }
 
-    if (fieldEl && fieldImg) {
+    if (fieldEl && fieldVid) {
       const p = reduce ? 1 : pinnedProgress(fieldEl);
       const typeOp = reduce ? 1 : fade(p, 0, 0.08, 0.34, 0.52);
       const imgP = reduce ? 1 : clamp01((p - 0.08) / 0.55);
-      fieldImg.style.opacity = "1";
-      fieldImg.style.transform = `scale(${1.08 - imgP * 0.08}) translate3d(0, ${(1 - imgP) * 8}%, 0)`;
+      fieldVid.style.transform = `scale(${1.08 - imgP * 0.08}) translate3d(0, ${(1 - imgP) * 8}%, 0)`;
       if (fieldType) fieldType.style.opacity = String(typeOp);
     }
 

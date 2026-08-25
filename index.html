@@ -200,7 +200,11 @@ html.reduce #top { height: auto; }
 .sticky-frame {
   position: sticky; top: 0;
   display: flex; flex-direction: column;
-  height: 100svh; overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  height: 100dvh;
+  overflow: hidden;
 }
 html.reduce .sticky-frame { position: relative; }
 #globe { position: absolute; inset: 0; }
@@ -267,7 +271,22 @@ html.reduce .reduce-block { display: block; }
 #field { height: 200vh; }
 #response { height: 240vh; }
 html.reduce #field, html.reduce #response { height: auto; }
-.full-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; outline: none; }
+.full-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: var(--pos, 50% 50%);
+  outline: none;
+  pointer-events: none;
+  transform-origin: center center;
+}
+@media (max-width: 767px) {
+  .full-img { object-position: var(--pos-sm, 50% 28%); }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .full-img { object-position: var(--pos-md, var(--pos, 50% 42%)); }
+}
 .shade {
   position: absolute; inset: 0;
   background: linear-gradient(to bottom, rgba(22,22,20,.8), rgba(22,22,20,.25), rgba(22,22,20,.8));
@@ -561,7 +580,7 @@ footer { background: var(--ink); color: var(--paper); }
 
 <section id="field" data-theme="dark" data-chapter="B">
   <div class="sticky-frame">
-    <img class="full-img" id="field-img" src="cinematic/laptop.jpg" alt="Selixor Pulse on a field workstation — occupancy map of a physical volume" loading="lazy">
+    <img class="full-img" id="field-img" src="cinematic/laptop.jpg" alt="Selixor Pulse on a field workstation — occupancy map of a physical volume" loading="lazy" style="--pos:50% 22%;--pos-md:50% 18%;--pos-sm:50% 14%">
     <div class="shade"></div>
     <div class="type-block" id="field-type">
       <p class="kicker fog">From orbit to the floor</p>
@@ -573,8 +592,8 @@ footer { background: var(--ink); color: var(--paper); }
 
 <section id="response" data-theme="dark" data-chapter="C">
   <div class="sticky-frame">
-    <img class="full-img" id="console-img" src="cinematic/console.jpg" alt="Operator inspecting a volume on dual consoles" loading="lazy">
-    <img class="full-img" id="operator-img" src="cinematic/operator.jpg" alt="Duty officer facing a live occupancy map" loading="lazy">
+    <img class="full-img" id="console-img" src="cinematic/console.jpg" alt="Operator inspecting a volume on dual consoles" loading="lazy" style="--pos:50% 40%;--pos-md:50% 38%;--pos-sm:50% 32%">
+    <img class="full-img" id="operator-img" src="cinematic/operator.jpg" alt="Duty officer facing a live occupancy map" loading="lazy" style="--pos:62% 42%;--pos-md:68% 36%;--pos-sm:72% 30%">
     <div class="shade-2"></div>
     <div class="type-block" id="response-type">
       <p class="kicker fog">Duty tree · signed event</p>
@@ -1136,8 +1155,12 @@ window.FOOTER_COLUMNS = window.CONTENT.FOOTER_COLUMNS;
       const p = reduce ? 1 : pinnedProgress(fieldEl);
       const typeOp = reduce ? 1 : fade(p, 0, 0.08, 0.34, 0.52);
       const imgP = reduce ? 1 : clamp01((p - 0.2) / 0.55);
+      const mobile = window.innerWidth < 768;
+      const z = mobile ? 1.04 : 1.08;
+      const dz = mobile ? 0.04 : 0.08;
+      const ty = mobile ? 3 : 8;
       fieldImg.style.opacity = String(imgP);
-      fieldImg.style.transform = `scale(${1.08 - imgP * 0.08}) translate3d(0, ${(1 - imgP) * 8}%, 0)`;
+      fieldImg.style.transform = `scale(${z - imgP * dz}) translate3d(0, ${(1 - imgP) * ty}%, 0)`;
       if (fieldType) fieldType.style.opacity = String(typeOp);
     }
 
@@ -1146,8 +1169,11 @@ window.FOOTER_COLUMNS = window.CONTENT.FOOTER_COLUMNS;
       const typeOp = reduce ? 1 : fade(p, 0, 0.08, 0.28, 0.42);
       const consoleP = reduce ? 1 : clamp01((p - 0.18) / 0.4);
       const operatorP = reduce ? 0 : clamp01((p - 0.58) / 0.28);
+      const mobile = window.innerWidth < 768;
+      const z = mobile ? 1.03 : 1.06;
+      const dz = mobile ? 0.03 : 0.06;
       consoleImg.style.opacity = String(consoleP * (1 - operatorP));
-      consoleImg.style.transform = `scale(${1.06 - consoleP * 0.06})`;
+      consoleImg.style.transform = `scale(${z - consoleP * dz})`;
       if (operatorImg) operatorImg.style.opacity = String(operatorP);
       if (respType) respType.style.opacity = String(Math.max(typeOp, operatorP * 0.15));
       if (respH) respH.style.opacity = String(typeOp);

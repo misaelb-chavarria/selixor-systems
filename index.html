@@ -943,6 +943,28 @@ html.reduce #detec [data-min] {
   .detec-map g[data-min="3"] { display: none; }
 }
 
+/* Field video: full Pulse frame, never cropped. Phone/iPad already contain. */
+@media (min-width: 1025px) {
+  #field video.full-img {
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+}
+
+/* Phone: grow the frame down to the copy line. Full picture, no stretch. */
+@media (max-width: 639px) {
+  #field video.full-img {
+    aspect-ratio: unset !important;
+    height: 32svh !important;
+    min-height: 15.5rem !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+  #field .type-block {
+    padding-top: 1.1rem;
+  }
+}
+
 </style>
 </head>
 <body>

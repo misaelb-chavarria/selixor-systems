@@ -833,6 +833,16 @@ button, a, .btn, .menu-btn, .back-btn { touch-action: manipulation; -webkit-tap-
 }
 @media (min-width: 1024px) {
   #detec.detec { grid-template-columns: minmax(0, 1fr) 12.5rem; }
+  .stages-grid {
+    grid-template-columns: minmax(20rem, 0.78fr) minmax(0, 1.42fr);
+    gap: 2.5rem;
+  }
+  #viz-0.viz.is-on,
+  .viz.is-on {
+    aspect-ratio: unset;
+    height: min(72vh, 42rem);
+    min-height: 28rem;
+  }
 }
 .detec-map {
   display: block;
@@ -921,17 +931,6 @@ html.reduce #detec [data-min] {
     height: min(64svh, 32rem);
     min-height: 22rem;
   }
-  .detec-ins {
-    max-height: 28%;
-    overflow: hidden;
-    padding: 0.55rem 0.7rem 0.65rem;
-  }
-  .detec-ins-id { font-size: 1rem; margin-top: 0.25rem; }
-  .detec-spec > div { padding: 0.28rem 0; }
-  .detec-spec > div:nth-child(n+3) { display: none; }
-  .detec-line { display: none; }
-  .detec-map g[data-min="3"] { display: none; }
-}
   .detec-ins {
     max-height: 28%;
     overflow: hidden;

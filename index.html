@@ -4,18 +4,86 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#F2EFE6">
-<meta name="description" content="Selixor Pulse returns a class for presence inside a volume without forming an image. On-node inference. Signed event into the duty tree or C2.">
-<title>Selixor — Pulse</title>
-<meta property="og:title" content="Selixor — Pulse">
-<meta property="og:description" content="Pulse returns a class for presence inside a volume without forming an image. On-node class. Signed event into the duty tree or C2.">
-<meta property="og:image" content="og.jpg">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://selixor.cloud">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Selixor — Pulse">
-<meta name="twitter:description" content="A class, decided on the node. No photograph. Signed event into the duty tree or C2.">
-<meta name="robots" content="index, follow">
+<title>Selixor Systems — Pulse | On-node class for C2 volumes</title>
+<meta name="description" content="Selixor Systems builds Pulse: on-node radio that classifies presence in hull, corridor, and border volumes without forming an image. Signed events into the duty tree or C2.">
+<meta name="author" content="Selixor Systems">
+<meta name="application-name" content="Selixor Systems">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="canonical" href="https://selixor.cloud/">
+<meta property="og:site_name" content="Selixor Systems">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://selixor.cloud/">
+<meta property="og:title" content="Selixor Systems — Pulse">
+<meta property="og:description" content="Non-optical presence class for hull, corridor, and border volumes. On-node inference. Signed event into the duty tree or C2.">
+<meta property="og:image" content="https://selixor.cloud/og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Selixor Pulse — non-optical sensing for C2 and institutional volumes">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Selixor Systems — Pulse">
+<meta name="twitter:description" content="A class, decided on the node. No photograph. Hull, corridor, border. Signed event into the duty tree or C2.">
+<meta name="twitter:image" content="https://selixor.cloud/og.jpg">
+<meta name="twitter:image:alt" content="Selixor Systems — Pulse">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://selixor.cloud/#organization",
+      "name": "Selixor Systems",
+      "alternateName": ["Selixor", "Selixor Pulse"],
+      "url": "https://selixor.cloud/",
+      "email": "info@selixor.cloud",
+      "description": "Selixor Systems builds Pulse, a non-optical sensing layer for commands, border operators, and critical infrastructure. Radio classifies presence inside a hull, corridor, or border volume without forming an image. Inference stays on the node. A signed class enters the duty tree or C2 bus the operator already runs.",
+      "knowsAbout": [
+        "non-optical sensing",
+        "on-node inference",
+        "C2",
+        "duty tree",
+        "millimeter-wave radar",
+        "border volumes",
+        "hull volumes"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "10290 Campus Point Drive, Suite 300",
+        "addressLocality": "San Diego",
+        "addressRegion": "CA",
+        "postalCode": "92121",
+        "addressCountry": "US"
+      },
+      "sameAs": ["https://www.nuvvio.online/"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://selixor.cloud/#website",
+      "url": "https://selixor.cloud/",
+      "name": "Selixor Systems",
+      "description": "Official site of Selixor Systems. Pulse is the non-optical presence class for institutional and C2 volumes.",
+      "inLanguage": "en-US",
+      "publisher": { "@id": "https://selixor.cloud/#organization" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://selixor.cloud/#pulse",
+      "name": "Selixor Pulse",
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "On-premises Pulse node",
+      "description": "Pulse nodes watch hull, corridor, border, and airframe volumes with radio. They form no image. Occupied, still, vital, unmatched — a class decided on the device, signed, and sent into the duty tree or C2.",
+      "url": "https://selixor.cloud/",
+      "publisher": { "@id": "https://selixor.cloud/#organization" },
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/LimitedAvailability",
+        "url": "https://selixor.cloud/#access"
+      }
+    }
+  ]
+}
+</script>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -76,6 +144,17 @@ a { color: inherit; text-decoration: none; }
 button { font-family: inherit; background: none; border: 0; color: inherit; padding: 0; }
 ul, ol { margin: 0; padding: 0; list-style: none; }
 .kicker { font-size: var(--kicker); letter-spacing: var(--track-c); text-transform: uppercase; }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 .statement { font-family: var(--sans); font-size: var(--statement); font-weight: 300; line-height: 1.05; letter-spacing: var(--track-d); }
 .wordmark { font-family: var(--serif); font-size: var(--wordmark); line-height: .82; letter-spacing: var(--track-d); font-weight: 400; }
 .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 1rem; }
@@ -734,7 +813,7 @@ button, a, .btn, .menu-btn, .back-btn { touch-action: manipulation; -webkit-tap-
 
     <div class="overlay center" id="ov-name">
       <p class="kicker fog">Selixor // Pulse</p>
-      <h1 class="wordmark paper" style="margin-top:1rem;max-width:100vw;overflow:hidden;padding:0 .5rem;text-align:center">Selixor</h1>
+      <h1 class="wordmark paper" style="margin-top:1rem;max-width:100vw;overflow:hidden;padding:0 .5rem;text-align:center">Selixor<span class="sr-only"> Systems — Pulse. Non-optical presence class for hull, corridor, border, and C2 volumes</span></h1>
       <div class="enter-grid">
         <p class="kicker fog">No image</p>
         <p class="kicker fog">A class</p>
@@ -943,10 +1022,10 @@ button, a, .btn, .menu-btn, .back-btn { touch-action: manipulation; -webkit-tap-
       <span class="muted" style="display:block;margin-top:.75rem">Then the volume was no longer only a room.</span>
     </h1>
     <div class="origin">
-      <p>The idea did not begin as a company. It began as a constraint: if a body is inside a volume, the volume should return a state — without a camera, without a wearable, without asking permission of the light. A fall in a bathroom was the first case. It was never the only one.</p>
+      <p>The idea did not begin as a company. It began as a constraint: if a body is inside a volume, the volume should return a state — without a camera, without a wearable, without asking permission of the light. Closed interiors first. Then hull, corridor, border, airframe — the same refusal.</p>
       <p>Radio was the answer that survived contact with physics. A chirp that returns range and motion. A classifier that returns a class, not a face. A node that decides locally because the WAN is not a life-support system. Non-optical not as a slogan — as a refusal to produce an image of a person.</p>
       <p>The architecture did not change when the volume became a hull, a corridor, a border line, or a payload on an airframe. Occupied, still, vital, unmatched. Millimeter-wave on interiors. S-band when the wall is armor. The event is signed. It enters the duty tree or the C2 bus the operator already runs.</p>
-      <p>We are not here to narrate care, and we are not here for the public. We make an opaque volume computable — on the node, with a signature on every class.</p>
+      <p>We are not here for the public. We make an opaque volume computable — on the node, with a signature on every class.</p>
     </div>
     <div class="roster">
       <p class="kicker steel">Executive roster</p>
@@ -1062,7 +1141,7 @@ window.FOOTER_COLUMNS = window.CONTENT.FOOTER_COLUMNS;
 
   const PARTNERS = [
     { name: "Tecnológico de Monterrey", role: "Research & talent", img: "/partners/tec.jpg", alt: "University research campus — Tecnológico de Monterrey partnership", copy: "Applied electromagnetics, embedded inference, evaluation methods that survive a volume that is not a lab. Pipeline, not billboard." },
-    { name: "Centro Médico ABC", role: "Clinical proving ground", img: "/partners/abc.jpg", alt: "Clinical facility — Centro Médico ABC partnership", copy: "One volume among others. Fall-class, vital motion, no photograph. Protocols were shaped where a camera was not an option." },
+    { name: "Centro Médico ABC", role: "Volume under constraint", img: "/partners/abc.jpg", alt: "Centro Médico ABC — volume partnership", copy: "One volume among others. Occupied, still, vital, unmatched. Protocols were shaped where a camera was not an option." },
     { name: "Varda Space Industries", role: "Orbital manufacturing · via Nuvvio", img: "/partners/varda.jpg", alt: "Orbital operations — Varda Space Industries partnership", copy: "Same solver family, different state vector. Reentry analysis of returning hardware. They do not run Pulse. They run the conscience." },
   ];
 
